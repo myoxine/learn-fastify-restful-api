@@ -32,7 +32,9 @@ interface AddUserRequest extends FastifyRequest {
 // Route POST buat nambah data
 server.post<AddUserRequest>("/add", async (request, reply) => {
   const { name, age } = request.body;
-  return `Added user: ${name} with age ${age}`;
+  return reply
+    .status(201)
+    .send({ message: "User added successfully", user: { name, age } });
 });
 server.get("/search", async (request, reply) => {
   // Ambil query parameters dari request
@@ -66,25 +68,25 @@ server.put<UpdateUserRequest>("/update/:id", async (request, reply) => {
   const { name, age } = request.body;
 
   // Contoh sederhana, di sini kita cuma balikin data yang diterima
-  return `Updated user with ID: ${id}, name: ${name || "unchanged"}, age: ${
-    age || "unchanged"
-  }`;
+  return reply
+    .status(200)
+    .send({ message: "User updated successfully", user: { name, age } });
 });
 
 // Definisikan tipe untuk parameter request
 interface DeleteUserRequest extends FastifyRequest {
-    Params: {
-      id: string;
-    };
-  }
-  
-  // Route DELETE buat hapus data
-  server.delete<DeleteUserRequest>("/delete/:id", async (request, reply) => {
-    const { id } = request.params;
-  
-    // Contoh simpel, kita cuma balikin pesan bahwa data dengan ID sudah dihapus
-    return `User dengan ID: ${id} sudah dihapus`;
-  });
+  Params: {
+    id: string;
+  };
+}
+
+// Route DELETE buat hapus data
+server.delete<DeleteUserRequest>("/delete/:id", async (request, reply) => {
+  const { id } = request.params;
+
+  // Contoh simpel, kita cuma balikin pesan bahwa data dengan ID sudah dihapus
+  return reply.status(200).send({ message: "User deleted successfully" });
+});
 
 server.listen({ port: 8080 }, (err, address) => {
   if (err) {
