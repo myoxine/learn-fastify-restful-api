@@ -7,7 +7,7 @@ import {
 } from "../controllers/userController";
 
 export async function userRoutes(server: FastifyInstance) {
-  server.get("/users/:id", getUserHandler);
+  server.get("/:id", getUserHandler);
   server.post("/add", addUserHandler);
   server.put("/update/:id", updateUserHandler);
   server.delete("/delete/:id", deleteUserHandler);
