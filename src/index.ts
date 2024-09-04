@@ -4,8 +4,8 @@ import { authRoutes } from "./routes/authRoutes";
 
 const server = fastify();
 
-server.register(userRoutes);
-server.register(authRoutes);
+server.register(userRoutes, {prefix:"/users"});
+server.register(authRoutes, {prefix:"/auth"});
 
 server.get("/ping", async (request, reply) => {
   return "pong\n";
