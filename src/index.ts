@@ -35,7 +35,6 @@ const server = fastify({
 });
 server.setErrorHandler(function (error, request, reply) {
   if (error.validation) {
-
     return reply.status(400).send({
       path: request.url,
       status: error.statusCode,
