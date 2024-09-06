@@ -13,8 +13,8 @@ export const addUserSchema = {
     type: "object",
     required: ["name", "age"],
     properties: {
-      name: { type: "string"},
-      age: { type: "integer" },
+      name: { type: "string" },
+      age: { type: "integer", range: [2, 4], exclusiveRange: true },
     },
   },
 };
@@ -31,7 +31,7 @@ export const updateUserSchema = {
     type: "object",
     properties: {
       name: { type: "string", description: "Name of the user" },
-      age: { type: "integer", description: "Age of the user" },
+      age: { type: "integer" },
     },
   },
 };
