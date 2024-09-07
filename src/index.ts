@@ -6,10 +6,10 @@ const server = fastify({
   ajv: {
     customOptions: {
       allErrors: true,
-      keywords:[
+      keywords: [
         {
           keyword: "exclusiveRange",
-          type: "number"
+          type: "number",
         },
         {
           keyword: "range",
@@ -17,18 +17,27 @@ const server = fastify({
           compile([min, max], parentSchema) {
             return parentSchema.exclusiveRange === true
               ? (data) => data > min && data < max
-              : (data) => data >= min && data <= max
+              : (data) => data >= min && data <= max;
           },
           errors: false,
           metaSchema: {
             // schema to validate keyword value
             type: "array",
-            items: [{type: "number"}, {type: "number"}],
+            items: [{ type: "number" }, { type: "number" }],
             minItems: 2,
-            additionalItems: false,            
+            additionalItems: false,
           },
-        }
-      ]
+        },
+      ],
+      formats: {
+        phoneNumber: {
+          type: "string",
+          validate: (value) => {
+            const phoneRegex = /^[0-9]{10,15}$/; // Misal, validasi nomor telepon hanya angka 10-15 digit
+            return phoneRegex.test(value);
+          },
+        },
+      },
     },
     plugins: [require("ajv-errors")],
   },
@@ -40,10 +49,12 @@ server.setErrorHandler(function (error, request, reply) {
       status: error.statusCode,
       timestamp: Date.now(),
       message: error.message,
-      errors: error.validation.map(err => ({
-        key: err.params?.missingProperty || err.instancePath.replace(new RegExp('/', 'g'), ''),
-        value: err.message
-      }))
+      errors: error.validation.map((err) => ({
+        key:
+          err.params?.missingProperty ||
+          err.instancePath.replace(new RegExp("/", "g"), ""),
+        value: err.message,
+      })),
     });
   }
   reply.status(500).send(error);

@@ -15,6 +15,7 @@ export const addUserSchema = {
     properties: {
       name: { type: "string" },
       age: { type: "integer", range: [2, 4], exclusiveRange: true },
+      phone: { type: "string", format: "phoneNumber" }, // Pakai format custom
     },
   },
 };
