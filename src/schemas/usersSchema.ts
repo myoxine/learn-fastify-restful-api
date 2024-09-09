@@ -6,6 +6,16 @@ export const getUserSchema = {
       id: { type: "string", description: "User ID" },
     },
   },
+  response: {
+    200: {
+      type: "object",
+      properties: {
+        id: { type: "string" },
+        name: { type: "string" },
+        // tidak mengirimkan age ke client
+      },
+    },
+  },
 };
 
 export const addUserSchema = {
