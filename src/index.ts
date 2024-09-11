@@ -1,28 +1,10 @@
 import fastify from "fastify";
 import { userRoutes } from "./routes/userRoutes";
 import { authRoutes } from "./routes/authRoutes";
+import logConfig from "./utils/logConfig"
 import config from "./utils/config";
 const server = fastify({
-  logger: {
-    level: "info",
-    transport: {
-      targets: [
-        {
-          target: "pino-pretty",
-          level: "info",
-          options: {
-            translateTime: "HH:MM:ss Z",
-            ignore: "pid,hostname",
-          },
-        },
-        {
-          target: "pino/file",
-          level: "info",
-          options: { destination: "./logs" }, // this writes to STDOUT
-        },
-      ],
-    },
-  },
+  logger: logConfig,
   ajv: {
     customOptions: {
       allErrors: true,
