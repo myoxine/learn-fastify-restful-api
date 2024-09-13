@@ -4,11 +4,11 @@ import type { Knex } from "knex";
 
 const config: { [key: string]: Knex.Config } = {
   development: {
-    client: "mysql",
+    client: "postgres",
     connection: {
       database: "learn_fastify",
-      user: "root",
-      password: ""
+      user: "postgres",
+      password: "123456"
     },
     pool: {
       min: 2,
