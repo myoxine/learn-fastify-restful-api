@@ -8,7 +8,16 @@
   "scripts": {
     "build": "tsc",
     "start": "node --env-file=.env.production ./dist/index.js",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "knex:init": "knex init -x ts",
+    "knex:run": "knex --knexfile src/knexfile.ts",
+    "migrate:currentVersion": "npm run knex:run -- migrate:currentVersion",
+    "migrate:list": "npm run knex:run -- migrate:list",
+    "migrate:make": "npm run knex:run -- migrate:make --",
+    "migrate:latest": "npm run knex:run -- migrate:latest --debug",
+    "migrate:rollback": "npm run knex:run -- migrate:rollback --all --debug",
+    "seed:make": "npm run knex:run -- seed:make --",
+    "seed:run": "npm run knex:run -- seed:run --debug"
   },
   "devDependencies": {
     "@types/node": "^22.5.0",
@@ -24,6 +33,9 @@
     "env-schema": "^6.0.0",
     "fastify": "^4.28.1",
     "fastify-swagger": "^5.2.0",
-    "json-schema-to-ts": "^3.1.1"
+    "json-schema-to-ts": "^3.1.1",
+    "knex": "^3.1.0",
+    "mysql": "^2.18.1",
+    "pg": "^8.12.0"
   }
 }
