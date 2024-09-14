@@ -1,10 +1,10 @@
 import fastify from "fastify";
 import { userRoutes } from "./routes/userRoutes";
 import { authRoutes } from "./routes/authRoutes";
-import logConfig from "./utils/logConfig"
+import loggerConfig from "./configs/logger"
 import config from "./utils/config";
 const server = fastify({
-  logger: logConfig,
+  logger: loggerConfig,
   ajv: {
     customOptions: {
       allErrors: true,
