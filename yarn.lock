@@ -400,6 +400,11 @@ dateformat@^4.6.3:
   resolved "https://registry.npmjs.org/dateformat/-/dateformat-4.6.3.tgz"
   integrity sha512-2P0p0pFGzHS5EMnhdxQi7aJN+iMheud0UhG4dlE1DLAlvL8JHjJJTX/CSm4JXwV0Ka5nGk3zC5mcb5bUQUxxMA==
 
+db-errors@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.npmjs.org/db-errors/-/db-errors-0.2.3.tgz"
+  integrity sha512-OOgqgDuCavHXjYSJoV2yGhv6SeG8nk42aoCSoyXLZUH7VwFG27rxbavU1z+VrZbZjphw5UkDQwUlD21MwZpUng==
+
 debug@^4, debug@^4.1.1:
   version "4.3.6"
   resolved "https://registry.npmjs.org/debug/-/debug-4.3.6.tgz"
@@ -592,7 +597,7 @@ fastify-plugin@^3.0.0:
   resolved "https://registry.npmjs.org/fastify-plugin/-/fastify-plugin-3.0.1.tgz"
   integrity sha512-qKcDXmuZadJqdTm6vlCqioEbyewF60b/0LOFCcYN1B6BIZGlYJumWWOYs70SFYLDAH4YqdE1cxH/RKMG7rFxgA==
 
-fastify-plugin@^4.0.0:
+fastify-plugin@^4.0.0, fastify-plugin@^4.5.1:
   version "4.5.1"
   resolved "https://registry.npmjs.org/fastify-plugin/-/fastify-plugin-4.5.1.tgz"
   integrity sha512-stRHYGeuqpEZTL1Ef0Ovr2ltazUT9g844X5z/zEBFLG8RYlpDiOCIG+ATvYEp+/zmc7sN29mcIMp8gvYplYPIQ==
@@ -929,7 +934,7 @@ json-schema-traverse@^1.0.0:
   resolved "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz"
   integrity sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==
 
-knex@^3.1.0:
+knex@^3.1.0, knex@>=1.0.1:
   version "3.1.0"
   resolved "https://registry.npmjs.org/knex/-/knex-3.1.0.tgz"
   integrity sha512-GLoII6hR0c4ti243gMs5/1Rb3B+AjwMOfjYm97pu0FOQa7JH56hgBxYf5WK2525ceSbBY1cjeZ9yk99GPMB6Kw==
@@ -1052,6 +1057,15 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
+
+objection@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.npmjs.org/objection/-/objection-3.1.4.tgz"
+  integrity sha512-BI1YQ18JicfoODgCdKxmw4W8f24/e9hCEQpOTux0xmyd8hOidOzDd1WopOMxqxo7FA+Jfw8XTfZIUaqDnS7r0g==
+  dependencies:
+    ajv "^8.12.0"
+    ajv-formats "^2.1.1"
+    db-errors "^0.2.3"
 
 on-exit-leak-free@^2.1.0:
   version "2.1.2"
