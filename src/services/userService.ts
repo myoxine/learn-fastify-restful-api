@@ -1,33 +1,25 @@
-import { users } from "../models/userModel";
+import User, {UserType} from "../models/User";
 
-// Function to get user by ID
-export async function getUserById(id: string) {
-  await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate delay
-  return users.find((user) => user.id === id) || null;
+
+export async function getUserById(id: number) {
+  return (await User.query().findById(id)) || null;
 }
 
 // Function to add a new user
-export async function addUser(name: string, age: number) {
-  const newUser = { id: String(users.length + 1), name, age };
-  users.push(newUser);
+export async function addUser(data:UserType) {
+  const newUser = await User.query().insert(data);
   return newUser;
 }
 
 // Function to update an existing user
-export async function updateUser(id: string, name?: string, age?: number) {
-  const user = await getUserById(id);
-  if (user) {
-    user.name = name || user.name;
-    user.age = age || user.age;
-    return user;
-  }
-  return null;
+export async function updateUser(id:number,data:UserType) {
+  const updatedUser = await User.query().patchAndFetchById(id, data);
+  return updatedUser || null;
 }
 
 // Function to delete a user
-export async function deleteUser(id: string) {
-  const index = users.findIndex((user) => user.id === id);
-  if (index !== -1) {
-    users.splice(index, 1);
-  }
+export async function deleteUser(id: number) {
+  // Hapus user berdasarkan ID
+  const numDeleted = await User.query().deleteById(id);
+  return numDeleted > 0; // Return true jika ada yang dihapus
 }

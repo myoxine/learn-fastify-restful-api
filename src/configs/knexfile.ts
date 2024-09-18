@@ -8,7 +8,7 @@ const config: { [key: string]: Knex.Config } = {
     connection: {
       database: "learn_fastify",
       user: "postgres",
-      password: "1234567"
+      password: "123456"
     },
     pool: {
       min: 2,
