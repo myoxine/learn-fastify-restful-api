@@ -1,9 +1,6 @@
 // src/models/User.ts
 
-import { Model, JSONSchema as JSONSchemaObj,ModelObject } from "objection";
-import { FromSchema } from "json-schema-to-ts";
-import type { JSONSchema } from "json-schema-to-ts";
-import { type } from "os";
+import { Model, ModelObject } from "objection";
 // Definisikan kelas User yang mewarisi dari Model
 class User extends Model  {
   // Nama tabel yang digunakan oleh model ini
