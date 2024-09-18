@@ -1,3 +1,7 @@
+import User from "../models/User";
+const bodySchema = JSON.parse(JSON.stringify(User.jsonSchema));
+delete bodySchema.properties.id;
+
 export const getUserSchema = {
   params: {
     type: "object",
@@ -7,26 +11,14 @@ export const getUserSchema = {
     },
   },
   response: {
-    200: {
-      type: "object",
-      properties: {
-        id: { type: "string" },
-        name: { type: "string" },
-        // tidak mengirimkan age ke client
-      },
-    },
+    200: User.jsonSchema,
   },
 };
 
 export const addUserSchema = {
-  body: {
-    type: "object",
-    required: ["name", "age"],
-    properties: {
-      name: { type: "string" },
-      age: { type: "integer", range: [2, 4], exclusiveRange: true },
-      phone: { type: "string", format: "phoneNumber" }, // Pakai format custom
-    },
+  body: bodySchema,
+  response: {
+    200: User.jsonSchema,
   },
 };
 
@@ -38,12 +30,9 @@ export const updateUserSchema = {
       id: { type: "string", description: "User ID" },
     },
   },
-  body: {
-    type: "object",
-    properties: {
-      name: { type: "string", description: "Name of the user" },
-      age: { type: "integer" },
-    },
+  body: bodySchema,
+  response: {
+    200: User.jsonSchema,
   },
 };
 

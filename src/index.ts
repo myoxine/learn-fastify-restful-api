@@ -5,6 +5,7 @@ import loggerConfig from "./configs/logger"
 import config from "./utils/config";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
+import knexPlugin from './plugins/knex'
 const server = fastify({
   logger: loggerConfig,
   ajv: {
@@ -66,7 +67,7 @@ const swaggerUiOptions = {
   exposeRoute: true,
 };
 
-
+server.register(knexPlugin);
 server.setErrorHandler(function (error, request, reply) {
   if (error.validation) {
     return reply.status(400).send({
