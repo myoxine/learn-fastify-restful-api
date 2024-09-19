@@ -1,6 +1,7 @@
 // src/models/User.ts
 
 import { Model, ModelObject } from "objection";
+import {hashPassword} from  "./../utils/encrypt"
 // Definisikan kelas User yang mewarisi dari Model
 class User extends Model  {
   // Nama tabel yang digunakan oleh model ini
@@ -10,7 +11,7 @@ class User extends Model  {
   username !: string;
   email !: string;
   role_id?: number;
-
+  password !:string;
   // Definisikan tipe properti model
 
   // Jika kamu menggunakan type-checking, tambahkan tipe untuk kolom
@@ -37,6 +38,15 @@ class User extends Model  {
         role_id: { type: ["integer", "null"] },
       },
     };
+  }
+  async $beforeInsert() {
+    this.password = await hashPassword(this.password);
+  }
+
+  async $beforeUpdate() {
+    if (this.password) {
+      this.password = await hashPassword(this.password);
+    }
   }
 }
 
