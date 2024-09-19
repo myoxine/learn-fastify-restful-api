@@ -1,6 +1,6 @@
 // src/models/User.ts
 
-import { Model, ModelObject } from "objection";
+import { Model, ModelObject, JSONSchema } from "objection";
 import {hashPassword} from  "./../utils/encrypt"
 // Definisikan kelas User yang mewarisi dari Model
 class User extends Model  {
@@ -27,7 +27,7 @@ class User extends Model  {
       },
     };
   }
-  static get jsonSchema() {
+  static get jsonSchema():JSONSchema {
     return {
       type: "object",
       required: ["username", "email", "password"],
