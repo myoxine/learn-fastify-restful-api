@@ -14,7 +14,6 @@ bodySchema.properties = {
 };
 
 
-
 export const getUserSchema = {
   params: {
     type: "object",
