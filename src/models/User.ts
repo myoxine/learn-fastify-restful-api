@@ -51,6 +51,13 @@ class User extends Model  {
   }
 }
 
+const PublicUserSchema = JSON.parse(JSON.stringify(User.jsonSchema));
+delete PublicUserSchema.properties.password;
+PublicUserSchema.required = PublicUserSchema.required.filter(
+  (value: string) => value !== "password"
+);
 type UserType = ModelObject<User>;
-export type { UserType };
+type PublicUserType = Omit<UserType, "password">;
+export type { UserType, PublicUserType };
+export { PublicUserSchema };
 export default User;
