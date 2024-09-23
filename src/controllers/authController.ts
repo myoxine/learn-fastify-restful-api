@@ -23,3 +23,11 @@ export async function loginHandler(
     reply.status(500).send({ error: "Internal Server Error" });
   }
 }
+// Handle POST /login
+export async function profileHandler(
+  request: FastifyRequest,
+  reply: FastifyReply
+) {
+  const user = request.server.user;
+  reply.status(200).send(user);
+}

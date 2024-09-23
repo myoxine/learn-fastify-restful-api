@@ -6,7 +6,7 @@ import config from "./utils/config";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import knexPlugin from "./plugins/knex";
-import jwt from "@fastify/jwt"
+import jwtPlugin from "./plugins/jwt";
 const server = fastify({
   logger: loggerConfig,
   ajv: {
@@ -49,9 +49,7 @@ const server = fastify({
     plugins: [require("ajv-errors")],
   },
 });
-server.register(jwt, {
-  secret: config.SECRET_ACCESS_TOKEN
-})
+
 
 const swaggerOptions = {
   swagger: {
@@ -73,6 +71,7 @@ const swaggerUiOptions = {
   exposeRoute: true,
 }
 server.register(knexPlugin);
+server.register(jwtPlugin);
 server.setErrorHandler(function (error, request, reply) {
   if (error.validation) {
     return reply.status(400).send({

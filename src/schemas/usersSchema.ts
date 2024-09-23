@@ -1,4 +1,4 @@
-import User from "../models/User";
+import User, {PublicUserSchema} from "../models/User";
 import { JSONSchema } from "objection";
 const bodySchema: JSONSchema = JSON.parse(JSON.stringify(User.jsonSchema));
 delete bodySchema?.properties?.id;
@@ -13,8 +13,7 @@ bodySchema.properties = {
   },
 };
 
-const responseSchema = JSON.parse(JSON.stringify(User.jsonSchema));
-delete responseSchema.properties.password;
+
 
 export const getUserSchema = {
   params: {
@@ -25,14 +24,14 @@ export const getUserSchema = {
     },
   },
   response: {
-    200: responseSchema,
+    200: PublicUserSchema,
   },
 };
 
 export const addUserSchema = {
   body: bodySchema,
   response: {
-    200: responseSchema,
+    200: PublicUserSchema,
   },
 };
 
@@ -46,7 +45,7 @@ export const updateUserSchema = {
   },
   body: bodySchema,
   response: {
-    200: responseSchema,
+    200: PublicUserSchema,
   },
 };
 

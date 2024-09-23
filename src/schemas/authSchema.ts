@@ -1,6 +1,4 @@
-import User from "../models/User";
-const responseUserSchema = JSON.parse(JSON.stringify(User.jsonSchema));
-delete responseUserSchema.properties.password;
+import {PublicUserSchema} from "../models/User";
 
 export const loginSchema = {
   body: {
@@ -17,8 +15,14 @@ export const loginSchema = {
       required: ["user", "token"],
       properties: {
         token: { type: "string", description: "Token" },
-        user: responseUserSchema,
+        user: PublicUserSchema,
       },
     },
+  },
+};
+
+export const profileSchema = {
+  response: {
+    200:  PublicUserSchema,
   },
 };
