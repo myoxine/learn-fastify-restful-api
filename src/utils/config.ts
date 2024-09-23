@@ -2,7 +2,7 @@ import envSchema from "env-schema";
 import { FromSchema } from "json-schema-to-ts";
 const schema = {
   type: "object",
-  required: ["PORT", "LOG_LEVEL", "NODE_ENV","SALT_ROUNDS_PASSWORD"],
+  required: ["PORT", "LOG_LEVEL", "NODE_ENV","SALT_ROUNDS_PASSWORD","SECRET_ACCESS_TOKEN"],
   properties: {
     PORT: {
       type: "string",
@@ -28,7 +28,10 @@ const schema = {
       minimum:1,
       maximum:10,
       default: "info",
-    }
+    },
+    SECRET_ACCESS_TOKEN: {
+      type: "string",
+    },    
   },
 } as const;
 type schemaType = FromSchema<typeof schema>;

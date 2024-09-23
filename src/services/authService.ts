@@ -1,3 +1,4 @@
+import { FastifyInstance } from "fastify";
 import User from "./../models/User";
 import { verifyPassword } from "./../utils/encrypt";
 // Function to authenticate user
@@ -12,3 +13,6 @@ export async function authenticateUser(username: string, password: string) {
   }
   return user;
 }
+export const generateToken = (fastify: FastifyInstance, user: User) => {
+  return fastify.jwt.sign({ user });
+};

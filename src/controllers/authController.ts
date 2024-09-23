@@ -1,5 +1,5 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { authenticateUser } from "../services/authService";
+import { authenticateUser, generateToken } from "../services/authService";
 
 // Handle POST /login
 export async function loginHandler(
@@ -13,13 +13,12 @@ export async function loginHandler(
 
   try {
     const user = await authenticateUser(username, password);
-
     if (!user) {
       reply.status(401).send({ error: "Invalid username or password" });
       return;
     }
-
-    reply.status(200).send({ message: "Login successful", user: { username } });
+    const token = generateToken(request.server, user);
+    reply.status(200).send({ message: "Login successful", user, token });
   } catch (error) {
     reply.status(500).send({ error: "Internal Server Error" });
   }
