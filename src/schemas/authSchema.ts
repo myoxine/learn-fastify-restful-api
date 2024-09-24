@@ -22,6 +22,16 @@ export const loginSchema = {
 };
 
 export const profileSchema = {
+  headers: {
+    type: 'object',
+    properties: {
+      authorization: {
+        type: 'string',
+        pattern: '^Bearer [A-Za-z0-9-_=]+\\.[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_.+/=]*$',
+      },
+    },
+    required: ['authorization'],
+  },
   response: {
     200:  PublicUserSchema,
   },
