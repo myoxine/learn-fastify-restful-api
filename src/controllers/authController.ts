@@ -50,11 +50,16 @@ export async function refreshAccessTokenHandler(
     // Mengambil refresh token dari cookie
     const jwtRequest = await request.jwtVerify<{user:PublicUserType}>({onlyCookie: true});
 
-    // Jika refresh token valid, buat access token baru
-    const accessToken = await generateAccessToken(request, jwtRequest.user);
-
-    // Mengirimkan access token baru ke klien
-    reply.status(200).send({ token:accessToken });
+    const token = await generateToken(request, jwtRequest.user);
+    reply
+      .setCookie(config.REFRESH_TOKEN_COOKIE_NAME, token.refreshToken, {
+        secure: true, // send cookie over HTTPS only
+        httpOnly: true,
+        sameSite: true, // alternative CSRF protection
+        maxAge: to_number_of_seconds(config.REFRESH_TOKEN_LONG_DURATION),
+      })
+      .code(200)
+      .send({ token: token.accessToken });
   } catch (error) {
     reply.status(401).send({ error: "Invalid refresh token" });
   }
