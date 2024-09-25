@@ -7,6 +7,7 @@ import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import knexPlugin from "./plugins/knex";
 import jwtPlugin from "./plugins/jwt";
+import cookie from '@fastify/cookie';
 const server = fastify({
   logger: loggerConfig,
   ajv: {
@@ -72,6 +73,9 @@ const swaggerUiOptions = {
 }
 server.register(knexPlugin);
 server.register(jwtPlugin);
+server.register(cookie, {
+  secret: config.SECRET_COOKIE, // Secret to sign cookies (if needed)
+});
 server.setErrorHandler(function (error, request, reply) {
   if (error.validation) {
     return reply.status(400).send({
