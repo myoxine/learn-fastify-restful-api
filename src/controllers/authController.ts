@@ -1,7 +1,8 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { authenticateUser, generateToken } from "../services/authService";
+import { authenticateUser, generateToken,generateAccessToken } from "../services/authService";
 import config from "./../utils/config";
 import { to_number_of_seconds } from "./../utils/expiry";
+import {PublicUserType} from "./../models/User";
 // Handle POST /login
 export async function loginHandler(
   request: FastifyRequest,
@@ -40,3 +41,22 @@ export async function profileHandler(
   const user = request.server.user;
   reply.status(200).send(user);
 }
+
+export async function refreshAccessTokenHandler(
+  request: FastifyRequest,
+  reply: FastifyReply
+) {
+  try {
+    // Mengambil refresh token dari cookie
+    const jwtRequest = await request.jwtVerify<{user:PublicUserType}>({onlyCookie: true});
+
+    // Jika refresh token valid, buat access token baru
+    const accessToken = await generateAccessToken(request, jwtRequest.user);
+
+    // Mengirimkan access token baru ke klien
+    reply.status(200).send({ token:accessToken });
+  } catch (error) {
+    reply.status(401).send({ error: "Invalid refresh token" });
+  }
+}
+

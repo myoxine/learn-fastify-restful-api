@@ -1,5 +1,5 @@
 import { FastifyRequest } from "fastify";
-import User from "./../models/User";
+import User, {PublicUserType} from "./../models/User";
 import { verifyPassword } from "./../utils/encrypt";
 import config from "./../utils/config";
 // Function to authenticate user
@@ -14,7 +14,7 @@ export async function authenticateUser(username: string, password: string) {
   }
   return user;
 }
-export const generateToken = async (request: FastifyRequest, user: User) => {
+export const generateToken = async (request: FastifyRequest, user: PublicUserType) => {
   const accessToken = await request.server.jwt.sign(
     { user },
     { expiresIn: config.ACCESS_TOKEN_LONG_DURATION }
@@ -24,4 +24,11 @@ export const generateToken = async (request: FastifyRequest, user: User) => {
     { expiresIn: config.REFRESH_TOKEN_LONG_DURATION }
   );
   return { accessToken, refreshToken };
+};
+export const generateAccessToken = async (request: FastifyRequest, user: PublicUserType) => {
+  const accessToken = await request.server.jwt.sign(
+    { user },
+    { expiresIn: config.ACCESS_TOKEN_LONG_DURATION }
+  );
+  return accessToken;
 };

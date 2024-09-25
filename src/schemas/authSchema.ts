@@ -1,4 +1,4 @@
-import {PublicUserSchema} from "../models/User";
+import { PublicUserSchema } from "../models/User";
 
 export const loginSchema = {
   body: {
@@ -10,7 +10,7 @@ export const loginSchema = {
     },
   },
   response: {
-    200:  {
+    200: {
       type: "object",
       required: ["user", "token"],
       properties: {
@@ -23,16 +23,40 @@ export const loginSchema = {
 
 export const profileSchema = {
   headers: {
-    type: 'object',
+    type: "object",
     properties: {
       authorization: {
-        type: 'string',
-        pattern: '^Bearer [A-Za-z0-9-_=]+\\.[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_.+/=]*$',
+        type: "string",
+        pattern:
+          "^Bearer [A-Za-z0-9-_=]+\\.[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_.+/=]*$",
       },
     },
-    required: ['authorization'],
+    required: ["authorization"],
   },
   response: {
-    200:  PublicUserSchema,
+    200: PublicUserSchema,
+  },
+};
+
+export const refreshSchema = {
+  headers: {
+    type: "object",
+    properties: {
+      authorization: {
+        type: "string",
+        pattern:
+          "^Bearer [A-Za-z0-9-_=]+\\.[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_.+/=]*$",
+      },
+    },
+    required: ["authorization"],
+  },
+  response: {
+    200: {
+      type: "object",
+      required: ["token"],
+      properties: {
+        token: { type: "string", description: "Token" },
+      },
+    },
   },
 };
