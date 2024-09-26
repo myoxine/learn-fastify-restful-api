@@ -3,10 +3,11 @@ import { PublicUserSchema } from "../models/User";
 export const loginSchema = {
   body: {
     type: "object",
-    required: ["username", "password"],
+    required: ["username", "password", "remember"],
     properties: {
       username: { type: "string", description: "Username for login" },
       password: { type: "string", description: "Password for login" },
+      remember: { type: "boolean" },
     },
   },
   response: {
