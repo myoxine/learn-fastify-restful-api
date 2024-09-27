@@ -2,7 +2,19 @@ import envSchema from "env-schema";
 import { FromSchema } from "json-schema-to-ts";
 const schema = {
   type: "object",
-  required: ["PORT", "LOG_LEVEL", "NODE_ENV","SALT_ROUNDS_PASSWORD"],
+  required: [
+    "PORT",
+    "LOG_LEVEL",
+    "NODE_ENV",
+    "SALT_ROUNDS_PASSWORD",
+    "SECRET_TOKEN",
+    "SECRET_COOKIE",
+    "ACCESS_TOKEN_SHORT_DURATION",
+    "ACCESS_TOKEN_LONG_DURATION",
+    "REFRESH_TOKEN_SHORT_DURATION",
+    "REFRESH_TOKEN_LONG_DURATION",
+    "REFRESH_TOKEN_COOKIE_NAME"
+  ],
   properties: {
     PORT: {
       type: "string",
@@ -20,15 +32,36 @@ const schema = {
     }, // Tambahkan LOG_LEVEL
     FILE_LOG_LEVEL: {
       type: "string",
-      enum: ["debug", "info", "warn", "error",""],
+      enum: ["debug", "info", "warn", "error", ""],
       default: "info",
     }, // Tambahkan FILE_LOG_LEVEL
-    SALT_ROUNDS_PASSWORD:{
+    SALT_ROUNDS_PASSWORD: {
       type: "number",
-      minimum:1,
-      maximum:10,
+      minimum: 1,
+      maximum: 10,
       default: "info",
-    }
+    },
+    SECRET_TOKEN: {
+      type: "string",
+    },
+    SECRET_COOKIE: {
+      type: "string",
+    },
+    ACCESS_TOKEN_LONG_DURATION: {
+      type: "string",
+    },    
+    ACCESS_TOKEN_SHORT_DURATION: {
+      type: "string",
+    },    
+    REFRESH_TOKEN_LONG_DURATION: {
+      type: "string",
+    },    
+    REFRESH_TOKEN_SHORT_DURATION: {
+      type: "string",
+    },    
+    REFRESH_TOKEN_COOKIE_NAME: {
+      type: "string",
+    },    
   },
 } as const;
 type schemaType = FromSchema<typeof schema>;
