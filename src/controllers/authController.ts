@@ -3,6 +3,7 @@ import {
   authenticateUser,
   generateToken,
   generateAccessToken,
+  storeToken
 } from "../services/authService";
 import config from "./../utils/config";
 import { to_number_of_seconds } from "./../utils/expiry";
@@ -24,17 +25,20 @@ export async function loginHandler(
       reply.status(401).send({ error: "Invalid username or password" });
       return;
     }
+
     const token = await generateToken(request, user, remember);
+    const duration = to_number_of_seconds(
+      remember
+        ? config.REFRESH_TOKEN_LONG_DURATION
+        : config.REFRESH_TOKEN_SHORT_DURATION
+    );
+    await storeToken(request.server,token.refreshToken,token.accessToken,user,duration);
     reply
       .setCookie(config.REFRESH_TOKEN_COOKIE_NAME, token.refreshToken, {
         secure: true, // send cookie over HTTPS only
         httpOnly: true,
         sameSite: true, // alternative CSRF protection
-        maxAge: to_number_of_seconds(
-          remember
-            ? config.REFRESH_TOKEN_LONG_DURATION
-            : config.REFRESH_TOKEN_SHORT_DURATION
-        ),
+        maxAge: duration,
       })
       .code(200)
       .send({ message: "Login successful", user, token: token.accessToken });
@@ -69,6 +73,8 @@ export async function refreshAccessTokenHandler(
       jwtRequest.user,
       jwtRequest.remember
     );
+
+
     reply
       .setCookie(config.REFRESH_TOKEN_COOKIE_NAME, token.refreshToken, {
         secure: true, // send cookie over HTTPS only

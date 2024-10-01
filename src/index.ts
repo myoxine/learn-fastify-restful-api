@@ -79,8 +79,8 @@ server.register(cookie, {
 });
 // Register Redis plugin
 server.register(fastifyRedis, {
-  host: '127.0.0.1',  // ganti ini kalau pakai Docker atau Redis di server lain
-  port: 6379,
+  host: config.REDIS_HOST,  // ganti ini kalau pakai Docker atau Redis di server lain
+  port: parseInt(config.REDIS_PORT),
 });
 server.setErrorHandler(function (error, request, reply) {
   if (error.validation) {
