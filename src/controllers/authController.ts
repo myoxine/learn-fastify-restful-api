@@ -3,7 +3,7 @@ import {
   authenticateUser,
   generateToken,
   generateAccessToken,
-  storeToken
+  storeToken,
 } from "../services/authService";
 import config from "./../utils/config";
 import { to_number_of_seconds } from "./../utils/expiry";
@@ -32,7 +32,13 @@ export async function loginHandler(
         ? config.REFRESH_TOKEN_LONG_DURATION
         : config.REFRESH_TOKEN_SHORT_DURATION
     );
-    await storeToken(request.server,token.refreshToken,token.accessToken,user,duration);
+    await storeToken(
+      request.server,
+      token.refreshToken,
+      token.accessToken,
+      user,
+      duration
+    );
     reply
       .setCookie(config.REFRESH_TOKEN_COOKIE_NAME, token.refreshToken, {
         secure: true, // send cookie over HTTPS only
@@ -73,14 +79,25 @@ export async function refreshAccessTokenHandler(
       jwtRequest.user,
       jwtRequest.remember
     );
-
+    const duration = to_number_of_seconds(
+      jwtRequest.remember
+        ? config.REFRESH_TOKEN_LONG_DURATION
+        : config.REFRESH_TOKEN_SHORT_DURATION
+    );
+    await storeToken(
+      request.server,
+      token.refreshToken,
+      token.accessToken,
+      jwtRequest.user,
+      duration
+    );
 
     reply
       .setCookie(config.REFRESH_TOKEN_COOKIE_NAME, token.refreshToken, {
         secure: true, // send cookie over HTTPS only
         httpOnly: true,
         sameSite: true, // alternative CSRF protection
-        maxAge: to_number_of_seconds(config.REFRESH_TOKEN_LONG_DURATION),
+        maxAge: duration,
       })
       .code(200)
       .send({ token: token.accessToken });

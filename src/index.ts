@@ -7,8 +7,8 @@ import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
 import knexPlugin from "./plugins/knex";
 import jwtPlugin from "./plugins/jwt";
-import cookie from '@fastify/cookie';
-import fastifyRedis from '@fastify/redis';
+import cookie from "@fastify/cookie";
+import fastifyRedis from "@fastify/redis";
 const server = fastify({
   logger: loggerConfig,
   ajv: {
@@ -52,7 +52,6 @@ const server = fastify({
   },
 });
 
-
 const swaggerOptions = {
   swagger: {
     info: {
@@ -71,7 +70,7 @@ const swaggerOptions = {
 const swaggerUiOptions = {
   routePrefix: "/docs",
   exposeRoute: true,
-}
+};
 server.register(knexPlugin);
 server.register(jwtPlugin);
 server.register(cookie, {
@@ -79,7 +78,7 @@ server.register(cookie, {
 });
 // Register Redis plugin
 server.register(fastifyRedis, {
-  host: config.REDIS_HOST,  // ganti ini kalau pakai Docker atau Redis di server lain
+  host: config.REDIS_HOST, // ganti ini kalau pakai Docker atau Redis di server lain
   port: parseInt(config.REDIS_PORT),
 });
 server.setErrorHandler(function (error, request, reply) {
@@ -112,9 +111,9 @@ server.get("/ping", async (request, reply) => {
 server.ready(async () => {
   try {
     const pong = await server.redis.ping();
-    console.log('Redis connected! Ping response:', pong);
+    server.log.info("Redis connected! Ping response:" + pong);
   } catch (err) {
-    console.error('Redis connection failed:', err);
+    console.error("Redis connection failed:", err);
   }
 });
 
@@ -123,5 +122,5 @@ server.listen({ port: parseInt(config.PORT) }, (err, address) => {
     console.error(err);
     process.exit(1);
   }
-  console.log(`Server listening at ${address}`);
+  server.log.info(`Server listening at ${address}`);
 });
