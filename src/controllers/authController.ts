@@ -105,3 +105,31 @@ export async function refreshAccessTokenHandler(
     reply.status(401).send({ error: "Invalid refresh token" });
   }
 }
+export async function logoutHandler(
+  request: FastifyRequest,
+  reply: FastifyReply
+) {
+  try {
+    // Mengambil refresh token dari cookie
+    const refreshToken = request.server.jwt.lookupToken(request, {
+      onlyCookie: true,
+    });
+
+    // Ambil user dari request (diasumsikan user sudah terautentikasi)
+    const user = request.server.user;
+    
+    // Hapus refresh token dari Redis
+    await request.server.redis.del(`refreshToken:${user.id}-${refreshToken}`);
+
+    // Hapus cookie refresh token
+    reply.clearCookie(config.REFRESH_TOKEN_COOKIE_NAME, {
+      secure: true, // sesuai konfigurasi cookie sebelumnya
+      httpOnly: true,
+      sameSite: true,
+    });
+
+    reply.code(200).send({ message: "Logout successful" });
+  } catch (error) {
+    reply.status(500).send({ error: "Failed to logout" });
+  }
+}
