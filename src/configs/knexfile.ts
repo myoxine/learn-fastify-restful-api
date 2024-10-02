@@ -16,10 +16,10 @@ const config: { [key: string]: Knex.Config } = {
     },
     migrations: {
       tableName: "knex_migrations",
-      directory: './../migrations'
+      directory: './migrations'
     },
     seeds: {
-      directory: './../seeds'
+      directory: './seeds'
     }
   },
   staging: {
@@ -34,11 +34,7 @@ const config: { [key: string]: Knex.Config } = {
       max: 10
     },
     migrations: {
-      tableName: "knex_migrations",
-      directory: './../migrations'
-    },
-    seeds: {
-      directory: './../seeds'
+      tableName: "knex_migrations"
     }
   },
 
@@ -54,11 +50,7 @@ const config: { [key: string]: Knex.Config } = {
       max: 10
     },
     migrations: {
-      tableName: "knex_migrations",
-      directory: './../migrations'
-    },
-    seeds: {
-      directory: './../seeds'
+      tableName: "knex_migrations"
     }
   }
 
