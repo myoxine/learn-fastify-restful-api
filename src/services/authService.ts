@@ -1,7 +1,8 @@
-import { FastifyRequest } from "fastify";
+import { FastifyRequest, FastifyInstance } from "fastify";
 import User, { PublicUserType } from "./../models/User";
 import { verifyPassword } from "./../utils/encrypt";
 import config from "./../utils/config";
+import { to_number_of_seconds } from "./../utils/expiry";
 // Function to authenticate user
 export async function authenticateUser(username: string, password: string) {
   const user = await User.query().findOne({ username });
@@ -52,3 +53,18 @@ export const generateAccessToken = async (
   );
   return accessToken;
 };
+export const storeToken = async (
+  fastify: FastifyInstance,
+  refreshToken: string,
+  accessToken: string,
+  user: PublicUserType,
+  duration:number
+) => {
+  await fastify.redis.set(
+    `refreshToken:${user.id}-${refreshToken}`,
+    accessToken,
+    "EX",
+    duration
+  );
+};
+

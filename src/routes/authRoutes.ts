@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import {
   loginHandler,
   profileHandler,
+  logoutHandler,
   refreshAccessTokenHandler,
 } from "../controllers/authController";
 import {
@@ -22,4 +23,8 @@ export async function authRoutes(server: FastifyInstance) {
     { schema: refreshSchema },
     refreshAccessTokenHandler
   );
+  server.post("/logout", {
+    preHandler: [server.authenticate],
+    handler: logoutHandler,
+  });
 }

@@ -13,7 +13,9 @@ const schema = {
     "ACCESS_TOKEN_LONG_DURATION",
     "REFRESH_TOKEN_SHORT_DURATION",
     "REFRESH_TOKEN_LONG_DURATION",
-    "REFRESH_TOKEN_COOKIE_NAME"
+    "REFRESH_TOKEN_COOKIE_NAME",
+    "REDIS_HOST",
+    "REDIS_PORT",
   ],
   properties: {
     PORT: {
@@ -49,19 +51,27 @@ const schema = {
     },
     ACCESS_TOKEN_LONG_DURATION: {
       type: "string",
-    },    
+    },
     ACCESS_TOKEN_SHORT_DURATION: {
       type: "string",
-    },    
+    },
     REFRESH_TOKEN_LONG_DURATION: {
       type: "string",
-    },    
+    },
     REFRESH_TOKEN_SHORT_DURATION: {
       type: "string",
-    },    
+    },
     REFRESH_TOKEN_COOKIE_NAME: {
       type: "string",
-    },    
+    },
+    REDIS_HOST: {
+      type: "string",
+      default: "127.0.0.1",
+    },
+    REDIS_PORT: {
+      type: "string",
+      default: 6379,
+    },
   },
 } as const;
 type schemaType = FromSchema<typeof schema>;
