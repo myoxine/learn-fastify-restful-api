@@ -34,6 +34,8 @@ const schema = {
 type schemaType = FromSchema<typeof schema>;
 const config = envSchema<schemaType>({
   schema: schema,
-  dotenv: true, // load .env if it is there, default: false
+  dotenv: {
+    path: `${__dirname}/../../.env.${process.env.NODE_ENV}`,
+  }, // load .env if it is there, default: false
 });
 export default config;
