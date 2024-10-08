@@ -30,7 +30,10 @@ export const getUserSchema = {
 export const addUserSchema = {
   body: bodySchema,
   response: {
-    200: PublicUserSchema,
+    201: {
+      message:"string",
+      user:User.jsonSchema
+    }
   },
 };
 
@@ -44,7 +47,10 @@ export const updateUserSchema = {
   },
   body: bodySchema,
   response: {
-    200: PublicUserSchema,
+    200: {
+      message:"string",
+      user:User.jsonSchema
+    }
   },
 };
 
