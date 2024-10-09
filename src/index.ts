@@ -12,6 +12,7 @@ import fastifyRedis from "@fastify/redis";
 import i18next from "i18next";
 import i18nextMiddleware from "i18next-http-middleware";
 import Backend from "i18next-fs-backend";
+import i18nextNamespaceLoader from "./plugins/i18nextNamespaceLoader";
 const server = fastify({
   logger: loggerConfig,
   ajv: {
@@ -70,6 +71,7 @@ i18next
 server.register(i18nextMiddleware.plugin, {
   i18next,
 });
+server.register(i18nextNamespaceLoader, { i18next });
 const swaggerOptions = {
   swagger: {
     info: {
@@ -123,7 +125,8 @@ server.register(userRoutes, { prefix: "/users" });
 server.register(authRoutes, { prefix: "/auth" });
 
 server.get("/ping", async (request, reply) => {
-  reply.status(200).send({ message: request.t('greeting')});
+  const message = request.t('ping:greeting'); 
+  reply.status(200).send({ message: message});
 });
 server.ready(async () => {
   try {
