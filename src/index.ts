@@ -9,6 +9,9 @@ import knexPlugin from "./plugins/knex";
 import jwtPlugin from "./plugins/jwt";
 import cookie from "@fastify/cookie";
 import fastifyRedis from "@fastify/redis";
+import i18next from "i18next";
+import i18nextMiddleware from "i18next-http-middleware";
+import Backend from "i18next-fs-backend";
 const server = fastify({
   logger: loggerConfig,
   ajv: {
@@ -51,7 +54,22 @@ const server = fastify({
     plugins: [require("ajv-errors")],
   },
 });
+// Inisialisasi i18next
+i18next
+  .use(Backend)
+  .use(i18nextMiddleware.LanguageDetector)
+  .init({
+    fallbackLng: "en", // Bahasa default
+    preload: ["en", "id"], // Bahasa yang akan dimuat
+    //ns: ["translation"], // Namespace untuk terjemahan
+    backend: {
+      loadPath: __dirname + '/locales/{{lng}}/{{ns}}.json', // Path ke file terjemahan
+    },
+  });
 
+server.register(i18nextMiddleware.plugin, {
+  i18next,
+});
 const swaggerOptions = {
   swagger: {
     info: {
@@ -105,8 +123,7 @@ server.register(userRoutes, { prefix: "/users" });
 server.register(authRoutes, { prefix: "/auth" });
 
 server.get("/ping", async (request, reply) => {
-  request.log.info("Ada request baru nih!"); // Mencatat log info
-  return "pong\n";
+  reply.status(200).send({ message: request.t('greeting')});
 });
 server.ready(async () => {
   try {
