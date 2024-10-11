@@ -23,7 +23,7 @@ export async function loginHandler(
   try {
     const user = await authenticateUser(username, password);
     if (!user) {
-      reply.status(401).send({ error: request.t("auth.login:failed") });
+      reply.status(401).send({ error: request.t("auth:login.failed") });
       return;
     }
 
@@ -49,12 +49,12 @@ export async function loginHandler(
       })
       .code(200)
       .send({
-        message: request.t("auth.login:successed"),
+        message: request.t("auth:login.successed"),
         user,
         token: token.accessToken,
       });
   } catch (error) {
-    reply.status(500).send({ error: request.t("auth.login:error") });
+    reply.status(500).send({ error: request.t("auth:login.error") });
   }
 }
 
@@ -107,7 +107,7 @@ export async function refreshAccessTokenHandler(
       .code(200)
       .send({ token: token.accessToken });
   } catch (error) {
-    reply.status(401).send({ error: request.t("auth.refresh:invalidToken") });
+    reply.status(401).send({ error: request.t("auth:refresh.invalidToken") });
   }
 }
 export async function logoutHandler(

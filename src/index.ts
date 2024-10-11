@@ -12,7 +12,6 @@ import fastifyRedis from "@fastify/redis";
 import i18next from "i18next";
 import i18nextMiddleware from "i18next-http-middleware";
 import Backend from "i18next-fs-backend";
-import i18nextNamespaceLoader from "./plugins/i18nextNamespaceLoader";
 const server = fastify({
   logger: loggerConfig,
   ajv: {
@@ -62,9 +61,12 @@ i18next
   .init({
     fallbackLng: "en", // Bahasa default
     preload: ["en", "id"], // Bahasa yang akan dimuat
+    ns: ["ping", "auth"],
     backend: {
       loadPath: function (lngs: string, namespaces: string) {
-        return __dirname + `/locales/${lngs}/${namespaces.replace(".","/")}.json`;
+        return (
+          __dirname + `/locales/${lngs}/${namespaces.replace(".", "/")}.json`
+        );
       },
     },
   });
@@ -72,7 +74,7 @@ i18next
 server.register(i18nextMiddleware.plugin, {
   i18next,
 });
-server.register(i18nextNamespaceLoader, { i18next });
+/*server.register(i18nextNamespaceLoader, { i18next });*/
 const swaggerOptions = {
   swagger: {
     info: {
