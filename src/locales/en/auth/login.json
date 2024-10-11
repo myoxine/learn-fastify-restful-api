@@ -1,0 +1,5 @@
+{
+  "failed": "Invalid username or password",
+  "successed": "Login successful",
+  "error": "Internal Server Error"
+}

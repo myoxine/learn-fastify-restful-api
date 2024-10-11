@@ -62,9 +62,10 @@ i18next
   .init({
     fallbackLng: "en", // Bahasa default
     preload: ["en", "id"], // Bahasa yang akan dimuat
-    //ns: ["translation"], // Namespace untuk terjemahan
     backend: {
-      loadPath: __dirname + '/locales/{{lng}}/{{ns}}.json', // Path ke file terjemahan
+      loadPath: function (lngs: string, namespaces: string) {
+        return __dirname + `/locales/${lngs}/${namespaces.replace(".","/")}.json`;
+      },
     },
   });
 
@@ -125,8 +126,8 @@ server.register(userRoutes, { prefix: "/users" });
 server.register(authRoutes, { prefix: "/auth" });
 
 server.get("/ping", async (request, reply) => {
-  const message = request.t('ping:greeting'); 
-  reply.status(200).send({ message: message});
+  const message = request.t("ping:greeting");
+  reply.status(200).send({ message: message });
 });
 server.ready(async () => {
   try {
