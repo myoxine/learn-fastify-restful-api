@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node --env-file=.env.production ./dist/index.js",
-    "dev": "nodemon",
+    "dev": "cross-env NODE_ENV=development nodemon",
     "knex:init": "knex init -x ts",
     "knex:run": "knex --knexfile src/configs/knexfile.ts",
     "migrate:currentVersion": "npm run knex:run -- migrate:currentVersion",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^22.5.0",
+    "cross-env": "^7.0.3",
     "nodemon": "^3.1.4",
     "pino-pretty": "^11.2.2",
     "ts-node": "^10.9.2",
@@ -34,14 +35,17 @@
     "@fastify/swagger": "^9.0.0",
     "@fastify/swagger-ui": "^5.0.1",
     "ajv-errors": "^3.0.0",
+    "ajv-i18n": "^4.2.0",
     "bcrypt": "^5.1.1",
     "env-schema": "^6.0.0",
     "fastify": "^5.0.0",
     "fastify-plugin": "^4.5.1",
     "fastify-swagger": "^5.2.0",
+    "i18next": "^23.15.2",
+    "i18next-fs-backend": "^2.3.2",
+    "i18next-http-middleware": "^3.6.0",
     "json-schema-to-ts": "^3.1.1",
     "knex": "^3.1.0",
-    "mysql": "^2.18.1",
     "objection": "^3.1.4",
     "pg": "^8.12.0"
   }

@@ -20,7 +20,7 @@ export async function getUserHandler(
   const id = request.params.id as unknown as number;
   const user = await getUserById(id);
   if (!user) {
-    reply.status(404).send({ error: "User not found" });
+    reply.status(404).send({ error: request.t("user:get.error") });
     return;
   }
   reply.status(200).send(user);
@@ -37,7 +37,9 @@ export async function addUserHandler(
   reply: FastifyReply
 ) {
   const newUser = await addUser(request.body);
-  reply.status(201).send({ message: "User added successfully", user: newUser });
+  reply
+    .status(201)
+    .send({ message: request.t("user:add.successed"), user: newUser });
 }
 
 // Handle PUT /update/:id
@@ -54,7 +56,7 @@ export async function updateUserHandler(
 
   reply
     .status(200)
-    .send({ message: "User updated successfully", user: updatedUser });
+    .send({ message: request.t("user:update.successed"), user: updatedUser });
 }
 
 // Handle DELETE /delete/:id
@@ -67,5 +69,5 @@ export async function deleteUserHandler(
 ) {
   const id = request.params.id as unknown as number;
   await deleteUser(id);
-  reply.status(200).send({ message: "User deleted successfully" });
+  reply.status(200).send({ message: request.t("user:delete.successed") });
 }

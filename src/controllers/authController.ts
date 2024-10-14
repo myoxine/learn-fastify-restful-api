@@ -8,6 +8,7 @@ import {
 import config from "./../utils/config";
 import { to_number_of_seconds } from "./../utils/expiry";
 import { PublicUserType } from "./../models/User";
+
 // Handle POST /login
 export async function loginHandler(
   request: FastifyRequest,
@@ -22,7 +23,7 @@ export async function loginHandler(
   try {
     const user = await authenticateUser(username, password);
     if (!user) {
-      reply.status(401).send({ error: "Invalid username or password" });
+      reply.status(401).send({ error: request.t("auth:login.failed") });
       return;
     }
 
@@ -47,9 +48,13 @@ export async function loginHandler(
         maxAge: duration,
       })
       .code(200)
-      .send({ message: "Login successful", user, token: token.accessToken });
+      .send({
+        message: request.t("auth:login.successed"),
+        user,
+        token: token.accessToken,
+      });
   } catch (error) {
-    reply.status(500).send({ error: "Internal Server Error" });
+    reply.status(500).send({ error: request.t("auth:login.error") });
   }
 }
 
@@ -102,7 +107,7 @@ export async function refreshAccessTokenHandler(
       .code(200)
       .send({ token: token.accessToken });
   } catch (error) {
-    reply.status(401).send({ error: "Invalid refresh token" });
+    reply.status(401).send({ error: request.t("auth:refresh.invalidToken") });
   }
 }
 export async function logoutHandler(
@@ -114,10 +119,10 @@ export async function logoutHandler(
     const refreshToken = request.server.jwt.lookupToken(request, {
       onlyCookie: true,
     });
-
+ 
     // Ambil user dari request (diasumsikan user sudah terautentikasi)
     const user = request.server.user;
-    
+
     // Hapus refresh token dari Redis
     await request.server.redis.del(`refreshToken:${user.id}-${refreshToken}`);
 
@@ -128,8 +133,8 @@ export async function logoutHandler(
       sameSite: true,
     });
 
-    reply.code(200).send({ message: "Logout successful" });
+    reply.code(200).send({ message:  request.t("auth:logout.successed") });
   } catch (error) {
-    reply.status(500).send({ error: "Failed to logout" });
+    reply.status(500).send({ error: request.t("auth:logout.failed") });
   }
 }
