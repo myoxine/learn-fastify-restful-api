@@ -12,6 +12,8 @@ import fastifyRedis from "@fastify/redis";
 import i18next from "i18next";
 import i18nextMiddleware from "i18next-http-middleware";
 import Backend from "i18next-fs-backend";
+import errorsText from "./utils/errorsText";
+import translateAjvErrors from "./utils/translateAjvErrors";
 const server = fastify({
   logger: loggerConfig,
   ajv: {
@@ -74,6 +76,9 @@ i18next
 server.register(i18nextMiddleware.plugin, {
   i18next,
 });
+const middleware = i18nextMiddleware.handle(i18next);
+server.addHook("preValidation", middleware);
+
 /*server.register(i18nextNamespaceLoader, { i18next });*/
 const swaggerOptions = {
   swagger: {
@@ -106,11 +111,12 @@ server.register(fastifyRedis, {
 });
 server.setErrorHandler(function (error, request, reply) {
   if (error.validation) {
+    translateAjvErrors(request.language, error.validation);
     return reply.status(400).send({
       path: request.url,
       status: error.statusCode,
       timestamp: Date.now(),
-      message: error.message,
+      message: errorsText(error.validation),
       errors: error.validation.map((err) => ({
         key:
           err.params?.missingProperty ||
