@@ -2,11 +2,12 @@ import User, {UserType} from "../models/User";
 
 
 export async function getUserById(id: number) {
-  return (await User.query().findById(id)) || null;
+  const user = await User.query().findById(id);
+  return (user) || null;
 }
 
 // Function to add a new user
-export async function addUser(data:UserType) {
+export async function addUser(data:Omit<UserType,'id'>) {
   const newData:{[key:string]:any}={...data};
   delete newData["confirm_password"];
   const newUser = await User.query().insert(newData);
