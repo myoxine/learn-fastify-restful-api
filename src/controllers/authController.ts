@@ -2,7 +2,7 @@ import { FastifyRequest, FastifyReply } from "fastify";
 import {
   authenticateUser,
   generateToken,
-  generateAccessToken,
+  //generateAccessToken,
   storeToken,
 } from "../services/authService";
 import config from "./../utils/config";

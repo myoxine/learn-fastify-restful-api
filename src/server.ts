@@ -25,25 +25,26 @@ export function buildFastify() {
             keyword: "exclusiveRange",
             type: "number",
           },
-          {
-            keyword: "range",
-            type: "number",
-            compile([min, max], parentSchema) {
-              return parentSchema.exclusiveRange === true
-                ? (data) => data > min && data < max
-                : (data) => data >= min && data <= max;
-            },
-            errors: false,
-            metaSchema: {
-              // schema to validate keyword value
-              type: "array",
-              items: [{ type: "number" }, { type: "number" }],
-              minItems: 2,
-              additionalItems: false,
-            },
-          },
+          // {
+          //   keyword: "range",
+          //   type: "number",
+          //   compile([min, max], parentSchema) {
+          //     return parentSchema.exclusiveRange === true
+          //       ? (data) => data > min && data < max
+          //       : (data) => data >= min && data <= max;
+          //   },
+          //   errors: false,
+          //   metaSchema: {
+          //     // schema to validate keyword value
+          //     type: "array",
+          //     items: [{ type: "number" }, { type: "number" }],
+          //     minItems: 2,
+          //     additionalItems: false,
+          //   },
+          // },
         ],
         formats: {
+          /*
           phoneNumber: {
             type: "string",
             validate: (value) => {
@@ -51,18 +52,19 @@ export function buildFastify() {
               return phoneRegex.test(value);
             },
           },
+          */
         },
       },
       plugins: [require("ajv-errors")],
     },
   });
   // Inisialisasi i18next
-  const i18next = I18next.createInstance()
+  const i18next = I18next.createInstance();
   i18next
     .use(Backend)
     .use(i18nextMiddleware.LanguageDetector)
     .init({
-      debug:false,
+      debug: false,
       initImmediate: false,
       fallbackLng: "en", // Bahasa default
       preload: ["en", "id"], // Bahasa yang akan dimuat
@@ -80,7 +82,7 @@ export function buildFastify() {
   //   i18next,
   // });
   server.addHook(
-    "preHandler",
+    "preValidation",
     i18nextMiddleware.handle(i18next, {
       ignoreRoutes: [], // or function(req, res, options, i18next) { /* return true to ignore */ }
     })
@@ -112,15 +114,26 @@ export function buildFastify() {
     secret: config.SECRET_COOKIE, // Secret to sign cookies (if needed)
   });
   // Register Redis plugin
+  /* c8 ignore start */ 
   server.register(
     config.NODE_ENV === "test"
       ? require("fastify-redis-mock")
-      : require("@fastify/redis") ,
+      : require("@fastify/redis"),
     {
       host: config.REDIS_HOST, // ganti ini kalau pakai Docker atau Redis di server lain
       port: parseInt(config.REDIS_PORT),
     }
   );
+/* c8 ignore end */
+  server.register(fastifySwagger, swaggerOptions);
+  server.register(fastifySwaggerUi, swaggerUiOptions);
+  server.register(userRoutes, { prefix: "/users" });
+  server.register(authRoutes, { prefix: "/auth" });
+
+  server.get("/ping", async (request, reply) => {
+    const message = request.t("ping:greeting");
+    reply.status(200).send({ message: message });
+  });
   server.setErrorHandler(function (error, request, reply) {
     if (error.validation) {
       translateAjvErrors(request.language, error.validation);
@@ -131,8 +144,9 @@ export function buildFastify() {
         message: errorsText(error.validation),
         errors: error.validation.map((err) => ({
           key:
-            err.params?.missingProperty ||
-            err.instancePath.replace(new RegExp("/", "g"), ""),
+            err.params && err.params.missingProperty
+              ? err.params.missingProperty
+              : err.instancePath.replace(new RegExp("/", "g"), ""),
           value: err.message,
         })),
       });
@@ -140,14 +154,5 @@ export function buildFastify() {
     reply.status(500).send(error);
   });
 
-  server.register(fastifySwagger, swaggerOptions);
-  server.register(fastifySwaggerUi, swaggerUiOptions);
-  server.register(userRoutes, { prefix: "/users" });
-  server.register(authRoutes, { prefix: "/auth" });
-
-  server.get("/ping", async (request, reply) => {
-    const message = request.t("ping:greeting");
-    reply.status(200).send({ message: message });
-  });
   return server; // Kembalikan instance server
 }
