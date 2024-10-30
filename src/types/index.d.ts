@@ -21,5 +21,6 @@ declare module "fastify" {
       TypeProvider,
       Logger
     >;
+    redis: fastifyRedis.FastifyRedis
   }
 }

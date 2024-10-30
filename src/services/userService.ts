@@ -6,7 +6,7 @@ export async function getUserById(id: number) {
 }
 
 // Function to add a new user
-export async function addUser(data:UserType) {
+export async function addUser(data:Omit<UserType,'id'>) {
   const newData:{[key:string]:any}={...data};
   delete newData["confirm_password"];
   const newUser = await User.query().insert(newData);
@@ -14,7 +14,7 @@ export async function addUser(data:UserType) {
 }
 
 // Function to update an existing user
-export async function updateUser(id:number,data:UserType) {
+export async function updateUser(id:number,data:Omit<UserType,'id'>) {
   const newData:{[key:string]:any}={...data};
   delete newData["confirm_password"];
   const updatedUser = await User.query().patchAndFetchById(id, newData);
