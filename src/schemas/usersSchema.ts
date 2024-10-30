@@ -22,7 +22,13 @@ export const getUserSchema = {
     },
   },
   response: {
-    200: PublicUserSchema,
+    200: {
+      type: "object",
+      properties: {
+        message: { type: "string" },
+        user: PublicUserSchema,
+      },
+    }
   },
 };
 
@@ -30,8 +36,11 @@ export const addUserSchema = {
   body: bodySchema,
   response: {
     201: {
-      message:"string",
-      user:User.jsonSchema
+      type: "object",
+      properties: {
+        message: { type: "string" },
+        user: PublicUserSchema,
+      },
     }
   },
 };
@@ -47,8 +56,11 @@ export const updateUserSchema = {
   body: bodySchema,
   response: {
     200: {
-      message:"string",
-      user:User.jsonSchema
+      type: "object",
+      properties: {
+        message: { type: "string" },
+        user: PublicUserSchema,
+      },
     }
   },
 };
