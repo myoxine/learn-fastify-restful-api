@@ -59,10 +59,12 @@ export const updateUserSchema = {
       type: "object",
       properties: {
         message: { type: "string" },
-        user: PublicUserSchema,
+        user: {
+          oneOf: [{ type: "null" }, PublicUserSchema],
+        },
       },
-    }
-  },
+    },
+  }
 };
 
 export const deleteUserSchema = {
