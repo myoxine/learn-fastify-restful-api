@@ -6,13 +6,13 @@ export async function getUserById(id: number) {
 }
 
 // Function to add a new user
-export async function addUser(data:UserType) {
+export async function addUser(data:Omit<UserType,'id'>) {
   const newUser = await User.query().insert(data);
   return newUser;
 }
 
 // Function to update an existing user
-export async function updateUser(id:number,data:UserType) {
+export async function updateUser(id:number,data:Omit<UserType,'id'>) {
   const updatedUser = await User.query().patchAndFetchById(id, data);
   return updatedUser || null;
 }
