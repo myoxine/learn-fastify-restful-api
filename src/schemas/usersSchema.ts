@@ -1,8 +1,8 @@
 import User, {PublicUserSchema} from "../models/User";
 import { JSONSchema } from "objection";
-const bodySchema: JSONSchema = JSON.parse(JSON.stringify(User.jsonSchema));
-delete bodySchema?.properties?.id;
-bodySchema?.required?.push("confirm_password");
+const bodySchema: JSONSchema = User.jsonSchema;
+if (bodySchema.properties) delete bodySchema.properties.id;
+if (bodySchema.required) bodySchema.required.push("confirm_password");
 bodySchema.properties = {
   ...bodySchema.properties,
   confirm_password: {
@@ -23,7 +23,13 @@ export const getUserSchema = {
     },
   },
   response: {
-    200: PublicUserSchema,
+    200: {
+      type: "object",
+      properties: {
+        message: { type: "string" },
+        user: PublicUserSchema,
+      },
+    }
   },
 };
 
@@ -31,8 +37,11 @@ export const addUserSchema = {
   body: bodySchema,
   response: {
     201: {
-      message:"string",
-      user:User.jsonSchema
+      type: "object",
+      properties: {
+        message: { type: "string" },
+        user: PublicUserSchema,
+      },
     }
   },
 };
@@ -48,10 +57,15 @@ export const updateUserSchema = {
   body: bodySchema,
   response: {
     200: {
-      message:"string",
-      user:User.jsonSchema
-    }
-  },
+      type: "object",
+      properties: {
+        message: { type: "string" },
+        user: {
+          oneOf: [{ type: "null" }, PublicUserSchema],
+        },
+      },
+    },
+  }
 };
 
 export const deleteUserSchema = {
