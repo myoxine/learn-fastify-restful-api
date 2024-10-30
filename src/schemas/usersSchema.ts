@@ -1,6 +1,6 @@
 import User from "../models/User";
 const bodySchema = JSON.parse(JSON.stringify(User.jsonSchema));
-delete bodySchema.properties.id;
+if (bodySchema.properties) delete bodySchema.properties.id;
 
 export const getUserSchema = {
   params: {
