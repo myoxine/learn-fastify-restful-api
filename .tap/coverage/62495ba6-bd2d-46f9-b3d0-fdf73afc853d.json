@@ -1,0 +1,2467 @@
+{
+  "result": [
+    {
+      "scriptId": "655",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/testHelper.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 15455,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 1
+            },
+            {
+              "startOffset": 122,
+              "endOffset": 127,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "setupFastify",
+          "ranges": [
+            {
+              "startOffset": 813,
+              "endOffset": 943,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "teardownFastify",
+          "ranges": [
+            {
+              "startOffset": 944,
+              "endOffset": 1150,
+              "count": 1
+            },
+            {
+              "startOffset": 1029,
+              "endOffset": 1067,
+              "count": 0
+            },
+            {
+              "startOffset": 1085,
+              "endOffset": 1121,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "injectRequest",
+          "ranges": [
+            {
+              "startOffset": 1151,
+              "endOffset": 1415,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "mockBcryptError",
+          "ranges": [
+            {
+              "startOffset": 1416,
+              "endOffset": 1603,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "createTracker",
+          "ranges": [
+            {
+              "startOffset": 1604,
+              "endOffset": 1831,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "createPayloadUser",
+          "ranges": [
+            {
+              "startOffset": 1832,
+              "endOffset": 3368,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "getDbUser",
+          "ranges": [
+            {
+              "startOffset": 3369,
+              "endOffset": 3753,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "getResUser",
+          "ranges": [
+            {
+              "startOffset": 3754,
+              "endOffset": 3873,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "checkResponseHeader",
+          "ranges": [
+            {
+              "startOffset": 3874,
+              "endOffset": 4086,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "656",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/server.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 18338,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 13
+            },
+            {
+              "startOffset": 122,
+              "endOffset": 127,
+              "count": 7
+            },
+            {
+              "startOffset": 128,
+              "endOffset": 148,
+              "count": 6
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "buildFastify",
+          "ranges": [
+            {
+              "startOffset": 1223,
+              "endOffset": 6237,
+              "count": 1
+            },
+            {
+              "startOffset": 4757,
+              "endOffset": 4784,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "loadPath",
+          "ranges": [
+            {
+              "startOffset": 3355,
+              "endOffset": 3492,
+              "count": 6
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 5250,
+              "endOffset": 5389,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 5419,
+              "endOffset": 6184,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "950",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/routes/userRoutes.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 2578,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "userRoutes",
+          "ranges": [
+            {
+              "startOffset": 234,
+              "endOffset": 693,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "951",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/controllers/userController.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 6254,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "getUserHandler",
+          "ranges": [
+            {
+              "startOffset": 311,
+              "endOffset": 599,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "addUserHandler",
+          "ranges": [
+            {
+              "startOffset": 689,
+              "endOffset": 914,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "updateUserHandler",
+          "ranges": [
+            {
+              "startOffset": 915,
+              "endOffset": 1195,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "deleteUserHandler",
+          "ranges": [
+            {
+              "startOffset": 1196,
+              "endOffset": 1405,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "952",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/services/userService.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 4220,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 1
+            },
+            {
+              "startOffset": 128,
+              "endOffset": 148,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "getUserById",
+          "ranges": [
+            {
+              "startOffset": 403,
+              "endOffset": 524,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "addUser",
+          "ranges": [
+            {
+              "startOffset": 555,
+              "endOffset": 758,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "updateUser",
+          "ranges": [
+            {
+              "startOffset": 798,
+              "endOffset": 1039,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "deleteUser",
+          "ranges": [
+            {
+              "startOffset": 1069,
+              "endOffset": 1267,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "953",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/models/User.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 6767,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "get relationMappings",
+          "ranges": [
+            {
+              "startOffset": 436,
+              "endOffset": 803,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "get jsonSchema",
+          "ranges": [
+            {
+              "startOffset": 815,
+              "endOffset": 1288,
+              "count": 2
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "$beforeInsert",
+          "ranges": [
+            {
+              "startOffset": 1293,
+              "endOffset": 1396,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "$beforeUpdate",
+          "ranges": [
+            {
+              "startOffset": 1401,
+              "endOffset": 1547,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 1841,
+              "endOffset": 1872,
+              "count": 3
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1171",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/encrypt.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 2913,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 2
+            },
+            {
+              "startOffset": 122,
+              "endOffset": 127,
+              "count": 1
+            },
+            {
+              "startOffset": 128,
+              "endOffset": 148,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "hashPassword",
+          "ranges": [
+            {
+              "startOffset": 401,
+              "endOffset": 657,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "verifyPassword",
+          "ranges": [
+            {
+              "startOffset": 719,
+              "endOffset": 926,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1230",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/config.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 7689,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 1
+            },
+            {
+              "startOffset": 122,
+              "endOffset": 127,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1239",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/schemas/usersSchema.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 7335,
+              "count": 1
+            },
+            {
+              "startOffset": 407,
+              "endOffset": 488,
+              "count": 0
+            },
+            {
+              "startOffset": 664,
+              "endOffset": 706,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 88,
+              "endOffset": 405,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 410,
+              "endOffset": 487,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 571,
+              "endOffset": 662,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__setModuleDefault",
+          "ranges": [
+            {
+              "startOffset": 666,
+              "endOffset": 706,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "__importStar",
+          "ranges": [
+            {
+              "startOffset": 759,
+              "endOffset": 1039,
+              "count": 1
+            },
+            {
+              "startOffset": 818,
+              "endOffset": 1038,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1240",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/routes/authRoutes.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 2857,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "authRoutes",
+          "ranges": [
+            {
+              "startOffset": 232,
+              "endOffset": 744,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1241",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/controllers/authController.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 14215,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 1
+            },
+            {
+              "startOffset": 128,
+              "endOffset": 148,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "loginHandler",
+          "ranges": [
+            {
+              "startOffset": 587,
+              "endOffset": 1871,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "profileHandler",
+          "ranges": [
+            {
+              "startOffset": 1872,
+              "endOffset": 1993,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "refreshAccessTokenHandler",
+          "ranges": [
+            {
+              "startOffset": 1994,
+              "endOffset": 3118,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "logoutHandler",
+          "ranges": [
+            {
+              "startOffset": 3119,
+              "endOffset": 4010,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1242",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/services/authService.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 6806,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 2
+            },
+            {
+              "startOffset": 128,
+              "endOffset": 148,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "authenticateUser",
+          "ranges": [
+            {
+              "startOffset": 521,
+              "endOffset": 851,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "generateToken",
+          "ranges": [
+            {
+              "startOffset": 874,
+              "endOffset": 1407,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        },
+        {
+          "functionName": "storeToken",
+          "ranges": [
+            {
+              "startOffset": 1829,
+              "endOffset": 1995,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1243",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/expiry.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 2426,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "to_number_of_seconds",
+          "ranges": [
+            {
+              "startOffset": 145,
+              "endOffset": 503,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1244",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/schemas/authSchema.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 5759,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1245",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/configs/logger.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 3675,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 1
+            },
+            {
+              "startOffset": 128,
+              "endOffset": 148,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1255",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/plugins/knex.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 3977,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 5
+            },
+            {
+              "startOffset": 122,
+              "endOffset": 127,
+              "count": 2
+            },
+            {
+              "startOffset": 128,
+              "endOffset": 148,
+              "count": 3
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "knexPlugin",
+          "ranges": [
+            {
+              "startOffset": 569,
+              "endOffset": 1187,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 1105,
+              "endOffset": 1183,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1590",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/configs/knexfile.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 3443,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        }
+      ]
+    },
+    {
+      "scriptId": "1598",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/plugins/jwt.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 6278,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 3
+            },
+            {
+              "startOffset": 122,
+              "endOffset": 127,
+              "count": 1
+            },
+            {
+              "startOffset": 128,
+              "endOffset": 148,
+              "count": 2
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "jwtPlugin",
+          "ranges": [
+            {
+              "startOffset": 403,
+              "endOffset": 1761,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 703,
+              "endOffset": 1745,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1666",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/errorsText.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 1687,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "errorsText",
+          "ranges": [
+            {
+              "startOffset": 96,
+              "endOffset": 319,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    },
+    {
+      "scriptId": "1667",
+      "url": "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/translateAjvErrors.ts",
+      "functions": [
+        {
+          "functionName": "",
+          "ranges": [
+            {
+              "startOffset": 0,
+              "endOffset": 1756,
+              "count": 1
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "__importDefault",
+          "ranges": [
+            {
+              "startOffset": 70,
+              "endOffset": 151,
+              "count": 1
+            },
+            {
+              "startOffset": 122,
+              "endOffset": 127,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": true
+        },
+        {
+          "functionName": "translateAjvErrors",
+          "ranges": [
+            {
+              "startOffset": 273,
+              "endOffset": 493,
+              "count": 0
+            }
+          ],
+          "isBlockCoverage": false
+        }
+      ]
+    }
+  ],
+  "timestamp": 708198.206495,
+  "source-map-cache": {
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/testHelper.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        36,
+        42,
+        38,
+        42,
+        38,
+        46,
+        30,
+        32,
+        50,
+        40,
+        43,
+        53,
+        52,
+        41,
+        31,
+        49,
+        26,
+        19,
+        1,
+        63,
+        22,
+        30,
+        5,
+        18,
+        28,
+        5,
+        26,
+        1,
+        79,
+        86,
+        55,
+        39,
+        1,
+        51,
+        87,
+        37,
+        7,
+        1,
+        35,
+        50,
+        22,
+        52,
+        34,
+        7,
+        19,
+        1,
+        46,
+        17,
+        131,
+        113,
+        142,
+        148,
+        157,
+        189,
+        156,
+        160,
+        160,
+        6,
+        81,
+        15,
+        1,
+        36,
+        230,
+        114,
+        1,
+        37,
+        79,
+        1,
+        104,
+        45,
+        59,
+        1,
+        11368
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/testHelper.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/testHelper.ts"
+        ],
+        "names": [],
+        "mappings": "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",
+        "sourcesContent": [
+          "import { buildFastify } from \"./../server\";\nimport { faker } from \"@faker-js/faker\";\nimport { ImportMock, OtherManager } from \"ts-mock-imports\";\nimport type { FastifyInstance, InjectOptions } from \"fastify\";\nimport type { Tracker } from \"mock-knex\";\nimport type { Response } from \"light-my-request\";\nimport bcrypt from \"bcrypt\";\nimport tap, { Test } from \"tap\";\nimport { getTracker, QueryDetails } from \"mock-knex\";\nexport async function setupFastify() {\n  const fastify = buildFastify();\n  await fastify.ready();\n  return fastify;\n}\n\nexport async function teardownFastify(fastify: FastifyInstance, mockManager?: OtherManager<any>, tracker?: Tracker) {\n  if (mockManager) {\n    mockManager.restore();\n  }\n  if (tracker) {\n    tracker.uninstall();\n  }\n  await fastify.close();\n}\n\nexport async function injectRequest(fastify: FastifyInstance, method: InjectOptions[\"method\"], url: InjectOptions[\"url\"], payload?: InjectOptions[\"payload\"], headers?: InjectOptions[\"headers\"], cookies?: InjectOptions[\"cookies\"]) {\n  const response = await fastify.inject({ method, url, payload, headers, cookies });\n  const parsedPayload = JSON.parse(response.payload);\n  return { response, parsedPayload };\n}\n\nexport function mockBcryptError(importName: keyof typeof bcrypt, errorString: string) {\n  return ImportMock.mockOther(bcrypt, importName, () => {\n    throw new Error(errorString);\n  });\n}\n\nexport function createTracker(responses: any[]) {\n  const tracker = getTracker();\n  tracker.install();\n  tracker.on(\"query\", function sendResult(query: QueryDetails) {\n    query.response(responses);\n  });\n  return tracker;\n}\ntype userFields = \"username\" | \"email\" | \"role_id\" | \"password\" | \"confirm_password\" | \"id\" | \"remember\" | \"created_at\" | \"updated_at\";\nexport function createPayloadUser(fields: userFields[], defaults: { [key: string]: any }) {\n  const obj: { [key: string]: any } = {\n    id: fields.includes(\"id\") ? (defaults.hasOwnProperty(\"id\") ? defaults[\"id\"] : faker.number.int(10000)) : undefined,\n    username: defaults.hasOwnProperty(\"username\") ? defaults[\"username\"] : faker.internet.userName(),\n    email: fields.includes(\"email\") ? (defaults.hasOwnProperty(\"email\") ? defaults[\"email\"] : faker.internet.email()) : undefined,\n    role_id: fields.includes(\"role_id\") ? (defaults.hasOwnProperty(\"role_id\") ? defaults[\"role_id\"] : faker.number.int(10)) : undefined,\n    password: fields.includes(\"password\") ? (defaults.hasOwnProperty(\"password\") ? defaults[\"password\"] : faker.internet.password()) : undefined,\n    confirm_password: fields.includes(\"confirm_password\") ? (defaults.hasOwnProperty(\"confirm_password\") ? defaults[\"confirm_password\"] : faker.internet.password()) : undefined,\n    remember: fields.includes(\"remember\") ? (defaults.hasOwnProperty(\"remember\") ? defaults[\"remember\"] : faker.datatype.boolean()) : undefined,\n    created_at: fields.includes(\"created_at\") ? (defaults.hasOwnProperty(\"created_at\") ? defaults[\"created_at\"] : faker.date.anytime()) : undefined,\n    updated_at: fields.includes(\"updated_at\") ? (defaults.hasOwnProperty(\"updated_at\") ? defaults[\"updated_at\"] : faker.date.anytime()) : undefined,\n  };\n  Object.keys(obj).forEach((key) => obj[key] === undefined && delete obj[key]);\n  return obj;\n}\nexport async function getDbUser(defaults: { [key: string]: any }) {\n  const obj: { [key: string]: any } = {\n    ...defaults,\n    password: defaults.hasOwnProperty(\"password\") ? await bcrypt.hash(defaults.password, 1) : await bcrypt.hash(faker.internet.password(), 1),\n  };\n  return createPayloadUser([\"id\", \"username\", \"email\", \"role_id\", \"password\", \"created_at\", \"updated_at\"], obj);\n}\n\nexport async function getResUser(defaults: { [key: string]: any }) {\n  return createPayloadUser([\"id\", \"username\", \"email\", \"role_id\"], defaults);\n}\n\nexport function checkResponseHeader(t: Test, response: Response, statusCode: number, contentType = \"application/json; charset=utf-8\") {\n  t.equal(response.statusCode, statusCode);\n  t.equal(response.headers[\"content-type\"], contentType);\n}\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/server.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        36,
+        54,
+        52,
+        52,
+        62,
+        60,
+        63,
+        69,
+        58,
+        56,
+        61,
+        54,
+        86,
+        76,
+        68,
+        84,
+        25,
+        43,
+        33,
+        14,
+        28,
+        28,
+        32,
+        27,
+        21,
+        50,
+        39,
+        22,
+        24,
+        42,
+        40,
+        60,
+        70,
+        65,
+        68,
+        27,
+        39,
+        38,
+        62,
+        41,
+        75,
+        39,
+        50,
+        27,
+        25,
+        18,
+        26,
+        18,
+        30,
+        33,
+        40,
+        113,
+        50,
+        20,
+        18,
+        18,
+        18,
+        14,
+        45,
+        10,
+        7,
+        27,
+        55,
+        11,
+        42,
+        64,
+        15,
+        21,
+        29,
+        44,
+        57,
+        38,
+        18,
+        51,
+        93,
+        14,
+        10,
+        7,
+        50,
+        17,
+        10,
+        87,
+        100,
+        8,
+        61,
+        28,
+        18,
+        19,
+        34,
+        47,
+        33,
+        14,
+        30,
+        39,
+        43,
+        43,
+        64,
+        10,
+        6,
+        30,
+        29,
+        26,
+        6,
+        36,
+        35,
+        39,
+        85,
+        7,
+        28,
+        25,
+        56,
+        39,
+        38,
+        100,
+        52,
+        7,
+        23,
+        55,
+        60,
+        67,
+        66,
+        51,
+        51,
+        53,
+        7,
+        61,
+        31,
+        82,
+        43,
+        34,
+        41,
+        38,
+        69,
+        56,
+        65,
+        52,
+        77,
+        39,
+        20,
+        15,
+        9,
+        38,
+        7,
+        48,
+        1,
+        12100
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/server.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/server.ts"
+        ],
+        "names": [],
+        "mappings": "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",
+        "sourcesContent": [
+          "import fastify from \"fastify\";\nimport { userRoutes } from \"./routes/userRoutes\";\nimport { authRoutes } from \"./routes/authRoutes\";\nimport loggerConfig from \"./configs/logger\";\nimport config from \"./utils/config\";\nimport fastifySwagger from \"@fastify/swagger\";\nimport fastifySwaggerUi from \"@fastify/swagger-ui\";\nimport knexPlugin from \"./plugins/knex\";\nimport jwtPlugin from \"./plugins/jwt\";\nimport cookie from \"@fastify/cookie\";\nimport I18next from \"i18next\";\nimport i18nextMiddleware from \"i18next-http-middleware\";\nimport Backend from \"i18next-fs-backend\";\nimport errorsText from \"./utils/errorsText\";\nimport translateAjvErrors from \"./utils/translateAjvErrors\";\nexport function buildFastify() {\n  const server = fastify({\n    logger: loggerConfig,\n    ajv: {\n      customOptions: {\n        $data: true,\n        allErrors: true,\n        keywords: [\n          {\n            keyword: \"exclusiveRange\",\n            type: \"number\",\n          },\n          // {\n          //   keyword: \"range\",\n          //   type: \"number\",\n          //   compile([min, max], parentSchema) {\n          //     return parentSchema.exclusiveRange === true\n          //       ? (data) => data > min && data < max\n          //       : (data) => data >= min && data <= max;\n          //   },\n          //   errors: false,\n          //   metaSchema: {\n          //     // schema to validate keyword value\n          //     type: \"array\",\n          //     items: [{ type: \"number\" }, { type: \"number\" }],\n          //     minItems: 2,\n          //     additionalItems: false,\n          //   },\n          // },\n        ],\n        formats: {\n          /*\n          phoneNumber: {\n            type: \"string\",\n            validate: (value) => {\n              const phoneRegex = /^[0-9]{10,15}$/; // Misal, validasi nomor telepon hanya angka 10-15 digit\n              return phoneRegex.test(value);\n            },\n          },\n          */\n        },\n      },\n      plugins: [require(\"ajv-errors\")],\n    },\n  });\n  // Inisialisasi i18next\n  const i18next = I18next.createInstance();\n  i18next\n    .use(Backend)\n    .use(i18nextMiddleware.LanguageDetector)\n    .init({\n      debug: false,\n      initImmediate: false,\n      fallbackLng: \"en\", // Bahasa default\n      preload: [\"en\", \"id\"], // Bahasa yang akan dimuat\n      ns: [\"ping\", \"auth\", \"users\"],\n      backend: {\n        loadPath: function (lngs: string, namespaces: string) {\n          return (\n            __dirname + `/locales/${lngs}/${namespaces.replace(\".\", \"/\")}.json`\n          );\n        },\n      },\n    });\n\n  // server.register(i18nextMiddleware.plugin, {\n  //   i18next,\n  // });\n  server.addHook(\n    \"preValidation\",\n    i18nextMiddleware.handle(i18next, {\n      ignoreRoutes: [], // or function(req, res, options, i18next) { /* return true to ignore */ }\n    })\n  );\n\n  /*server.register(i18nextNamespaceLoader, { i18next });*/\n  const swaggerOptions = {\n    swagger: {\n      info: {\n        title: \"My Title\",\n        description: \"My Description.\",\n        version: \"1.0.0\",\n      },\n      host: \"localhost\",\n      schemes: [\"http\", \"https\"],\n      consumes: [\"application/json\"],\n      produces: [\"application/json\"],\n      tags: [{ name: \"Default\", description: \"Default\" }],\n    },\n  };\n\n  const swaggerUiOptions = {\n    routePrefix: \"/docs\",\n    exposeRoute: true,\n  };\n  server.register(knexPlugin);\n  server.register(jwtPlugin);\n  server.register(cookie, {\n    secret: config.SECRET_COOKIE, // Secret to sign cookies (if needed)\n  });\n  // Register Redis plugin\n  /* c8 ignore start */ \n  server.register(\n    config.NODE_ENV === \"test\"\n      ? require(\"fastify-redis-mock\")\n      : require(\"@fastify/redis\"),\n    {\n      host: config.REDIS_HOST, // ganti ini kalau pakai Docker atau Redis di server lain\n      port: parseInt(config.REDIS_PORT),\n    }\n  );\n/* c8 ignore end */\n  server.register(fastifySwagger, swaggerOptions);\n  server.register(fastifySwaggerUi, swaggerUiOptions);\n  server.register(userRoutes, { prefix: \"/users\" });\n  server.register(authRoutes, { prefix: \"/auth\" });\n\n  server.get(\"/ping\", async (request, reply) => {\n    const message = request.t(\"ping:greeting\");\n    reply.status(200).send({ message: message });\n  });\n  server.setErrorHandler(function (error, request, reply) {\n    if (error.validation) {\n      translateAjvErrors(request.language, error.validation);\n      return reply.status(400).send({\n        path: request.url,\n        status: error.statusCode,\n        timestamp: Date.now(),\n        message: errorsText(error.validation),\n        errors: error.validation.map((err) => ({\n          key:\n            err.params && err.params.missingProperty\n              ? err.params.missingProperty\n              : err.instancePath.replace(new RegExp(\"/\", \"g\"), \"\"),\n          value: err.message,\n        })),\n      });\n    }\n    reply.status(500).send(error);\n  });\n\n  return server; // Kembalikan instance server\n}\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/routes/userRoutes.ts": {
+      "lineLengths": [
+        13,
+        62,
+        32,
+        66,
+        56,
+        35,
+        97,
+        98,
+        110,
+        113,
+        1,
+        1884
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/routes/userRoutes.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/routes/userRoutes.ts"
+        ],
+        "names": [],
+        "mappings": ";;AAcA,gCAKC;AAlBD,kEAKuC;AACvC,wDAKgC;AAEzB,KAAK,UAAU,UAAU,CAAC,MAAuB;IACtD,MAAM,CAAC,GAAG,CAAC,MAAM,EAAE,EAAE,MAAM,EAAE,2BAAa,EAAE,EAAE,+BAAc,CAAC,CAAC;IAC9D,MAAM,CAAC,IAAI,CAAC,MAAM,EAAE,EAAE,MAAM,EAAE,2BAAa,EAAE,EAAE,+BAAc,CAAC,CAAC;IAC/D,MAAM,CAAC,GAAG,CAAC,aAAa,EAAE,EAAE,MAAM,EAAE,8BAAgB,EAAE,EAAE,kCAAiB,CAAC,CAAC;IAC3E,MAAM,CAAC,MAAM,CAAC,aAAa,EAAE,EAAE,MAAM,EAAE,8BAAgB,EAAE,EAAE,kCAAiB,CAAC,CAAC;AAChF,CAAC",
+        "sourcesContent": [
+          "import { FastifyInstance } from \"fastify\";\r\nimport {\r\n  getUserHandler,\r\n  addUserHandler,\r\n  updateUserHandler,\r\n  deleteUserHandler,\r\n} from \"../controllers/userController\";\r\nimport {\r\n  addUserSchema,\r\n  deleteUserSchema,\r\n  getUserSchema,\r\n  updateUserSchema,\r\n} from \"../schemas/usersSchema\";\r\n\r\nexport async function userRoutes(server: FastifyInstance) {\r\n  server.get(\"/:id\", { schema: getUserSchema }, getUserHandler);\r\n  server.post(\"/add\", { schema: addUserSchema }, addUserHandler);\r\n  server.put(\"/update/:id\", { schema: updateUserSchema }, updateUserHandler);\r\n  server.delete(\"/delete/:id\", { schema: deleteUserSchema }, deleteUserHandler);\r\n}\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/controllers/userController.ts": {
+      "lineLengths": [
+        13,
+        62,
+        40,
+        40,
+        46,
+        46,
+        57,
+        47,
+        33,
+        58,
+        16,
+        72,
+        15,
+        5,
+        33,
+        1,
+        19,
+        26,
+        18,
+        17,
+        4,
+        47,
+        67,
+        9,
+        20,
+        76,
+        1,
+        50,
+        33,
+        78,
+        9,
+        20,
+        83,
+        1,
+        50,
+        33,
+        44,
+        77,
+        1,
+        4848
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/controllers/userController.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/controllers/userController.ts"
+        ],
+        "names": [],
+        "mappings": ";;AAeA,wCAWC;AAQD,wCAQC;AAOD,8CASC;AAMD,8CAOC;AAtED,yDAKiC;AAS1B,KAAK,UAAU,cAAc,CAClC,OAAkD,EAClD,KAAmB;IAEnB,MAAM,EAAE,GAAG,OAAO,CAAC,MAAM,CAAC,EAAuB,CAAC;IAClD,MAAM,IAAI,GAAG,MAAM,IAAA,yBAAW,EAAC,EAAE,CAAC,CAAC;IACnC,IAAI,CAAC,IAAI,EAAE,CAAC;QACV,KAAK,CAAC,MAAM,CAAC,GAAG,CAAC,CAAC,IAAI,CAAC,EAAE,KAAK,EAAE,OAAO,CAAC,CAAC,CAAC,iBAAiB,CAAC,EAAE,CAAC,CAAC;QAChE,OAAO;IACT,CAAC;IACD,KAAK,CAAC,MAAM,CAAC,GAAG,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC;AAC/B,CAAC;AAED,mBAAmB;AACnB,0BAA0B;AAC1B,kBAAkB;AAClB,iBAAiB;AACjB,IAAI;AAEG,KAAK,UAAU,cAAc,CAClC,OAA2C,EAC3C,KAAmB;IAEnB,MAAM,OAAO,GAAG,MAAM,IAAA,qBAAO,EAAC,OAAO,CAAC,IAAI,CAAC,CAAC;IAC5C,KAAK;SACF,MAAM,CAAC,GAAG,CAAC;SACX,IAAI,CAAC,EAAE,OAAO,EAAE,OAAO,CAAC,CAAC,CAAC,qBAAqB,CAAC,EAAE,IAAI,EAAE,OAAO,EAAE,CAAC,CAAC;AACxE,CAAC;AAOM,KAAK,UAAU,iBAAiB,CACrC,OAAqE,EACrE,KAAmB;IAEnB,MAAM,EAAE,GAAG,OAAO,CAAC,MAAM,CAAC,EAAuB,CAAC;IAClD,MAAM,WAAW,GAAG,MAAM,IAAA,wBAAU,EAAC,EAAE,EAAE,OAAO,CAAC,IAAI,CAAC,CAAC;IACvD,KAAK;SACF,MAAM,CAAC,GAAG,CAAC;SACX,IAAI,CAAC,EAAE,OAAO,EAAE,OAAO,CAAC,CAAC,CAAC,wBAAwB,CAAC,EAAE,IAAI,EAAE,WAAW,EAAE,CAAC,CAAC;AAC/E,CAAC;AAMM,KAAK,UAAU,iBAAiB,CACrC,OAAqD,EACrD,KAAmB;IAEnB,MAAM,EAAE,GAAG,OAAO,CAAC,MAAM,CAAC,EAAuB,CAAC;IAClD,MAAM,IAAA,wBAAU,EAAC,EAAE,CAAC,CAAC;IACrB,KAAK,CAAC,MAAM,CAAC,GAAG,CAAC,CAAC,IAAI,CAAC,EAAE,OAAO,EAAE,OAAO,CAAC,CAAC,CAAC,wBAAwB,CAAC,EAAE,CAAC,CAAC;AAC3E,CAAC",
+        "sourcesContent": [
+          "import { FastifyRequest, FastifyReply } from \"fastify\";\r\nimport {\r\n  getUserById,\r\n  addUser,\r\n  updateUser,\r\n  deleteUser,\r\n} from \"../services/userService\";\r\n\r\nimport type { UserType } from \"./../models/User\";\r\n\r\n// Handle GET /users/:id\r\ninterface GetUserParams {\r\n  id: string;\r\n}\r\n\r\nexport async function getUserHandler(\r\n  request: FastifyRequest<{ Params: GetUserParams }>,\r\n  reply: FastifyReply\r\n) {\r\n  const id = request.params.id as unknown as number;\r\n  const user = await getUserById(id);\r\n  if (!user) {\r\n    reply.status(404).send({ error: request.t(\"users:get.error\") });\r\n    return;\r\n  }\r\n  reply.status(200).send(user);\r\n}\r\n\r\n// Handle POST /add\r\n// interface AddUserBody {\r\n//   name: string;\r\n//   age: number;\r\n// }\r\n\r\nexport async function addUserHandler(\r\n  request: FastifyRequest<{ Body: UserType }>,\r\n  reply: FastifyReply\r\n) {\r\n  const newUser = await addUser(request.body);\r\n  reply\r\n    .status(201)\r\n    .send({ message: request.t(\"users:add.successed\"), user: newUser });\r\n}\r\n\r\n// Handle PUT /update/:id\r\ninterface UpdateUserParams {\r\n  id: string;\r\n}\r\n\r\nexport async function updateUserHandler(\r\n  request: FastifyRequest<{ Body: UserType; Params: UpdateUserParams }>,\r\n  reply: FastifyReply\r\n) {\r\n  const id = request.params.id as unknown as number;\r\n  const updatedUser = await updateUser(id, request.body);\r\n  reply\r\n    .status(200)    \r\n    .send({ message: request.t(\"users:update.successed\"), user: updatedUser });\r\n}\r\n\r\n// Handle DELETE /delete/:id\r\ninterface DeleteUserParams {\r\n  id: string;\r\n}\r\nexport async function deleteUserHandler(\r\n  request: FastifyRequest<{ Params: DeleteUserParams }>,\r\n  reply: FastifyReply\r\n) {\r\n  const id = request.params.id as unknown as number;\r\n  await deleteUser(id);\r\n  reply.status(200).send({ message: request.t(\"users:delete.successed\") });\r\n}\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/services/userService.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        34,
+        26,
+        32,
+        32,
+        58,
+        32,
+        59,
+        26,
+        1,
+        29,
+        30,
+        44,
+        39,
+        65,
+        19,
+        1,
+        38,
+        37,
+        44,
+        39,
+        84,
+        31,
+        1,
+        28,
+        31,
+        32,
+        67,
+        63,
+        1,
+        2952
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/services/userService.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/services/userService.ts"
+        ],
+        "names": [],
+        "mappings": ";;;;;AAGA,kCAGC;AAGD,0BAKC;AAGD,gCAKC;AAGD,gCAIC;AA7BD,0DAA8C;AAGvC,KAAK,UAAU,WAAW,CAAC,EAAU;IAC1C,MAAM,IAAI,GAAG,MAAM,cAAI,CAAC,KAAK,EAAE,CAAC,QAAQ,CAAC,EAAE,CAAC,CAAC;IAC7C,OAAO,CAAC,IAAI,CAAC,IAAI,IAAI,CAAC;AACxB,CAAC;AAED,6BAA6B;AACtB,KAAK,UAAU,OAAO,CAAC,IAAwB;IACpD,MAAM,OAAO,qBAAwB,IAAI,CAAC,CAAC;IAC3C,OAAO,OAAO,CAAC,kBAAkB,CAAC,CAAC;IACnC,MAAM,OAAO,GAAG,MAAM,cAAI,CAAC,KAAK,EAAE,CAAC,MAAM,CAAC,OAAO,CAAC,CAAC;IACnD,OAAO,OAAO,CAAC;AACjB,CAAC;AAED,sCAAsC;AAC/B,KAAK,UAAU,UAAU,CAAC,EAAS,EAAC,IAAa;IACtD,MAAM,OAAO,qBAAwB,IAAI,CAAC,CAAC;IAC3C,OAAO,OAAO,CAAC,kBAAkB,CAAC,CAAC;IACnC,MAAM,WAAW,GAAG,MAAM,cAAI,CAAC,KAAK,EAAE,CAAC,iBAAiB,CAAC,EAAE,EAAE,OAAO,CAAC,CAAC;IACtE,OAAO,WAAW,IAAI,IAAI,CAAC;AAC7B,CAAC;AAED,4BAA4B;AACrB,KAAK,UAAU,UAAU,CAAC,EAAU;IACzC,4BAA4B;IAC5B,MAAM,UAAU,GAAG,MAAM,cAAI,CAAC,KAAK,EAAE,CAAC,UAAU,CAAC,EAAE,CAAC,CAAC;IACrD,OAAO,UAAU,GAAG,CAAC,CAAC,CAAC,oCAAoC;AAC7D,CAAC",
+        "sourcesContent": [
+          "import User, {UserType} from \"../models/User\";\r\n\r\n\r\nexport async function getUserById(id: number) {\r\n  const user = await User.query().findById(id);\r\n  return (user) || null;\r\n}\r\n\r\n// Function to add a new user\r\nexport async function addUser(data:Omit<UserType,'id'>) {\r\n  const newData:{[key:string]:any}={...data};\r\n  delete newData[\"confirm_password\"];\r\n  const newUser = await User.query().insert(newData);\r\n  return newUser;\r\n}\r\n\r\n// Function to update an existing user\r\nexport async function updateUser(id:number,data:UserType) {\r\n  const newData:{[key:string]:any}={...data};\r\n  delete newData[\"confirm_password\"];\r\n  const updatedUser = await User.query().patchAndFetchById(id, newData);\r\n  return updatedUser || null;\r\n}\r\n\r\n// Function to delete a user\r\nexport async function deleteUser(id: number) {\r\n  // Hapus user berdasarkan ID\r\n  const numDeleted = await User.query().deleteById(id);\r\n  return numDeleted > 0; // Return true jika ada yang dihapus\r\n}\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/models/User.ts": {
+      "lineLengths": [
+        13,
+        21,
+        62,
+        34,
+        41,
+        48,
+        50,
+        38,
+        38,
+        70,
+        35,
+        16,
+        19,
+        65,
+        85,
+        23,
+        42,
+        35,
+        18,
+        14,
+        10,
+        5,
+        29,
+        16,
+        27,
+        56,
+        25,
+        40,
+        75,
+        45,
+        75,
+        55,
+        14,
+        10,
+        5,
+        27,
+        73,
+        5,
+        27,
+        28,
+        77,
+        9,
+        5,
+        1,
+        43,
+        25,
+        69,
+        44,
+        44,
+        94,
+        23,
+        4868
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/models/User.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/models/User.ts"
+        ],
+        "names": [],
+        "mappings": ";AAAA,qBAAqB;;;AAErB,yCAA2D;AAC3D,gDAAkD;AAClD,kDAAkD;AAClD,MAAM,IAAK,SAAQ,iBAAK;IAStB,kCAAkC;IAElC,kEAAkE;IAClE,MAAM,KAAK,gBAAgB;QACzB,OAAO;YACL,IAAI,EAAE;gBACJ,QAAQ,EAAE,iBAAK,CAAC,oBAAoB;gBACpC,UAAU,EAAE,GAAG,SAAS,OAAO,EAAE,oCAAoC;gBACrE,IAAI,EAAE;oBACJ,IAAI,EAAE,eAAe;oBACrB,EAAE,EAAE,UAAU;iBACf;aACF;SACF,CAAC;IACJ,CAAC;IACD,MAAM,KAAK,UAAU;QACnB,OAAO;YACL,IAAI,EAAE,QAAQ;YACd,QAAQ,EAAE,CAAC,UAAU,EAAE,OAAO,EAAE,UAAU,CAAC;YAC3C,UAAU,EAAE;gBACV,EAAE,EAAE,EAAE,IAAI,EAAE,SAAS,EAAE;gBACvB,QAAQ,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE,SAAS,EAAE,CAAC,EAAE,SAAS,EAAE,GAAG,EAAE;gBAC1D,QAAQ,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE;gBAC5B,KAAK,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE,MAAM,EAAE,OAAO,EAAE,SAAS,EAAE,GAAG,EAAE;gBAC1D,OAAO,EAAE,EAAE,IAAI,EAAE,CAAC,SAAS,EAAE,MAAM,CAAC,EAAE;aACvC;SACF,CAAC;IACJ,CAAC;IACD,KAAK,CAAC,aAAa;QACjB,IAAI,CAAC,QAAQ,GAAG,MAAM,IAAA,sBAAY,EAAC,IAAI,CAAC,QAAQ,CAAC,CAAC;IACpD,CAAC;IAED,KAAK,CAAC,aAAa;QACjB,IAAI,IAAI,CAAC,QAAQ,EAAE,CAAC;YAClB,IAAI,CAAC,QAAQ,GAAG,MAAM,IAAA,sBAAY,EAAC,IAAI,CAAC,QAAQ,CAAC,CAAC;QACpD,CAAC;IACH,CAAC;;AA5CD,2CAA2C;AACpC,cAAS,GAAG,OAAO,CAAC;AA6C7B,MAAM,gBAAgB,GAAG,IAAI,CAAC,KAAK,CAAC,IAAI,CAAC,SAAS,CAAC,IAAI,CAAC,UAAU,CAAC,CAAC,CAAC;AAQ5D,4CAAgB;AAPzB,OAAO,gBAAgB,CAAC,UAAU,CAAC,QAAQ,CAAC;AAC5C,gBAAgB,CAAC,QAAQ,GAAG,gBAAgB,CAAC,QAAQ,CAAC,MAAM,CAC1D,CAAC,KAAa,EAAE,EAAE,CAAC,KAAK,KAAK,UAAU,CACxC,CAAC;AAKF,kBAAe,IAAI,CAAC",
+        "sourcesContent": [
+          "// src/models/User.ts\r\n\r\nimport { Model, ModelObject, JSONSchema } from \"objection\";\r\nimport { hashPassword } from \"./../utils/encrypt\";\r\n// Definisikan kelas User yang mewarisi dari Model\r\nclass User extends Model {\r\n  // Nama tabel yang digunakan oleh model ini\r\n  static tableName = \"users\";\r\n\r\n  id!: number;\r\n  username!: string;\r\n  email!: string;\r\n  role_id?: number;\r\n  password!: string;\r\n  // Definisikan tipe properti model\r\n\r\n  // Jika kamu menggunakan type-checking, tambahkan tipe untuk kolom\r\n  static get relationMappings() {\r\n    return {\r\n      role: {\r\n        relation: Model.BelongsToOneRelation,\r\n        modelClass: `${__dirname}/Role`, // Pastikan path ke model Role benar\r\n        join: {\r\n          from: \"users.role_id\",\r\n          to: \"roles.id\",\r\n        },\r\n      },\r\n    };\r\n  }\r\n  static get jsonSchema(): JSONSchema {\r\n    return {\r\n      type: \"object\",\r\n      required: [\"username\", \"email\", \"password\"],\r\n      properties: {\r\n        id: { type: \"integer\" },\r\n        username: { type: \"string\", minLength: 1, maxLength: 255 },\r\n        password: { type: \"string\" },\r\n        email: { type: \"string\", format: \"email\", maxLength: 255 },\r\n        role_id: { type: [\"integer\", \"null\"] },\r\n      },\r\n    };\r\n  }\r\n  async $beforeInsert() {\r\n    this.password = await hashPassword(this.password);\r\n  }\r\n\r\n  async $beforeUpdate() {\r\n    if (this.password) {\r\n      this.password = await hashPassword(this.password);\r\n    }\r\n  }\r\n}\r\nconst PublicUserSchema = JSON.parse(JSON.stringify(User.jsonSchema));\r\ndelete PublicUserSchema.properties.password;\r\nPublicUserSchema.required = PublicUserSchema.required.filter(\r\n  (value: string) => value !== \"password\"\r\n);\r\ntype UserType = ModelObject<User>;\r\ntype PublicUserType = Omit<UserType, \"password\">;\r\nexport type { UserType, PublicUserType };\r\nexport { PublicUserSchema };\r\nexport default User;\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/encrypt.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        55,
+        52,
+        54,
+        42,
+        9,
+        108,
+        30,
+        5,
+        19,
+        50,
+        5,
+        2,
+        36,
+        60,
+        9,
+        72,
+        5,
+        19,
+        52,
+        5,
+        2,
+        40,
+        1944
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/encrypt.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/encrypt.ts"
+        ],
+        "names": [],
+        "mappings": ";;;;;;AAAA,oDAA4B;AAC5B,sDAA8B;AACvB,MAAM,YAAY,GAAG,KAAK,EAAE,QAAgB,EAAE,EAAE;IACrD,IAAI,CAAC;QACH,MAAM,cAAc,GAAG,MAAM,gBAAM,CAAC,IAAI,CAAC,QAAQ,EAAE,gBAAM,CAAC,oBAAoB,CAAC,CAAC;QAChF,OAAO,cAAc,CAAC;IACxB,CAAC;IAAC,OAAO,KAAK,EAAE,CAAC;QACf,MAAM,IAAI,KAAK,CAAC,wBAAwB,CAAC,CAAC;IAC5C,CAAC;AACH,CAAC,CAAC;AAPW,QAAA,YAAY,gBAOvB;AAEK,MAAM,cAAc,GAAG,KAAK,EAAE,QAAgB,EAAE,cAAsB,EAAE,EAAE;IAC/E,IAAI,CAAC;QACH,OAAO,MAAM,gBAAM,CAAC,OAAO,CAAC,QAAQ,EAAE,cAAc,CAAC,CAAC;IACxD,CAAC;IAAC,OAAO,KAAK,EAAE,CAAC;QACf,MAAM,IAAI,KAAK,CAAC,0BAA0B,CAAC,CAAC;IAC9C,CAAC;AACH,CAAC,CAAC;AANW,QAAA,cAAc,kBAMzB",
+        "sourcesContent": [
+          "import bcrypt from \"bcrypt\";\r\nimport config from \"./config\";\r\nexport const hashPassword = async (password: string) => {\r\n  try {\r\n    const hashedPassword = await bcrypt.hash(password, config.SALT_ROUNDS_PASSWORD);\r\n    return hashedPassword;\r\n  } catch (error) {\r\n    throw new Error(\"Error hashing password\");\r\n  }\r\n};\r\n\r\nexport const verifyPassword = async (password: string, hashedPassword: string) => {\r\n  try {\r\n    return await bcrypt.compare(password, hashedPassword);\r\n  } catch (error) {\r\n    throw new Error('Error verifying password');\r\n  }\r\n};\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/config.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        60,
+        16,
+        19,
+        15,
+        15,
+        20,
+        19,
+        31,
+        23,
+        24,
+        38,
+        37,
+        39,
+        38,
+        36,
+        21,
+        21,
+        6,
+        17,
+        15,
+        27,
+        26,
+        10,
+        19,
+        27,
+        56,
+        28,
+        32,
+        20,
+        27,
+        53,
+        28,
+        33,
+        25,
+        27,
+        57,
+        28,
+        38,
+        31,
+        27,
+        23,
+        24,
+        28,
+        10,
+        23,
+        27,
+        10,
+        24,
+        27,
+        10,
+        37,
+        27,
+        10,
+        38,
+        27,
+        10,
+        38,
+        27,
+        10,
+        39,
+        27,
+        10,
+        36,
+        27,
+        10,
+        21,
+        27,
+        33,
+        10,
+        21,
+        27,
+        26,
+        10,
+        6,
+        2,
+        42,
+        19,
+        13,
+        64,
+        50,
+        3,
+        25,
+        5284
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/config.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/config.ts"
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,4DAAmC;AAEnC,MAAM,MAAM,GAAG;IACb,IAAI,EAAE,QAAQ;IACd,QAAQ,EAAE;QACR,MAAM;QACN,WAAW;QACX,UAAU;QACV,sBAAsB;QACtB,cAAc;QACd,eAAe;QACf,6BAA6B;QAC7B,4BAA4B;QAC5B,8BAA8B;QAC9B,6BAA6B;QAC7B,2BAA2B;QAC3B,YAAY;QACZ,YAAY;KACb;IACD,UAAU,EAAE;QACV,IAAI,EAAE;YACJ,IAAI,EAAE,QAAQ;YACd,OAAO,EAAE,IAAI;SACd;QACD,QAAQ,EAAE;YACR,IAAI,EAAE,QAAQ;YACd,IAAI,EAAE,CAAC,aAAa,EAAE,YAAY,EAAE,MAAM,CAAC;YAC3C,OAAO,EAAE,MAAM;SAChB,EAAE,qBAAqB;QACxB,SAAS,EAAE;YACT,IAAI,EAAE,QAAQ;YACd,IAAI,EAAE,CAAC,OAAO,EAAE,MAAM,EAAE,MAAM,EAAE,OAAO,CAAC;YACxC,OAAO,EAAE,MAAM;SAChB,EAAE,sBAAsB;QACzB,cAAc,EAAE;YACd,IAAI,EAAE,QAAQ;YACd,IAAI,EAAE,CAAC,OAAO,EAAE,MAAM,EAAE,MAAM,EAAE,OAAO,EAAE,EAAE,CAAC;YAC5C,OAAO,EAAE,MAAM;SAChB,EAAE,2BAA2B;QAC9B,oBAAoB,EAAE;YACpB,IAAI,EAAE,QAAQ;YACd,OAAO,EAAE,CAAC;YACV,OAAO,EAAE,EAAE;YACX,OAAO,EAAE,MAAM;SAChB;QACD,YAAY,EAAE;YACZ,IAAI,EAAE,QAAQ;SACf;QACD,aAAa,EAAE;YACb,IAAI,EAAE,QAAQ;SACf;QACD,0BAA0B,EAAE;YAC1B,IAAI,EAAE,QAAQ;SACf;QACD,2BAA2B,EAAE;YAC3B,IAAI,EAAE,QAAQ;SACf;QACD,2BAA2B,EAAE;YAC3B,IAAI,EAAE,QAAQ;SACf;QACD,4BAA4B,EAAE;YAC5B,IAAI,EAAE,QAAQ;SACf;QACD,yBAAyB,EAAE;YACzB,IAAI,EAAE,QAAQ;SACf;QACD,UAAU,EAAE;YACV,IAAI,EAAE,QAAQ;YACd,OAAO,EAAE,WAAW;SACrB;QACD,UAAU,EAAE;YACV,IAAI,EAAE,QAAQ;YACd,OAAO,EAAE,IAAI;SACd;KACF;CACO,CAAC;AAEX,MAAM,MAAM,GAAG,IAAA,oBAAS,EAAa;IACnC,MAAM,EAAE,MAAM;IACd,MAAM,EAAE;QACN,IAAI,EAAE,GAAG,SAAS,eAAe,OAAO,CAAC,GAAG,CAAC,QAAQ,EAAE;KACxD,EAAE,2CAA2C;CAC/C,CAAC,CAAC;AACH,kBAAe,MAAM,CAAC",
+        "sourcesContent": [
+          "import envSchema from \"env-schema\";\r\nimport { FromSchema } from \"json-schema-to-ts\";\r\nconst schema = {\r\n  type: \"object\",\r\n  required: [\r\n    \"PORT\",\r\n    \"LOG_LEVEL\",\r\n    \"NODE_ENV\",\r\n    \"SALT_ROUNDS_PASSWORD\",\r\n    \"SECRET_TOKEN\",\r\n    \"SECRET_COOKIE\",\r\n    \"ACCESS_TOKEN_SHORT_DURATION\",\r\n    \"ACCESS_TOKEN_LONG_DURATION\",\r\n    \"REFRESH_TOKEN_SHORT_DURATION\",\r\n    \"REFRESH_TOKEN_LONG_DURATION\",\r\n    \"REFRESH_TOKEN_COOKIE_NAME\",\r\n    \"REDIS_HOST\",\r\n    \"REDIS_PORT\",\r\n  ],\r\n  properties: {\r\n    PORT: {\r\n      type: \"string\",\r\n      default: 3000,\r\n    },\r\n    NODE_ENV: {\r\n      type: \"string\",\r\n      enum: [\"development\", \"production\", \"test\"],\r\n      default: \"info\",\r\n    }, // Tambahkan NODE_ENV\r\n    LOG_LEVEL: {\r\n      type: \"string\",\r\n      enum: [\"debug\", \"info\", \"warn\", \"error\"],\r\n      default: \"info\",\r\n    }, // Tambahkan LOG_LEVEL\r\n    FILE_LOG_LEVEL: {\r\n      type: \"string\",\r\n      enum: [\"debug\", \"info\", \"warn\", \"error\", \"\"],\r\n      default: \"info\",\r\n    }, // Tambahkan FILE_LOG_LEVEL\r\n    SALT_ROUNDS_PASSWORD: {\r\n      type: \"number\",\r\n      minimum: 1,\r\n      maximum: 10,\r\n      default: \"info\",\r\n    },\r\n    SECRET_TOKEN: {\r\n      type: \"string\",\r\n    },\r\n    SECRET_COOKIE: {\r\n      type: \"string\",\r\n    },\r\n    ACCESS_TOKEN_LONG_DURATION: {\r\n      type: \"string\",\r\n    },\r\n    ACCESS_TOKEN_SHORT_DURATION: {\r\n      type: \"string\",\r\n    },\r\n    REFRESH_TOKEN_LONG_DURATION: {\r\n      type: \"string\",\r\n    },\r\n    REFRESH_TOKEN_SHORT_DURATION: {\r\n      type: \"string\",\r\n    },\r\n    REFRESH_TOKEN_COOKIE_NAME: {\r\n      type: \"string\",\r\n    },\r\n    REDIS_HOST: {\r\n      type: \"string\",\r\n      default: \"127.0.0.1\",\r\n    },\r\n    REDIS_PORT: {\r\n      type: \"string\",\r\n      default: 6379,\r\n    },\r\n  },\r\n} as const;\r\ntype schemaType = FromSchema<typeof schema>;\r\nconst config = envSchema<schemaType>({\r\n  schema: schema,\r\n  dotenv: {\r\n    path: `${__dirname}/../../.env.${process.env.NODE_ENV}`,\r\n  }, // load .env if it is there, default: false\r\n});\r\nexport default config;\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/schemas/usersSchema.ts": {
+      "lineLengths": [
+        13,
+        97,
+        33,
+        53,
+        88,
+        68,
+        5,
+        39,
+        29,
+        33,
+        17,
+        4,
+        96,
+        72,
+        21,
+        21,
+        3,
+        66,
+        42,
+        20,
+        141,
+        36,
+        18,
+        2,
+        62,
+        109,
+        55,
+        45,
+        26,
+        36,
+        24,
+        49,
+        101,
+        23,
+        16,
+        32,
+        10,
+        9,
+        25,
+        13,
+        23,
+        25,
+        21,
+        59,
+        10,
+        6,
+        15,
+        37,
+        6,
+        2,
+        25,
+        21,
+        15,
+        14,
+        27,
+        25,
+        44,
+        46,
+        14,
+        10,
+        6,
+        2,
+        28,
+        13,
+        23,
+        25,
+        21,
+        59,
+        10,
+        6,
+        21,
+        15,
+        14,
+        27,
+        25,
+        44,
+        23,
+        71,
+        18,
+        14,
+        10,
+        6,
+        2,
+        28,
+        13,
+        23,
+        25,
+        21,
+        59,
+        10,
+        6,
+        2,
+        4476
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/schemas/usersSchema.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/schemas/usersSchema.ts"
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,uDAAwD;AAExD,MAAM,UAAU,GAAe,cAAI,CAAC,UAAU,CAAC;AAC/C,IAAI,UAAU,CAAC,UAAU;IAAE,OAAO,UAAU,CAAC,UAAU,CAAC,EAAE,CAAC;AAC3D,IAAI,UAAU,CAAC,QAAQ;IAAE,UAAU,CAAC,QAAQ,CAAC,IAAI,CAAC,kBAAkB,CAAC,CAAC;AACtE,UAAU,CAAC,UAAU,mCAChB,UAAU,CAAC,UAAU,KACxB,gBAAgB,EAAE;QAChB,IAAI,EAAE,QAAQ;QACd,KAAK,EAAE;YACL,KAAK,EAAE,YAAY;SACpB;KACF,GACF,CAAC;AAEW,QAAA,aAAa,GAAG;IAC3B,MAAM,EAAE;QACN,IAAI,EAAE,QAAQ;QACd,QAAQ,EAAE,CAAC,IAAI,CAAC;QAChB,UAAU,EAAE;YACV,EAAE,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE,WAAW,EAAE,SAAS,EAAE;SAC/C;KACF;IACD,QAAQ,EAAE;QACR,GAAG,EAAE,uBAAgB;KACtB;CACF,CAAC;AAEW,QAAA,aAAa,GAAG;IAC3B,IAAI,EAAE,UAAU;IAChB,QAAQ,EAAE;QACR,GAAG,EAAE;YACH,IAAI,EAAE,QAAQ;YACd,UAAU,EAAE;gBACV,OAAO,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE;gBAC3B,IAAI,EAAE,uBAAgB;aACvB;SACF;KACF;CACF,CAAC;AACW,QAAA,gBAAgB,GAAG;IAC9B,MAAM,EAAE;QACN,IAAI,EAAE,QAAQ;QACd,QAAQ,EAAE,CAAC,IAAI,CAAC;QAChB,UAAU,EAAE;YACV,EAAE,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE,WAAW,EAAE,SAAS,EAAE;SAC/C;KACF;IACD,IAAI,EAAE,UAAU;IAChB,QAAQ,EAAE;QACR,GAAG,EAAE;YACH,IAAI,EAAE,QAAQ;YACd,UAAU,EAAE;gBACV,OAAO,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE;gBAC3B,IAAI,EAAE;oBACJ,KAAK,EAAE,CAAC,EAAE,IAAI,EAAE,MAAM,EAAE,EAAE,uBAAgB,CAAC;iBAC5C;aACF;SACF;KACF;CACF,CAAC;AACW,QAAA,gBAAgB,GAAG;IAC9B,MAAM,EAAE;QACN,IAAI,EAAE,QAAQ;QACd,QAAQ,EAAE,CAAC,IAAI,CAAC;QAChB,UAAU,EAAE;YACV,EAAE,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE,WAAW,EAAE,SAAS,EAAE;SAC/C;KACF;CACF,CAAC",
+        "sourcesContent": [
+          "import User, { PublicUserSchema } from \"../models/User\";\r\nimport { JSONSchema } from \"objection\";\r\nconst bodySchema: JSONSchema = User.jsonSchema;\r\nif (bodySchema.properties) delete bodySchema.properties.id;\r\nif (bodySchema.required) bodySchema.required.push(\"confirm_password\");\r\nbodySchema.properties = {\r\n  ...bodySchema.properties,\r\n  confirm_password: {\r\n    type: \"string\",\r\n    const: {\r\n      $data: \"1/password\",\r\n    },\r\n  },\r\n};\r\n\r\nexport const getUserSchema = {\r\n  params: {\r\n    type: \"object\",\r\n    required: [\"id\"],\r\n    properties: {\r\n      id: { type: \"string\", description: \"User ID\" },\r\n    },\r\n  },\r\n  response: {\r\n    200: PublicUserSchema,\r\n  },\r\n};\r\n\r\nexport const addUserSchema = {\r\n  body: bodySchema,\r\n  response: {\r\n    201: {\r\n      type: \"object\",\r\n      properties: {\r\n        message: { type: \"string\" },\r\n        user: PublicUserSchema,\r\n      },\r\n    },\r\n  },\r\n};\r\nexport const updateUserSchema = {\r\n  params: {\r\n    type: \"object\",\r\n    required: [\"id\"],\r\n    properties: {\r\n      id: { type: \"string\", description: \"User ID\" },\r\n    },\r\n  },\r\n  body: bodySchema,\r\n  response: {\r\n    200: {\r\n      type: \"object\",\r\n      properties: {\r\n        message: { type: \"string\" },\r\n        user: {\r\n          oneOf: [{ type: \"null\" }, PublicUserSchema],\r\n        },\r\n      },\r\n    },\r\n  },\r\n};\r\nexport const deleteUserSchema = {\r\n  params: {\r\n    type: \"object\",\r\n    required: [\"id\"],\r\n    properties: {\r\n      id: { type: \"string\", description: \"User ID\" },\r\n    },\r\n  },\r\n};\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/routes/authRoutes.ts": {
+      "lineLengths": [
+        13,
+        62,
+        32,
+        66,
+        54,
+        35,
+        95,
+        130,
+        118,
+        28,
+        42,
+        48,
+        7,
+        1,
+        2112
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/routes/authRoutes.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/routes/authRoutes.ts"
+        ],
+        "names": [],
+        "mappings": ";;AAaA,gCAgBC;AA5BD,kEAKuC;AACvC,sDAI+B;AAExB,KAAK,UAAU,UAAU,CAAC,MAAuB;IACtD,MAAM,CAAC,IAAI,CAAC,QAAQ,EAAE,EAAE,MAAM,EAAE,wBAAW,EAAE,EAAE,6BAAY,CAAC,CAAC;IAC7D,MAAM,CAAC,GAAG,CACR,KAAK,EACL,EAAE,MAAM,EAAE,0BAAa,EAAE,UAAU,EAAE,CAAC,MAAM,CAAC,YAAY,CAAC,EAAE,EAC5D,+BAAc,CACf,CAAC;IACF,MAAM,CAAC,IAAI,CACT,gBAAgB,EAChB,EAAE,MAAM,EAAE,0BAAa,EAAE,EACzB,0CAAyB,CAC1B,CAAC;IACF,MAAM,CAAC,IAAI,CAAC,SAAS,EAAE;QACrB,UAAU,EAAE,CAAC,MAAM,CAAC,YAAY,CAAC;QACjC,OAAO,EAAE,8BAAa;KACvB,CAAC,CAAC;AACL,CAAC",
+        "sourcesContent": [
+          "import { FastifyInstance } from \"fastify\";\r\nimport {\r\n  loginHandler,\r\n  profileHandler,\r\n  logoutHandler,\r\n  refreshAccessTokenHandler,\r\n} from \"../controllers/authController\";\r\nimport {\r\n  loginSchema,\r\n  profileSchema,\r\n  refreshSchema,\r\n} from \"../schemas/authSchema\";\r\n\r\nexport async function authRoutes(server: FastifyInstance) {\r\n  server.post(\"/login\", { schema: loginSchema }, loginHandler);\r\n  server.get(\r\n    \"/me\",\r\n    { schema: profileSchema, preHandler: [server.authenticate] },\r\n    profileHandler\r\n  );\r\n  server.post(\r\n    \"/refresh-token\",\r\n    { schema: refreshSchema },\r\n    refreshAccessTokenHandler\r\n  );\r\n  server.post(\"/logout\", {\r\n    preHandler: [server.authenticate],\r\n    handler: logoutHandler,\r\n  });\r\n}\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/controllers/authController.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        36,
+        40,
+        62,
+        38,
+        57,
+        63,
+        46,
+        21,
+        45,
+        58,
+        9,
+        83,
+        20,
+        78,
+        19,
+        9,
+        86,
+        68,
+        58,
+        61,
+        115,
+        13,
+        88,
+        56,
+        27,
+        58,
+        29,
+        10,
+        22,
+        19,
+        55,
+        17,
+        37,
+        11,
+        5,
+        19,
+        73,
+        5,
+        1,
+        47,
+        37,
+        33,
+        1,
+        58,
+        9,
+        46,
+        52,
+        29,
+        11,
+        108,
+        79,
+        58,
+        61,
+        126,
+        13,
+        88,
+        56,
+        27,
+        58,
+        29,
+        10,
+        22,
+        48,
+        5,
+        19,
+        82,
+        5,
+        1,
+        46,
+        9,
+        46,
+        70,
+        29,
+        11,
+        74,
+        41,
+        41,
+        82,
+        37,
+        71,
+        65,
+        27,
+        27,
+        11,
+        78,
+        5,
+        19,
+        75,
+        5,
+        1,
+        10204
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/controllers/authController.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/controllers/authController.ts"
+        ],
+        "names": [],
+        "mappings": "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",
+        "sourcesContent": [
+          "import { FastifyRequest, FastifyReply } from \"fastify\";\r\nimport {\r\n  authenticateUser,\r\n  generateToken,\r\n  //generateAccessToken,\r\n  storeToken,\r\n} from \"../services/authService\";\r\nimport config from \"./../utils/config\";\r\nimport { to_number_of_seconds } from \"./../utils/expiry\";\r\nimport { PublicUserType } from \"./../models/User\";\r\n\r\n// Handle POST /login\r\nexport async function loginHandler(\r\n  request: FastifyRequest,\r\n  reply: FastifyReply\r\n) {\r\n  const { username, password, remember } = request.body as {\r\n    username: string;\r\n    password: string;\r\n    remember: boolean;\r\n  };\r\n\r\n  try {\r\n    const user = await authenticateUser(username, password);\r\n    if (!user) {\r\n      reply.status(401).send({ error: request.t(\"auth:login.failed\") });\r\n      return;\r\n    }\r\n\r\n    const token = await generateToken(request, user, remember);\r\n    const duration = to_number_of_seconds(\r\n      remember\r\n        ? config.REFRESH_TOKEN_LONG_DURATION\r\n        : config.REFRESH_TOKEN_SHORT_DURATION\r\n    );\r\n    await storeToken(\r\n      request.server,\r\n      token.refreshToken,\r\n      token.accessToken,\r\n      user,\r\n      duration\r\n    );\r\n    reply\r\n      .setCookie(config.REFRESH_TOKEN_COOKIE_NAME, token.refreshToken, {\r\n        secure: true, // send cookie over HTTPS only\r\n        httpOnly: true,\r\n        sameSite: true, // alternative CSRF protection\r\n        maxAge: duration,\r\n      })\r\n      .code(200)\r\n      .send({\r\n        message: request.t(\"auth:login.successed\"),\r\n        user,\r\n        token: token.accessToken,\r\n      });\r\n  } catch (error) {\r\n    reply.status(500).send({ error: request.t(\"auth:login.error\") });\r\n  }\r\n}\r\n\r\nexport async function profileHandler(\r\n  request: FastifyRequest,\r\n  reply: FastifyReply\r\n) {\r\n  const user = request.server.user;\r\n  reply.status(200).send(user);\r\n}\r\n\r\nexport async function refreshAccessTokenHandler(\r\n  request: FastifyRequest,\r\n  reply: FastifyReply\r\n) {\r\n  try {\r\n    // Mengambil refresh token dari cookie\r\n    const jwtRequest = await request.jwtVerify<{\r\n      user: PublicUserType;\r\n      remember: boolean;\r\n    }>({\r\n      onlyCookie: true,\r\n    });\r\n\r\n    const token = await generateToken(\r\n      request,\r\n      jwtRequest.user,\r\n      jwtRequest.remember\r\n    );\r\n    const duration = to_number_of_seconds(\r\n      jwtRequest.remember\r\n        ? config.REFRESH_TOKEN_LONG_DURATION\r\n        : config.REFRESH_TOKEN_SHORT_DURATION\r\n    );\r\n    await storeToken(\r\n      request.server,\r\n      token.refreshToken,\r\n      token.accessToken,\r\n      jwtRequest.user,\r\n      duration\r\n    );\r\n\r\n    reply\r\n      .setCookie(config.REFRESH_TOKEN_COOKIE_NAME, token.refreshToken, {\r\n        secure: true, // send cookie over HTTPS only\r\n        httpOnly: true,\r\n        sameSite: true, // alternative CSRF protection\r\n        maxAge: duration,\r\n      })\r\n      .code(200)\r\n      .send({ token: token.accessToken });\r\n  } catch (error) {\r\n    reply.status(401).send({ error: request.t(\"auth:refresh.invalidToken\") });\r\n  }\r\n}\r\nexport async function logoutHandler(\r\n  request: FastifyRequest,\r\n  reply: FastifyReply\r\n) {\r\n  try {\r\n    // Mengambil refresh token dari cookie\r\n    const refreshToken = request.server.jwt.lookupToken(request, {\r\n      onlyCookie: true,\r\n    });\r\n \r\n    // Ambil user dari request (diasumsikan user sudah terautentikasi)\r\n    const user = request.server.user;\r\n\r\n    // Hapus refresh token dari Redis\r\n    await request.server.redis.del(`refreshToken:${user.id}-${refreshToken}`);\r\n\r\n    // Hapus cookie refresh token\r\n    reply.clearCookie(config.REFRESH_TOKEN_COOKIE_NAME, {\r\n      secure: true, // sesuai konfigurasi cookie sebelumnya\r\n      httpOnly: true,\r\n      sameSite: true,\r\n    });\r\n\r\n    reply.code(200).send({ message:  request.t(\"auth:logout.successed\") });\r\n  } catch (error) {\r\n    reply.status(500).send({ error: request.t(\"auth:logout.failed\") });\r\n  }\r\n}\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/services/authService.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        52,
+        44,
+        60,
+        48,
+        63,
+        32,
+        53,
+        68,
+        16,
+        20,
+        5,
+        89,
+        27,
+        20,
+        5,
+        16,
+        1,
+        58,
+        65,
+        27,
+        57,
+        59,
+        7,
+        76,
+        27,
+        58,
+        60,
+        7,
+        41,
+        2,
+        38,
+        2,
+        42,
+        26,
+        23,
+        19,
+        6,
+        52,
+        23,
+        5,
+        25,
+        43,
+        45,
+        5,
+        4,
+        21,
+        2,
+        2,
+        82,
+        100,
+        2,
+        32,
+        4776
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/services/authService.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/services/authService.ts"
+        ],
+        "names": [],
+        "mappings": ";;;;;;AAMA,4CAUC;AAfD,4DAAwD;AACxD,gDAAoD;AACpD,+DAAuC;AAEvC,gCAAgC;AACzB,KAAK,UAAU,gBAAgB,CAAC,QAAgB,EAAE,QAAgB;IACvE,MAAM,IAAI,GAAG,MAAM,cAAI,CAAC,KAAK,EAAE,CAAC,OAAO,CAAC,EAAE,QAAQ,EAAE,CAAC,CAAC;IACtD,IAAI,CAAC,IAAI,EAAE,CAAC;QACV,OAAO,IAAI,CAAC;IACd,CAAC;IACD,MAAM,eAAe,GAAG,MAAM,IAAA,wBAAc,EAAC,QAAQ,EAAE,IAAI,CAAC,QAAQ,CAAC,CAAC;IACtE,IAAI,CAAC,eAAe,EAAE,CAAC;QACrB,OAAO,IAAI,CAAC;IACd,CAAC;IACD,OAAO,IAAI,CAAC;AACd,CAAC;AACM,MAAM,aAAa,GAAG,KAAK,EAChC,OAAuB,EACvB,IAAoB,EACpB,QAAiB,EACjB,EAAE;IACF,MAAM,WAAW,GAAG,MAAM,OAAO,CAAC,MAAM,CAAC,GAAG,CAAC,IAAI,CAC/C,EAAE,IAAI,EAAE,EACR;QACE,SAAS,EAAE,QAAQ;YACjB,CAAC,CAAC,gBAAM,CAAC,0BAA0B;YACnC,CAAC,CAAC,gBAAM,CAAC,2BAA2B;KACvC,CACF,CAAC;IACF,MAAM,YAAY,GAAG,MAAM,OAAO,CAAC,MAAM,CAAC,GAAG,CAAC,IAAI,CAChD,EAAE,IAAI,EAAE,QAAQ,EAAE,EAClB;QACE,SAAS,EAAE,QAAQ;YACjB,CAAC,CAAC,gBAAM,CAAC,2BAA2B;YACpC,CAAC,CAAC,gBAAM,CAAC,4BAA4B;KACxC,CACF,CAAC;IACF,OAAO,EAAE,WAAW,EAAE,YAAY,EAAE,CAAC;AACvC,CAAC,CAAC;AAtBW,QAAA,aAAa,iBAsBxB;AACF;;;;;;;;;;;;;;;;EAgBE;AACK,MAAM,UAAU,GAAG,KAAK,EAC7B,OAAwB,EACxB,YAAoB,EACpB,WAAmB,EACnB,IAAoB,EACpB,QAAe,EACf,EAAE;IACF,MAAM,OAAO,CAAC,KAAK,CAAC,GAAG,CACrB,gBAAgB,IAAI,CAAC,EAAE,IAAI,YAAY,EAAE,EACzC,WAAW,EACX,IAAI,EACJ,QAAQ,CACT,CAAC;AACJ,CAAC,CAAC;AAbW,QAAA,UAAU,cAarB",
+        "sourcesContent": [
+          "import { FastifyRequest, FastifyInstance } from \"fastify\";\r\nimport User, { PublicUserType } from \"./../models/User\";\r\nimport { verifyPassword } from \"./../utils/encrypt\";\r\nimport config from \"./../utils/config\";\r\nimport { to_number_of_seconds } from \"./../utils/expiry\";\r\n// Function to authenticate user\r\nexport async function authenticateUser(username: string, password: string) {\r\n  const user = await User.query().findOne({ username });\r\n  if (!user) {\r\n    return null;\r\n  }\r\n  const isPasswordValid = await verifyPassword(password, user.password);\r\n  if (!isPasswordValid) {\r\n    return null;\r\n  }\r\n  return user;\r\n}\r\nexport const generateToken = async (\r\n  request: FastifyRequest,\r\n  user: PublicUserType,\r\n  remember: boolean\r\n) => {\r\n  const accessToken = await request.server.jwt.sign(\r\n    { user },\r\n    {\r\n      expiresIn: remember\r\n        ? config.ACCESS_TOKEN_LONG_DURATION\r\n        : config.ACCESS_TOKEN_SHORT_DURATION,\r\n    }\r\n  );\r\n  const refreshToken = await request.server.jwt.sign(\r\n    { user, remember },\r\n    {\r\n      expiresIn: remember\r\n        ? config.REFRESH_TOKEN_LONG_DURATION\r\n        : config.REFRESH_TOKEN_SHORT_DURATION,\r\n    }\r\n  );\r\n  return { accessToken, refreshToken };\r\n};\r\n/*\r\nexport const generateAccessToken = async (\r\n  request: FastifyRequest,\r\n  user: PublicUserType,\r\n  remember: boolean\r\n) => {\r\n  const accessToken = await request.server.jwt.sign(\r\n    { user, remember },\r\n    {\r\n      expiresIn: remember\r\n        ? config.ACCESS_TOKEN_LONG_DURATION\r\n        : config.ACCESS_TOKEN_SHORT_DURATION,\r\n    }\r\n  );\r\n  return accessToken;\r\n};\r\n*/\r\nexport const storeToken = async (\r\n  fastify: FastifyInstance,\r\n  refreshToken: string,\r\n  accessToken: string,\r\n  user: PublicUserType,\r\n  duration:number\r\n) => {\r\n  await fastify.redis.set(\r\n    `refreshToken:${user.id}-${refreshToken}`,\r\n    accessToken,\r\n    \"EX\",\r\n    duration\r\n  );\r\n};\r\n\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/expiry.ts": {
+      "lineLengths": [
+        13,
+        62,
+        38,
+        46,
+        52,
+        44,
+        47,
+        46,
+        43,
+        66,
+        34,
+        2,
+        52,
+        1868
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/expiry.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/expiry.ts"
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,MAAM,oBAAoB,GAAG,CAAC,UAAkB,EAAE,EAAE;IAClD,MAAM,CAAC,GAAG,CAAC,EACT,CAAC,GAAG,EAAE,GAAG,CAAC,EACV,CAAC,GAAG,EAAE,GAAG,CAAC,EACV,CAAC,GAAG,EAAE,GAAG,CAAC,CAAC;IACb,MAAM,gBAAgB,GAAG,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC;IACxC,MAAM,YAAY,GAAG,UAAU,CAAC,KAAK,CAAC,GAAG,CAAC,CAAC;IAC3C,OAAO,YAAY,CAAC,GAAG,CAAC,CAAC,WAAW,EAAE,EAAE;QACtC,MAAM,IAAI,GAAG,WAAW,CAAC,KAAK,CAAC,CAAC,CAAC,CAA0B,CAAC;QAC5D,OAAO,gBAAgB,CAAC,IAAI,CAAC,GAAG,CAAC,WAAW,CAAC,KAAK,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;IAC5D,CAAC,CAAC,CAAC,MAAM,CAAC,CAAC,CAAC,EAAE,CAAC,EAAE,EAAE,CAAC,CAAC,GAAG,CAAC,EAAE,CAAC,CAAC,CAAC;AAChC,CAAC,CAAC;AAEM,oDAAoB",
+        "sourcesContent": [
+          "const to_number_of_seconds = (timeString: string) => {\r\n  const s = 1,\r\n    m = 60 * s,\r\n    h = 60 * m,\r\n    d = 24 * h;\r\n  const timeElementsJson = { s, m, h, d };\r\n  const TimeElements = timeString.split(\":\");\r\n  return TimeElements.map((timeElement) => {\r\n    const comp = timeElement.slice(-1) as \"s\" | \"m\" | \"h\" | \"d\";\r\n    return timeElementsJson[comp] * +timeElement.slice(0, -1);\r\n  }).reduce((a, b) => a + b, 0);\r\n};\r\n\r\nexport {to_number_of_seconds};\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/schemas/authSchema.ts": {
+      "lineLengths": [
+        13,
+        62,
+        77,
+        41,
+        23,
+        11,
+        23,
+        55,
+        21,
+        76,
+        76,
+        42,
+        10,
+        6,
+        15,
+        14,
+        27,
+        40,
+        25,
+        64,
+        46,
+        14,
+        10,
+        6,
+        2,
+        25,
+        14,
+        23,
+        21,
+        28,
+        31,
+        91,
+        14,
+        10,
+        36,
+        6,
+        15,
+        37,
+        6,
+        2,
+        25,
+        14,
+        23,
+        21,
+        28,
+        31,
+        91,
+        14,
+        10,
+        36,
+        6,
+        15,
+        14,
+        27,
+        32,
+        25,
+        64,
+        14,
+        10,
+        6,
+        2,
+        4032
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/schemas/authSchema.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/schemas/authSchema.ts"
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,yCAAkD;AAErC,QAAA,WAAW,GAAG;IACzB,IAAI,EAAE;QACJ,IAAI,EAAE,QAAQ;QACd,QAAQ,EAAE,CAAC,UAAU,EAAE,UAAU,EAAE,UAAU,CAAC;QAC9C,UAAU,EAAE;YACV,QAAQ,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE,WAAW,EAAE,oBAAoB,EAAE;YAC/D,QAAQ,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE,WAAW,EAAE,oBAAoB,EAAE;YAC/D,QAAQ,EAAE,EAAE,IAAI,EAAE,SAAS,EAAE;SAC9B;KACF;IACD,QAAQ,EAAE;QACR,GAAG,EAAE;YACH,IAAI,EAAE,QAAQ;YACd,QAAQ,EAAE,CAAC,MAAM,EAAE,OAAO,CAAC;YAC3B,UAAU,EAAE;gBACV,KAAK,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE,WAAW,EAAE,OAAO,EAAE;gBAC/C,IAAI,EAAE,uBAAgB;aACvB;SACF;KACF;CACF,CAAC;AAEW,QAAA,aAAa,GAAG;IAC3B,OAAO,EAAE;QACP,IAAI,EAAE,QAAQ;QACd,UAAU,EAAE;YACV,aAAa,EAAE;gBACb,IAAI,EAAE,QAAQ;gBACd,OAAO,EACL,iEAAiE;aACpE;SACF;QACD,QAAQ,EAAE,CAAC,eAAe,CAAC;KAC5B;IACD,QAAQ,EAAE;QACR,GAAG,EAAE,uBAAgB;KACtB;CACF,CAAC;AAEW,QAAA,aAAa,GAAG;IAC3B,OAAO,EAAE;QACP,IAAI,EAAE,QAAQ;QACd,UAAU,EAAE;YACV,aAAa,EAAE;gBACb,IAAI,EAAE,QAAQ;gBACd,OAAO,EACL,iEAAiE;aACpE;SACF;QACD,QAAQ,EAAE,CAAC,eAAe,CAAC;KAC5B;IACD,QAAQ,EAAE;QACR,GAAG,EAAE;YACH,IAAI,EAAE,QAAQ;YACd,QAAQ,EAAE,CAAC,OAAO,CAAC;YACnB,UAAU,EAAE;gBACV,KAAK,EAAE,EAAE,IAAI,EAAE,QAAQ,EAAE,WAAW,EAAE,OAAO,EAAE;aAChD;SACF;KACF;CACF,CAAC",
+        "sourcesContent": [
+          "import { PublicUserSchema } from \"../models/User\";\r\n\r\nexport const loginSchema = {\r\n  body: {\r\n    type: \"object\",\r\n    required: [\"username\", \"password\", \"remember\"],\r\n    properties: {\r\n      username: { type: \"string\", description: \"Username for login\" },\r\n      password: { type: \"string\", description: \"Password for login\" },\r\n      remember: { type: \"boolean\" },\r\n    },\r\n  },\r\n  response: {\r\n    200: {\r\n      type: \"object\",\r\n      required: [\"user\", \"token\"],\r\n      properties: {\r\n        token: { type: \"string\", description: \"Token\" },\r\n        user: PublicUserSchema,\r\n      },\r\n    },\r\n  },\r\n};\r\n\r\nexport const profileSchema = {\r\n  headers: {\r\n    type: \"object\",\r\n    properties: {\r\n      authorization: {\r\n        type: \"string\",\r\n        pattern:\r\n          \"^Bearer [A-Za-z0-9-_=]+\\\\.[A-Za-z0-9-_=]+\\\\.[A-Za-z0-9-_.+/=]*$\",\r\n      },\r\n    },\r\n    required: [\"authorization\"],\r\n  },\r\n  response: {\r\n    200: PublicUserSchema,\r\n  },\r\n};\r\n\r\nexport const refreshSchema = {\r\n  headers: {\r\n    type: \"object\",\r\n    properties: {\r\n      authorization: {\r\n        type: \"string\",\r\n        pattern:\r\n          \"^Bearer [A-Za-z0-9-_=]+\\\\.[A-Za-z0-9-_=]+\\\\.[A-Za-z0-9-_.+/=]*$\",\r\n      },\r\n    },\r\n    required: [\"authorization\"],\r\n  },\r\n  response: {\r\n    200: {\r\n      type: \"object\",\r\n      required: [\"token\"],\r\n      properties: {\r\n        token: { type: \"string\", description: \"Token\" },\r\n      },\r\n    },\r\n  },\r\n};\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/configs/logger.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        61,
+        19,
+        18,
+        20,
+        22,
+        17,
+        42,
+        54,
+        30,
+        52,
+        22,
+        18,
+        14,
+        10,
+        6,
+        17,
+        20,
+        22,
+        17,
+        42,
+        54,
+        30,
+        52,
+        47,
+        22,
+        18,
+        17,
+        40,
+        59,
+        80,
+        18,
+        14,
+        10,
+        6,
+        2,
+        55,
+        2376
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/configs/logger.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/configs/logger.ts"
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,6DAAqC;AAErC,MAAM,SAAS,GAA2B;IACxC,WAAW,EAAE;QACX,SAAS,EAAE;YACT,OAAO,EAAE;gBACP;oBACE,MAAM,EAAE,aAAa;oBACrB,KAAK,EAAE,gBAAM,CAAC,SAAS;oBACvB,OAAO,EAAE;wBACP,aAAa,EAAE,YAAY;qBAC5B;iBACF;aACF;SACF;KACF;IACD,UAAU,EAAE;QACV,SAAS,EAAE;YACT,OAAO,EAAE;gBACP;oBACE,MAAM,EAAE,aAAa;oBACrB,KAAK,EAAE,gBAAM,CAAC,SAAS;oBACvB,OAAO,EAAE;wBACP,aAAa,EAAE,YAAY;wBAC3B,MAAM,EAAE,cAAc;qBACvB;iBACF;gBACD;oBACE,MAAM,EAAE,WAAW;oBACnB,KAAK,EAAE,gBAAM,CAAC,cAAc;oBAC5B,OAAO,EAAE,EAAE,WAAW,EAAE,QAAQ,EAAE,EAAE,wBAAwB;iBAC7D;aACF;SACF;KACF;CACF,CAAC;AACF,kBAAe,SAAS,CAAC,gBAAM,CAAC,QAAQ,CAAC,CAAC",
+        "sourcesContent": [
+          "import config from \"../utils/config\";\r\n\r\nconst LogConfig: { [key: string]: any } = {\r\n  development: {\r\n    transport: {\r\n      targets: [\r\n        {\r\n          target: \"pino-pretty\",\r\n          level: config.LOG_LEVEL,\r\n          options: {\r\n            translateTime: \"HH:MM:ss Z\",\r\n          },\r\n        },\r\n      ],\r\n    },\r\n  },\r\n  production: {\r\n    transport: {\r\n      targets: [\r\n        {\r\n          target: \"pino-pretty\",\r\n          level: config.LOG_LEVEL,\r\n          options: {\r\n            translateTime: \"HH:MM:ss Z\",\r\n            ignore: \"pid,hostname\",\r\n          },\r\n        },\r\n        {\r\n          target: \"pino/file\",\r\n          level: config.FILE_LOG_LEVEL,\r\n          options: { destination: \"./logs\" }, // this writes to STDOUT\r\n        },\r\n      ],\r\n    },\r\n  },\r\n};\r\nexport default LogConfig[config.NODE_ENV];\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/plugins/knex.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        68,
+        48,
+        41,
+        69,
+        63,
+        58,
+        45,
+        24,
+        82,
+        47,
+        37,
+        5,
+        32,
+        31,
+        46,
+        33,
+        49,
+        62,
+        59,
+        43,
+        7,
+        1,
+        60,
+        2728
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/plugins/knex.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/plugins/knex.ts"
+        ],
+        "names": [],
+        "mappings": ";;;;;AACA,oEAAgC;AAEhC,gDAAkC;AAClC,yCAAkC;AAClC,qEAA+C;AAC/C,+DAAuC;AACvC,0DAAiC;AACjC,KAAK,UAAU,UAAU,CACvB,OAAwB,EACxB,OAA6B;IAE7B,oBAAoB;IACpB,MAAM,EAAE,GAAG,IAAA,cAAI,EAAC,kBAAU,CAAC,gBAAM,CAAC,QAAQ,CAAC,CAAC,CAAC;IAC7C,IAAI,gBAAM,CAAC,QAAQ,KAAK,MAAM,EAAE,CAAC;QAC/B,mBAAQ,CAAC,IAAI,CAAC,EAAE,CAAC,CAAC;IACpB,CAAC;IACD,4BAA4B;IAC5B,iBAAK,CAAC,IAAI,CAAC,EAAE,CAAC,CAAC;IAEf,0CAA0C;IAC1C,OAAO,CAAC,QAAQ,CAAC,MAAM,EAAE,EAAE,CAAC,CAAC;IAC7B,OAAO,CAAC,QAAQ,CAAC,OAAO,EAAE,iBAAK,CAAC,CAAC;IAEjC,0DAA0D;IAC1D,OAAO,CAAC,OAAO,CACb,SAAS,EACT,CAAC,eAAgC,EAAE,IAA2B,EAAE,EAAE;QAChE,eAAe,CAAC,IAAI,CAAC,OAAO,CAAC,IAAI,CAAC,CAAC;IACrC,CAAC,CACF,CAAC;AACJ,CAAC;AAED,kBAAe,IAAA,wBAAE,EAAC,UAAU,CAAC,CAAC",
+        "sourcesContent": [
+          "import { FastifyInstance } from \"fastify\";\r\nimport fp from \"fastify-plugin\";\r\nimport { FastifyPluginOptions } from \"fastify\";\r\nimport knex, { Knex } from \"knex\";\r\nimport { Model } from \"objection\";\r\nimport knexConfig from \"./../configs/knexfile\";\r\nimport config from \"./../utils/config\";\r\nimport mockKnex from \"mock-knex\";\r\nasync function knexPlugin(\r\n  fastify: FastifyInstance,\r\n  options: FastifyPluginOptions\r\n) {\r\n  // Inisialisasi Knex\r\n  const db = knex(knexConfig[config.NODE_ENV]);\r\n  if (config.NODE_ENV === 'test') {\r\n    mockKnex.mock(db);\r\n  }\r\n  // Bind Knex ke Objection.js\r\n  Model.knex(db);\r\n\r\n  // Tambahkan Knex dan Objection ke Fastify\r\n  fastify.decorate(\"knex\", db);\r\n  fastify.decorate(\"Model\", Model);\r\n\r\n  // Handle penutupan koneksi database saat Fastify shutdown\r\n  fastify.addHook(\r\n    \"onClose\",\r\n    (fastifyInstance: FastifyInstance, done: (err?: Error) => void) => {\r\n      fastifyInstance.knex.destroy(done);\r\n    }\r\n  );\r\n}\r\n\r\nexport default fp(knexPlugin);\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/configs/knexfile.ts": {
+      "lineLengths": [
+        13,
+        62,
+        36,
+        16,
+        18,
+        27,
+        21,
+        38,
+        29,
+        30,
+        10,
+        15,
+        19,
+        19,
+        10,
+        21,
+        41,
+        40,
+        10,
+        16,
+        35,
+        9,
+        6,
+        11,
+        26,
+        6,
+        17,
+        24,
+        21,
+        38,
+        29,
+        32,
+        10,
+        15,
+        19,
+        19,
+        10,
+        21,
+        40,
+        9,
+        5,
+        2,
+        25,
+        2480
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/configs/knexfile.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/configs/knexfile.ts"
+        ],
+        "names": [],
+        "mappings": ";;AAEA,oCAAoC;AAEpC,MAAM,MAAM,GAAmC;IAC7C,WAAW,EAAE;QACX,MAAM,EAAE,UAAU;QAClB,UAAU,EAAE;YACV,QAAQ,EAAE,eAAe;YACzB,IAAI,EAAE,UAAU;YAChB,QAAQ,EAAE,QAAQ;SACnB;QACD,IAAI,EAAE;YACJ,GAAG,EAAE,CAAC;YACN,GAAG,EAAE,EAAE;SACR;QACD,UAAU,EAAE;YACV,SAAS,EAAE,iBAAiB;YAC5B,SAAS,EAAE,iBAAiB;SAC7B;QACD,KAAK,EAAE;YACL,SAAS,EAAE,YAAY;SACxB;KACF;IACD,IAAI,EAAE;QACJ,MAAM,EAAE,UAAU;KACnB;IAED,UAAU,EAAE;QACV,MAAM,EAAE,OAAO;QACf,UAAU,EAAE;YACV,QAAQ,EAAE,eAAe;YACzB,IAAI,EAAE,UAAU;YAChB,QAAQ,EAAE,UAAU;SACrB;QACD,IAAI,EAAE;YACJ,GAAG,EAAE,CAAC;YACN,GAAG,EAAE,EAAE;SACR;QACD,UAAU,EAAE;YACV,SAAS,EAAE,iBAAiB;SAC7B;KACF;CAEF,CAAC;AAEF,kBAAe,MAAM,CAAC",
+        "sourcesContent": [
+          "import type { Knex } from \"knex\";\r\n\r\n// Update with your config settings.\r\n\r\nconst config: { [key: string]: Knex.Config } = {\r\n  development: {\r\n    client: \"postgres\",\r\n    connection: {\r\n      database: \"learn_fastify\",\r\n      user: \"postgres\",\r\n      password: \"123456\"\r\n    },\r\n    pool: {\r\n      min: 2,\r\n      max: 10\r\n    },\r\n    migrations: {\r\n      tableName: \"knex_migrations\",\r\n      directory: './../migrations'\r\n    },\r\n    seeds: {\r\n      directory: './../seeds'\r\n    }\r\n  },\r\n  test: {\r\n    client: \"postgres\"\r\n  },\r\n\r\n  production: {\r\n    client: \"mysql\",\r\n    connection: {\r\n      database: \"learn_fastify\",\r\n      user: \"username\",\r\n      password: \"password\"\r\n    },\r\n    pool: {\r\n      min: 2,\r\n      max: 10\r\n    },\r\n    migrations: {\r\n      tableName: \"knex_migrations\"\r\n    }\r\n  }\r\n\r\n};\r\n\r\nexport default config;\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/plugins/jwt.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        68,
+        55,
+        61,
+        45,
+        37,
+        46,
+        17,
+        67,
+        26,
+        10,
+        7,
+        64,
+        13,
+        56,
+        33,
+        15,
+        56,
+        59,
+        78,
+        37,
+        19,
+        76,
+        118,
+        55,
+        57,
+        17,
+        22,
+        67,
+        17,
+        13,
+        18,
+        78,
+        13,
+        9,
+        21,
+        28,
+        9,
+        7,
+        11,
+        1,
+        59,
+        4456
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/plugins/jwt.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/plugins/jwt.ts"
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,oEAAgC;AAQhC,uDAA+B;AAC/B,6DAAqC;AACrC,SAAS,SAAS,CAChB,OAAwB,EACxB,QAA8B,EAC9B,IAAS;IAET,OAAO,CAAC,QAAQ,CAAC,aAAG,EAAE;QACpB,MAAM,EAAE,gBAAM,CAAC,YAAY;QAC3B,MAAM,EAAE;YACN,UAAU,EAAE,gBAAM,CAAC,yBAAyB;YAC5C,MAAM,EAAE,KAAK;SACd;KACF,CAAC,CAAC;IACH,OAAO,CAAC,QAAQ,CACd,cAAc,EACd,KAAK,EAAE,OAAuB,EAAE,KAAmB,EAAE,EAAE;QACrD,IAAI,CAAC;YACH,MAAM,UAAU,GAAG,MAAM,OAAO,CAAC,SAAS,CAA2B;gBACnE,UAAU,EAAE,IAAI;aACjB,CAAC,CAAC;YACH,MAAM,SAAS,GAAG,MAAM,OAAO,CAAC,SAAS,EAA4B,CAAC;YACtE,IAAI,SAAS,CAAC,IAAI,CAAC,EAAE,KAAK,UAAU,CAAC,IAAI,CAAC,EAAE,EAAE,CAAC;gBAC7C,MAAM,YAAY,GAAG,OAAO,CAAC,MAAM,CAAC,GAAG,CAAC,WAAW,CAAC,OAAO,EAAE;oBAC3D,UAAU,EAAE,IAAI;iBACjB,CAAC,CAAC;gBACH,MAAM,WAAW,GAAG,OAAO,CAAC,MAAM,CAAC,GAAG,CAAC,WAAW,CAAC,OAAO,CAAC,CAAC;gBAC5D,MAAM,gBAAgB,GAAG,MAAM,OAAO,CAAC,KAAK,CAAC,GAAG,CAC9C,gBAAgB,SAAS,CAAC,IAAI,CAAC,EAAE,IAAI,YAAY,EAAE,CACpD,CAAC;gBACF,IAAI,WAAW,KAAK,gBAAgB,EAAE,CAAC;oBACrC,OAAO,CAAC,MAAM,CAAC,IAAI,GAAG,SAAS,CAAC,IAAI,CAAC;gBACvC,CAAC;qBAAI,CAAC;oBACJ,MAAM,IAAI,KAAK,CAAC,6BAA6B,CAAC,CAAC;gBAEjD,CAAC;YACH,CAAC;iBAAM,CAAC;gBACN,MAAM,IAAI,KAAK,CAAC,4CAA4C,CAAC,CAAC;YAChE,CAAC;QACH,CAAC;QAAC,OAAO,GAAG,EAAE,CAAC;YACb,KAAK,CAAC,IAAI,CAAC,GAAG,CAAC,CAAC;QAClB,CAAC;IACH,CAAC,CACF,CAAC;IACF,IAAI,EAAE,CAAC;AACT,CAAC;AACD,kBAAe,IAAA,wBAAE,EAAC,SAAS,CAAC,CAAC",
+        "sourcesContent": [
+          "import fp from \"fastify-plugin\";\r\nimport {\r\n  FastifyPluginOptions,\r\n  FastifyInstance,\r\n  FastifyRequest,\r\n  FastifyReply,\r\n} from \"fastify\";\r\nimport type { PublicUserType } from \"./../models/User\";\r\nimport jwt from \"@fastify/jwt\";\r\nimport config from \"../utils/config\";\r\nfunction jwtPlugin(\r\n  fastify: FastifyInstance,\r\n  _options: FastifyPluginOptions,\r\n  done: any\r\n) {\r\n  fastify.register(jwt, {\r\n    secret: config.SECRET_TOKEN,\r\n    cookie: {\r\n      cookieName: config.REFRESH_TOKEN_COOKIE_NAME,\r\n      signed: false,\r\n    },\r\n  });\r\n  fastify.decorate(\r\n    \"authenticate\",\r\n    async (request: FastifyRequest, reply: FastifyReply) => {\r\n      try {\r\n        const jwtRequest = await request.jwtVerify<{ user: PublicUserType }>({\r\n          onlyCookie: true,\r\n        });\r\n        const jwtAccess = await request.jwtVerify<{ user: PublicUserType }>();\r\n        if (jwtAccess.user.id === jwtRequest.user.id) {\r\n          const refreshToken = request.server.jwt.lookupToken(request, {\r\n            onlyCookie: true,\r\n          });\r\n          const accessToken = request.server.jwt.lookupToken(request);\r\n          const accessTokenRedis = await fastify.redis.get(\r\n            `refreshToken:${jwtAccess.user.id}-${refreshToken}`\r\n          );\r\n          if (accessToken === accessTokenRedis) {\r\n            request.server.user = jwtAccess.user;\r\n          }else{\r\n            throw new Error(\"Your token has been expired\");\r\n\r\n          }\r\n        } else {\r\n          throw new Error(\"Access token and request token didnt match\");\r\n        }\r\n      } catch (err) {\r\n        reply.send(err);\r\n      }\r\n    }\r\n  );\r\n  done();\r\n}\r\nexport default fp(jwtPlugin);\r\n"
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/errorsText.ts": {
+      "lineLengths": [
+        13,
+        62,
+        50,
+        21,
+        33,
+        29,
+        33,
+        9,
+        33,
+        5,
+        19,
+        2,
+        29,
+        1336
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/errorsText.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/errorsText.ts"
+        ],
+        "names": [],
+        "mappings": ";;AACA,MAAM,UAAU,GAAG,CAAC,MAAqC,EAAC,SAAS,GAAC,IAAI,EAAS,EAAE;IAC/E,IAAI,OAAO,GAAC,EAAE,CAAC;IACf,KAAK,MAAM,KAAK,IAAI,MAAM,EAAE,CAAC;QACzB,IAAG,OAAO,KAAG,EAAE,EAAC,CAAC;YACb,OAAO,IAAE,SAAS,CAAC;QACvB,CAAC;QACD,OAAO,IAAE,KAAK,CAAC,OAAO,CAAC;IAC3B,CAAC;IACD,OAAO,OAAO,CAAC;AACnB,CAAC,CAAC;AAEF,kBAAe,UAAU,CAAC",
+        "sourcesContent": [
+          "import {FastifySchemaValidationError} from \"fastify/types/schema\"\r\nconst errorsText = (errors:FastifySchemaValidationError[],seperator=\", \"):string => {\r\n    var message=\"\";\r\n    for (const error of errors) {\r\n        if(message!==\"\"){\r\n            message+=seperator;\r\n        }\r\n        message+=error.message;\r\n    }\r\n    return message;\r\n};\r\n  \r\nexport default errorsText;\r\n  "
+        ],
+        "sourceRoot": ""
+      }
+    },
+    "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/translateAjvErrors.ts": {
+      "lineLengths": [
+        13,
+        72,
+        62,
+        2,
+        62,
+        56,
+        47,
+        23,
+        18,
+        42,
+        18,
+        16,
+        42,
+        5,
+        1,
+        37,
+        1224
+      ],
+      "data": {
+        "version": 3,
+        "file": "C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/translateAjvErrors.ts",
+        "sources": [
+          "file:///C:/Users/Head_/learning/learn-fastify-restful-api/src/utils/translateAjvErrors.ts"
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,wDAAgC;AAEhC,SAAS,kBAAkB,CAAC,QAAe,EAAE,MAAqC;IAChF,QAAQ,QAAQ,EAAE,CAAC;QACjB,KAAK,IAAI;YACP,kBAAQ,CAAC,EAAE,CAAC,MAAM,CAAC,CAAC;YACpB,MAAM;QACR;YACE,kBAAQ,CAAC,EAAE,CAAC,MAAM,CAAC,CAAC;IACxB,CAAC;AACH,CAAC;AACD,kBAAe,kBAAkB,CAAC",
+        "sourcesContent": [
+          "import localize from \"ajv-i18n\";\r\nimport {FastifySchemaValidationError} from \"fastify/types/schema\"\r\nfunction translateAjvErrors(language:string, errors:FastifySchemaValidationError[]) {\r\n  switch (language) {\r\n    case \"id\":\r\n      localize.id(errors); \r\n      break;\r\n    default:\r\n      localize.en(errors);\r\n  }\r\n}\r\nexport default translateAjvErrors;"
+        ],
+        "sourceRoot": ""
+      }
+    }
+  }
+}
