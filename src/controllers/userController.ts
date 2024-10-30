@@ -20,7 +20,7 @@ export async function getUserHandler(
   const id = request.params.id as unknown as number;
   const user = await getUserById(id);
   if (!user) {
-    reply.status(404).send({ error: request.t("user:get.error") });
+    reply.status(404).send({ error: request.t("users:get.error") });
     return;
   }
   reply.status(200).send(user);
@@ -39,7 +39,7 @@ export async function addUserHandler(
   const newUser = await addUser(request.body);
   reply
     .status(201)
-    .send({ message: request.t("user:add.successed"), user: newUser });
+    .send({ message: request.t("users:add.successed"), users: newUser });
 }
 
 // Handle PUT /update/:id
@@ -56,7 +56,7 @@ export async function updateUserHandler(
 
   reply
     .status(200)
-    .send({ message: request.t("user:update.successed"), user: updatedUser });
+    .send({ message: request.t("users:update.successed"), users: updatedUser });
 }
 
 // Handle DELETE /delete/:id
@@ -69,5 +69,5 @@ export async function deleteUserHandler(
 ) {
   const id = request.params.id as unknown as number;
   await deleteUser(id);
-  reply.status(200).send({ message: request.t("user:delete.successed") });
+  reply.status(200).send({ message: request.t("users:delete.successed") });
 }
