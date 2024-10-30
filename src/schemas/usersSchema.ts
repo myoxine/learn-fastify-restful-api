@@ -22,7 +22,13 @@ export const getUserSchema = {
     },
   },
   response: {
-    200: PublicUserSchema,
+    200: {
+      type: "object",
+      properties: {
+        message: { type: "string" },
+        user: PublicUserSchema,
+      },
+    }
   },
 };
 
@@ -35,7 +41,7 @@ export const addUserSchema = {
         message: { type: "string" },
         user: PublicUserSchema,
       },
-    },
+    }
   },
 };
 export const updateUserSchema = {
@@ -57,7 +63,7 @@ export const updateUserSchema = {
         },
       },
     },
-  },
+  }
 };
 export const deleteUserSchema = {
   params: {
