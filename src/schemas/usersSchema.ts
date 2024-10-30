@@ -48,10 +48,12 @@ export const updateUserSchema = {
       type: "object",
       properties: {
         message: { type: "string" },
-        user: User.jsonSchema,
+        user: {
+          oneOf: [{ type: "null" }, User.jsonSchema],
+        },
       },
-    }
-  },
+    },
+  }
 };
 
 export const deleteUserSchema = {
