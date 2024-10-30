@@ -11,13 +11,7 @@ export const getUserSchema = {
     },
   },
   response: {
-    200: {
-      type: "object",
-      properties: {
-        message: { type: "string" },
-        user: User.jsonSchema,
-      },
-    }
+    200: User.jsonSchema
   },
 };
 
