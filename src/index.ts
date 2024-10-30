@@ -142,13 +142,13 @@ server.ready(async () => {
     const pong = await server.redis.ping();
     server.log.info("Redis connected! Ping response:" + pong);
   } catch (err) {
-    console.error("Redis connection failed:", err);
+    server.log.info("Redis connection failed:", err);
   }
 });
 
 server.listen({ port: parseInt(config.PORT) }, (err, address) => {
   if (err) {
-    console.error(err);
+    server.log.info(err);
     process.exit(1);
   }
   server.log.info(`Server listening at ${address}`);
