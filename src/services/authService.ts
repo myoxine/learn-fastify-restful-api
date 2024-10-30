@@ -20,7 +20,7 @@ export const generateToken = async (
   remember: boolean
 ) => {
   const accessToken = await request.server.jwt.sign(
-    { user, remember },
+    { user },
     {
       expiresIn: remember
         ? config.ACCESS_TOKEN_LONG_DURATION
@@ -28,7 +28,7 @@ export const generateToken = async (
     }
   );
   const refreshToken = await request.server.jwt.sign(
-    { user },
+    { user, remember },
     {
       expiresIn: remember
         ? config.REFRESH_TOKEN_LONG_DURATION
