@@ -1,799 +1,233 @@
-import tap from "tap";
-import { Test } from "tap/dist/commonjs/main";
-import { buildFastify } from "./../src/server";
-import { getTracker, QueryDetails } from "mock-knex";
-import { hashPassword } from "./../src/utils/encrypt";
-import { storeToken } from "./../src/services/authService";
-import { to_number_of_seconds } from "./../src/utils/expiry";
-import { ImportMock } from "ts-mock-imports";
+import tap, { Test } from "tap";
 import * as authService from "./../src/services/authService";
 import bcrypt from "bcrypt";
-
-tap.test("POST /auth/logout route", async (t: Test) => {
-  tap.test("Error POST /auth/logout route", async (t: Test) => {
-    t.plan(4);
-    const fastify = buildFastify();
-    await fastify.ready();
-    const mockManager = ImportMock.mockOther(fastify.redis, "del", () => {
-      throw new Error("aaa");
-    });
-    t.teardown(() => {
-      fastify.close();
-      mockManager.restore();
-    });
-    const duration = to_number_of_seconds("1d");
-    const user = {
-      id: 1,
-      username: "user",
-      email: "test@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    const accessToken = fastify.jwt.sign({ user }, { expiresIn: "15m" });
-    const refreshToken = fastify.jwt.sign(
-      { user, remember: true },
-      { expiresIn: "1d" }
-    );
-    storeToken(fastify, refreshToken, accessToken, user, duration);
-
-    fastify.inject(
-      {
-        method: "POST",
-        url: `/auth/logout`,
-        cookies: {
-          refreshToken: refreshToken,
-        },
-        headers: { authorization: `Bearer ${accessToken}` },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 500);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.same(responsepayload, { error: "Failed to logout" });
-        // t.equal(!responsepayload.token, false);
-      }
-    );
-  });
-
-  tap.test("success POST /auth/logout route", async (t: Test) => {
-    t.plan(4);
-    const fastify = buildFastify();
-    t.teardown(() => {
-      fastify.close();
-    });
-    await fastify.ready();
-
-    const duration = to_number_of_seconds("1d");
-    const user = {
-      id: 1,
-      username: "user",
-      email: "test@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    const accessToken = fastify.jwt.sign({ user }, { expiresIn: "15m" });
-    const refreshToken = fastify.jwt.sign(
-      { user, remember: true },
-      { expiresIn: "1d" }
-    );
-    storeToken(fastify, refreshToken, accessToken, user, duration);
-
-    fastify.inject(
-      {
-        method: "POST",
-        url: `/auth/logout`,
-        cookies: {
-          refreshToken: refreshToken,
-        },
-        headers: { authorization: `Bearer ${accessToken}` },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 200);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.same(responsepayload, { message: "Logout successful" });
-        // t.equal(!responsepayload.token, false);
-      }
-    );
-  });
-});
-
-tap.test("POST /auth/refresh route", async (t: Test) => {
-  tap.test("Error POST /auth/refresh route", async (t: Test) => {
-    t.plan(4);
-    const mockManager = ImportMock.mockOther(
-      authService,
-      "generateToken",
-      () => {
-        throw new Error("aaa");
-      }
-    );
-
-    const fastify = buildFastify();
-    const user = {
-      id: 1,
-      username: "user",
-      email: "test@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    t.teardown(() => {
-      fastify.close();
-      mockManager.restore();
-    });
-    await fastify.ready();
-
-    const duration = to_number_of_seconds("1d");
-    const accessToken = fastify.jwt.sign({ user }, { expiresIn: "15m" });
-    const refreshToken = fastify.jwt.sign(
-      { user, remember: true },
-      { expiresIn: "1d" }
-    );
-    storeToken(fastify, refreshToken, accessToken, user, duration);
-
-    fastify.inject(
-      {
-        method: "POST",
-        url: `/auth/refresh-token`,
-        cookies: {
-          refreshToken: refreshToken,
-        },
-        headers: { authorization: `Bearer ${accessToken}` },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 401);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.same(responsepayload, { error: "Invalid refresh token" });
-        // t.equal(!responsepayload.token, false);
-      }
-    );
-  });
-  tap.test("success 1 POST /auth/refresh route", async (t: Test) => {
-    t.plan(4);
-    const fastify = buildFastify();
-    const user = {
-      id: 1,
-      username: "user",
-      email: "test@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    t.teardown(() => {
-      fastify.close();
-    });
-    await fastify.ready();
-
-    const duration = to_number_of_seconds("1d");
-    const accessToken = fastify.jwt.sign({ user }, { expiresIn: "15m" });
-    const refreshToken = fastify.jwt.sign(
-      { user, remember: true },
-      { expiresIn: "1d" }
-    );
-    storeToken(fastify, refreshToken, accessToken, user, duration);
-
-    fastify.inject(
-      {
-        method: "POST",
-        url: `/auth/refresh-token`,
-        cookies: {
-          refreshToken: refreshToken,
-        },
-        headers: { authorization: `Bearer ${accessToken}` },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 200);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.equal(!responsepayload.token, false);
-      }
-    );
-  });
-  tap.test("success 2 POST /auth/refresh route", async (t: Test) => {
-    t.plan(4);
-    const fastify = buildFastify();
-    const user = {
-      id: 1,
-      username: "user",
-      email: "test@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    t.teardown(() => {
-      fastify.close();
-    });
-    await fastify.ready();
-
-    const duration = to_number_of_seconds("1d");
-    const accessToken = fastify.jwt.sign({ user }, { expiresIn: "15m" });
-    const refreshToken = fastify.jwt.sign(
-      { user, remember: false },
-      { expiresIn: "1d" }
-    );
-    storeToken(fastify, refreshToken, accessToken, user, duration);
-
-    fastify.inject(
-      {
-        method: "POST",
-        url: `/auth/refresh-token`,
-        cookies: {
-          refreshToken: refreshToken,
-        },
-        headers: { authorization: `Bearer ${accessToken}` },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 200);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.equal(!responsepayload.token, false);
-      }
-    );
-  });
-});
-tap.test("GET /auth/me route", async (t: Test) => {
-  tap.test("failed 1 GET /auth/me route", async (t: Test) => {
-    t.plan(4);
-    const fastify = buildFastify();
-    t.teardown(() => {
-      fastify.close();
-    });
-    await fastify.ready();
-
-    const duration = to_number_of_seconds("1d");
-    const user = {
-      id: 1,
-      username: "user",
-      email: "test@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    const accessToken = fastify.jwt.sign({ user }, { expiresIn: "15m" });
-    const refreshToken = fastify.jwt.sign(
-      { user, remember: true },
-      { expiresIn: "1d" }
-    );
-
-    storeToken(fastify, refreshToken, accessToken, user, duration);
-
-    const user2 = {
-      id: 2,
-      username: "user2",
-      email: "test2@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    const accessToken2 = fastify.jwt.sign(
-      { user: user2 },
-      { expiresIn: "15m" }
-    );
-    const refreshToken2 = fastify.jwt.sign(
-      { user: user2, remember: true },
-      { expiresIn: "1d" }
-    );
-
-    fastify.inject(
-      {
-        method: "GET",
-        url: `/auth/me`,
-        cookies: {
-          refreshToken: refreshToken,
-        },
-        headers: { authorization: `Bearer ${accessToken2}` },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 500);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.same(responsepayload, {
-          statusCode: 500,
-          error: "Internal Server Error",
-          message: "Access token and request token didnt match",
-        });
-      }
-    );
-  });
-  tap.test("failed 2 GET /auth/me route", async (t: Test) => {
-    t.plan(4);
-    const fastify = buildFastify();
-    t.teardown(() => {
-      fastify.close();
-    });
-    await fastify.ready();
-
-    const duration = to_number_of_seconds("1d");
-    const user = {
-      id: 1,
-      username: "user",
-      email: "test@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    const accessToken = fastify.jwt.sign({ user }, { expiresIn: "15m" });
-    const refreshToken = fastify.jwt.sign(
-      { user, remember: true },
-      { expiresIn: "1d" }
-    );
-
-    storeToken(fastify, refreshToken, accessToken, user, duration);
-
-    const user2 = {
-      id: 2,
-      username: "user2",
-      email: "test2@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    const accessToken2 = fastify.jwt.sign(
-      { user: user2 },
-      { expiresIn: "15m" }
-    );
-    const refreshToken2 = fastify.jwt.sign(
-      { user: user2, remember: true },
-      { expiresIn: "1d" }
-    );
-
-    fastify.inject(
-      {
-        method: "GET",
-        url: `/auth/me`,
-        cookies: {
-          refreshToken: refreshToken2,
-        },
-        headers: { authorization: `Bearer ${accessToken2}` },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 500);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.same(responsepayload, {
-          statusCode: 500,
-          error: "Internal Server Error",
-          message: "Your token has been expired",
-        });
-      }
-    );
-  });
-
-  tap.test("success GET /auth/me route", async (t: Test) => {
-    t.plan(4);
-    const fastify = buildFastify();
-    const user = {
-      id: 1,
-      username: "user",
-      email: "test@aaa.com",
-      role_id: 2,
-      password: "password",
-    };
-    t.teardown(() => {
-      fastify.close();
-    });
-    await fastify.ready();
-
-    const duration = to_number_of_seconds("1d");
-    const accessToken = fastify.jwt.sign({ user }, { expiresIn: "15m" });
-    const refreshToken = fastify.jwt.sign(
-      { user, remember: true },
-      { expiresIn: "1d" }
-    );
-    storeToken(fastify, refreshToken, accessToken, user, duration);
-
-    fastify.inject(
-      {
-        method: "GET",
-        url: `/auth/me`,
-        cookies: {
-          refreshToken: refreshToken,
-        },
-        headers: { authorization: `Bearer ${accessToken}` },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 200);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.same(responsepayload, {
-          username: "user",
-          email: "test@aaa.com",
-          id: 1,
-          role_id: 2,
-        });
-      }
-    );
-  });
-});
+import { ImportMock } from "ts-mock-imports";
+import { storeToken } from "./../src/services/authService";
+import { to_number_of_seconds } from "./../src/utils/expiry";
+import { PublicUserType } from "./../src/models/User";
+import { faker } from "@faker-js/faker";
+import { setupFastify, teardownFastify, injectRequest, mockBcryptError, createPayloadUser, createTracker, getDbUser, checkResponseHeader, getResUser } from "./../src/utils/testHelper";
 tap.test("POST /auth/login route", async (t: Test) => {
-  tap.test("error POST /auth/login route", async (t: Test) => {
-    t.plan(4);
+  tap.test("success login with remembering password", async (t: Test) => {
+    const reqUser = createPayloadUser(["username", "password", "remember"], { username:faker.internet.userName(),password: "123456", remember: true });
+    const dbUser = await getDbUser(reqUser);
+    const tracker = createTracker([dbUser]);
+    const fastify = await setupFastify();
+    t.teardown(() => teardownFastify(fastify, undefined, tracker));
+    const resUser = await getResUser(dbUser);
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", reqUser);
+    checkResponseHeader(t, response, 200);
+    t.equal(!parsedPayload.token, false);
+    t.same(parsedPayload.user, resUser);
+  });
+  tap.test("success login without remembering password", async (t: Test) => {
+    const reqUser = createPayloadUser(["username", "password", "remember"], { username:faker.internet.userName(),password: "123456", remember: false });
+    const dbUser = await getDbUser(reqUser);
+    const tracker = createTracker([dbUser]);
+    const fastify = await setupFastify();
+    t.teardown(() => teardownFastify(fastify, undefined, tracker));
+    const resUser = await getResUser(dbUser);
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", reqUser);
+    checkResponseHeader(t, response, 200);
+    t.equal(!parsedPayload.token, false);
+    t.same(parsedPayload.user, resUser);
+  });
+  tap.test("catch error bycrypt ", async (t: Test) => {
     const mockManager = ImportMock.mockOther(bcrypt, "compare", () => {
-        throw new Error("aaa");
-      });
-    const tracker = getTracker();
-    tracker.install();
-    tracker.on("query", async function sendResult(query: QueryDetails) {
-      const password = await hashPassword("123456");
-      query.response([
-        {
-          id: 1,
-          username: "test",
-          email: "test@test.com",
-          role_id: 2,
-          password: password,
-        },
-      ]);
+      throw new Error("throw error bcrypt");
     });
-
-    const fastify = buildFastify();
-    t.teardown(() => {
-      tracker.uninstall();
-      fastify.close();
-      mockManager.restore();
-    });
-    await fastify.ready();
-    const payload = {
-      username: "test",
-      password: "123456",
-      remember: true,
-    };
-    fastify.inject(
-      {
-        method: "POST",
-        url: "/auth/login",
-        payload: payload,
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 500);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.same(responsepayload, { error: 'Internal Server Error' });
-      }
-    );
+    const reqUser = createPayloadUser(["username", "password", "remember"], {  });
+    const dbUser = await getDbUser(reqUser);
+    const tracker = createTracker([dbUser]);
+    const fastify = await setupFastify();
+    t.teardown(() => teardownFastify(fastify, mockManager, tracker));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", reqUser);
+    checkResponseHeader(t, response, 500);
+    t.same(parsedPayload, { error: "Internal Server Error" });
   });
-  tap.test("failed POST /auth/login route", async (t: Test) => {
-    t.plan(4);
-    const tracker = getTracker();
-    tracker.install();
-    tracker.on("query", async function sendResult(query: QueryDetails) {
-      const password = await hashPassword("123456");
-      query.response([
-        {
-          id: 1,
-          username: "test",
-          email: "test@test.com",
-          role_id: 2,
-          password: password,
-        },
-      ]);
+  tap.test("catch error jwt generateToken ", async (t: Test) => {
+    const mockManager = ImportMock.mockOther(authService, "generateToken", () => {
+      throw new Error("throw error generateToken");
     });
-    const mockManager = ImportMock.mockOther(
-      authService,
-      "generateToken",
-      () => {
-        throw new Error("aaa");
-      }
-    );
-
-    const fastify = buildFastify();
-    //const fastify = buildFastify();
-    t.teardown(() => {
-      tracker.uninstall();
-      fastify.close();
-      mockManager.restore();
-    });
-    await fastify.ready();
-    const payload = {
-      username: "test",
-      password: "123456",
-      remember: true,
-    };
-    fastify.inject(
-      {
-        method: "POST",
-        url: "/auth/login",
-        payload: payload,
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 500);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.same(responsepayload, { error: "Internal Server Error" });
-      }
-    );
+    const reqUser = createPayloadUser(["username", "password", "remember"], {  });
+    const dbUser = await getDbUser(reqUser);
+    const tracker = createTracker([dbUser]);
+    const fastify = await setupFastify();
+    t.teardown(() => teardownFastify(fastify, mockManager, tracker));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", reqUser);
+    checkResponseHeader(t, response, 500);
+    t.same(parsedPayload, { error: "Internal Server Error" });
   });
-  tap.test("failed 2 POST /auth/login route", async (t: Test) => {
-    t.plan(5);
-    const fastify = buildFastify();
-    //const fastify = buildFastify();
-    t.teardown(() => {
-      fastify.close();
-    });
-    await fastify.ready();
-
-    fastify.inject(
-      {
-        method: "POST",
-        url: "/auth/login",
-        payload: {},
-        headers: { "accept-language": "id" },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 400);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.equal(
-          responsepayload.message,
-          "harus memiliki properti username, harus memiliki properti password, harus memiliki properti remember"
-        );
-        t.same(responsepayload.errors, [
-          { key: "username", value: "harus memiliki properti username" },
-          { key: "password", value: "harus memiliki properti password" },
-          { key: "remember", value: "harus memiliki properti remember" },
-        ]);
-      }
-    );
+  tap.test("failed user not found", async (t: Test) => {
+    const fastify = await setupFastify();
+    t.teardown(() => teardownFastify(fastify, undefined, undefined));
+    const reqUser = createPayloadUser(["username", "password", "remember"], { password: "123456", remember: true });
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", reqUser);
+    checkResponseHeader(t, response, 401);
+    t.same(parsedPayload, { error: "Invalid username or password" });
   });
-
-  tap.test("failed 3 POST /auth/login route", async (t: Test) => {
-    t.plan(5);
-    const fastify = buildFastify();
-    //const fastify = buildFastify();
-    t.teardown(() => {
-      fastify.close();
-    });
-    await fastify.ready();
-
-    fastify.inject(
-      {
-        method: "POST",
-        url: "/auth/login",
-        payload: {},
-        headers: { "accept-language": "en" },
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 400);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.equal(
-          responsepayload.message,
-          "must have required property username, must have required property password, must have required property remember"
-        );
-        t.same(responsepayload.errors, [
-          { key: "username", value: "must have required property username" },
-          { key: "password", value: "must have required property password" },
-          { key: "remember", value: "must have required property remember" },
-        ]);
-      }
-    );
+  tap.test("failed password not match", async (t: Test) => {
+    const fastify = await setupFastify();
+    const reqUser = createPayloadUser(["username", "password", "remember"], { password: "123456", remember: true });
+    const dbUser = await getDbUser({ ...reqUser, password: "1234567" });
+    const tracker = createTracker([dbUser]);
+    t.teardown(() => teardownFastify(fastify, undefined, tracker));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", reqUser);
+    checkResponseHeader(t, response, 401);
+    t.same(parsedPayload, { error: "Invalid username or password" });
   });
-  tap.test("failed user not found POST /auth/login route", async (t: Test) => {
-    t.plan(4);
-
-    const fastify = buildFastify();
-    t.teardown(() => {
-      fastify.close();
-    });
-    await fastify.ready();
-    const payload = {
-      username: "test",
-      password: "123456",
-      remember: true,
-    };
-    fastify.inject(
-      {
-        method: "POST",
-        url: "/auth/login",
-        payload: payload,
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 401);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.same(responsepayload, { error: "Invalid username or password" });
-      }
-    );
+  tap.test("check error validation with english language", async (t: Test) => {
+    const fastify = await setupFastify();
+    t.teardown(() => teardownFastify(fastify, undefined, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", {}, { "accept-language": "en" });
+    checkResponseHeader(t, response, 400);
+    t.equal(parsedPayload.message, "must have required property username, must have required property password, must have required property remember");
+    t.same(parsedPayload.errors, [
+      { key: "username", value: "must have required property username" },
+      { key: "password", value: "must have required property password" },
+      { key: "remember", value: "must have required property remember" },
+    ]);
   });
-
-  tap.test(
-    "failed password not match POST /auth/login route",
-    async (t: Test) => {
-      t.plan(4);
-      const tracker = getTracker();
-      tracker.install();
-      tracker.on("query", async function sendResult(query: QueryDetails) {
-        const password = await hashPassword("1234567");
-        query.response([
-          {
-            id: 1,
-            username: "test",
-            email: "test@test.com",
-            role_id: 2,
-            password: password,
-          },
-        ]);
-      });
-
-      const fastify = buildFastify();
-      t.teardown(() => {
-        tracker.uninstall();
-        fastify.close();
-      });
-      await fastify.ready();
-      const payload = {
-        username: "test",
-        password: "123456",
-        remember: true,
-      };
-      fastify.inject(
-        {
-          method: "POST",
-          url: "/auth/login",
-          payload: payload,
-        },
-        (err: any, response: any) => {
-          const responsepayload = JSON.parse(response.payload);
-          t.error(err);
-          t.equal(response.statusCode, 401);
-          t.equal(
-            response.headers["content-type"],
-            "application/json; charset=utf-8"
-          );
-          t.same(responsepayload, { error: "Invalid username or password" });
-        }
-      );
-    }
-  );
-  tap.test("success 1 POST /auth/login route", async (t: Test) => {
-    t.plan(5);
-    const tracker = getTracker();
-    tracker.install();
-    tracker.on("query", async function sendResult(query: QueryDetails) {
-      const password = await hashPassword("123456");
-      query.response([
-        {
-          id: 1,
-          username: "test",
-          email: "test@test.com",
-          role_id: 2,
-          password: password,
-        },
-      ]);
-    });
-
-    const fastify = buildFastify();
-    t.teardown(() => {
-      tracker.uninstall();
-      fastify.close();
-    });
-    await fastify.ready();
-    const payload = {
-      username: "test",
-      password: "123456",
-      remember: true,
-    };
-    fastify.inject(
-      {
-        method: "POST",
-        url: "/auth/login",
-        payload: payload,
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 200);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.equal(!responsepayload.token, false);
-        t.same(responsepayload.user, {
-          username: "test",
-          email: "test@test.com",
-          id: 1,
-          role_id: 2,
-        });
-      }
-    );
+  tap.test("check error validation with indonesian language", async (t: Test) => {
+    const fastify = await setupFastify();
+    t.teardown(() => teardownFastify(fastify, undefined, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", {}, { "accept-language": "id" });
+    checkResponseHeader(t, response, 400);
+    t.equal(parsedPayload.message, "harus memiliki properti username, harus memiliki properti password, harus memiliki properti remember");
+    t.same(parsedPayload.errors, [
+      { key: "username", value: "harus memiliki properti username" },
+      { key: "password", value: "harus memiliki properti password" },
+      { key: "remember", value: "harus memiliki properti remember" },
+    ]);
   });
-  tap.test("success 2 POST /auth/login route", async (t: Test) => {
-    t.plan(5);
-    const tracker = getTracker();
-    tracker.install();
-    tracker.on("query", async function sendResult(query: QueryDetails) {
-      const password = await hashPassword("123456");
-      query.response([
-        {
-          id: 1,
-          username: "test",
-          email: "test@test.com",
-          role_id: 2,
-          password: password,
-        },
-      ]);
+});
+tap.test("POST /auth/logout route", async (t: Test) => {
+  tap.test("success user logout", async (t: Test) => {
+    const fastify = await setupFastify();
+    const duration = to_number_of_seconds("1d");
+    const dbUser = (await getDbUser({})) as PublicUserType;
+    const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
+    const refreshToken = fastify.jwt.sign({ user: dbUser, remember: true }, { expiresIn: "1d" });
+    storeToken(fastify, refreshToken, accessToken, dbUser, duration);
+    t.teardown(() => teardownFastify(fastify, undefined, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", `/auth/logout`, undefined, { authorization: `Bearer ${accessToken}` }, { refreshToken: refreshToken });
+    checkResponseHeader(t, response, 200);
+    t.same(parsedPayload, { message: "Logout successful" });
+  });
+  tap.test("catch redis error", async (t: Test) => {
+    const fastify = await setupFastify();
+    const mockManager = ImportMock.mockOther(fastify.redis, "del", () => {
+      throw new Error("throw error redis delete");
     });
+    const duration = to_number_of_seconds("1d");
+    const dbUser = (await getDbUser({})) as PublicUserType;
+    const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
+    const refreshToken = fastify.jwt.sign({ user: dbUser, remember: true }, { expiresIn: "1d" });
+    storeToken(fastify, refreshToken, accessToken, dbUser, duration);
+    t.teardown(() => teardownFastify(fastify, mockManager, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", `/auth/logout`, undefined, { authorization: `Bearer ${accessToken}` }, { refreshToken: refreshToken });
+    checkResponseHeader(t, response, 500);
+    t.same(parsedPayload, { error: "Failed to logout" });
+  });
+});
 
-    const fastify = buildFastify();
-    t.teardown(() => {
-      tracker.uninstall();
-      fastify.close();
+tap.test("GET /auth/me route", async (t: Test) => {
+  tap.test("success get user detail", async (t: Test) => {
+    const fastify = await setupFastify();
+    const duration = to_number_of_seconds("1d");
+    const dbUser = (await getDbUser({})) as PublicUserType;
+    const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
+    const refreshToken = fastify.jwt.sign({ user: dbUser, remember: true }, { expiresIn: "1d" });
+    storeToken(fastify, refreshToken, accessToken, dbUser, duration);
+    t.teardown(() => teardownFastify(fastify, undefined, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "GET", `/auth/me`, undefined, { authorization: `Bearer ${accessToken}` }, { refreshToken: refreshToken });
+    const resUser = await getResUser(dbUser);
+    checkResponseHeader(t, response, 200);
+    t.same(parsedPayload, resUser);
+  });
+  tap.test("Failed when access token and request token didnt match", async (t: Test) => {
+    const fastify = await setupFastify();
+    const duration = to_number_of_seconds("1d");
+    const dbUser = (await getDbUser({})) as PublicUserType;
+    const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
+    const refreshToken = fastify.jwt.sign({ user: dbUser, remember: true }, { expiresIn: "1d" });
+    storeToken(fastify, refreshToken, accessToken, dbUser, duration);
+    const dbUser2 = (await getDbUser({})) as PublicUserType;
+    const accessToken2 = fastify.jwt.sign({ user: dbUser2 }, { expiresIn: "15m" });
+    t.teardown(() => teardownFastify(fastify, undefined, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "GET", `/auth/me`, undefined, { authorization: `Bearer ${accessToken2}` }, { refreshToken: refreshToken });
+    checkResponseHeader(t, response, 500);
+    t.same(parsedPayload, {
+      statusCode: 500,
+      error: "Internal Server Error",
+      message: "Access token and request token didnt match",
     });
-    await fastify.ready();
-    const payload = {
-      username: "test",
-      password: "123456",
-      remember: false,
-    };
-    fastify.inject(
-      {
-        method: "POST",
-        url: "/auth/login",
-        payload: payload,
-      },
-      (err: any, response: any) => {
-        const responsepayload = JSON.parse(response.payload);
-        t.error(err);
-        t.equal(response.statusCode, 200);
-        t.equal(
-          response.headers["content-type"],
-          "application/json; charset=utf-8"
-        );
-        t.equal(!responsepayload.token, false);
-        t.same(responsepayload.user, {
-          username: "test",
-          email: "test@test.com",
-          id: 1,
-          role_id: 2,
-        });
-      }
-    );
+  });
+  tap.test("Failed when token has been expired", async (t: Test) => {
+    const fastify = await setupFastify();
+    const duration = to_number_of_seconds("1d");
+    const dbUser = (await getDbUser({})) as PublicUserType;
+    const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
+    const refreshToken = fastify.jwt.sign({ user: dbUser, remember: true }, { expiresIn: "1d" });
+    storeToken(fastify, refreshToken, accessToken, dbUser, duration);
+    const dbUser2 = (await getDbUser({})) as PublicUserType;
+    const accessToken2 = fastify.jwt.sign({ user: dbUser2 }, { expiresIn: "15m" });
+    const refreshToken2 = fastify.jwt.sign({ user: dbUser2, remember: true }, { expiresIn: "1d" });
+    t.teardown(() => teardownFastify(fastify, undefined, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "GET", `/auth/me`, undefined, { authorization: `Bearer ${accessToken2}` }, { refreshToken: refreshToken2 });
+    checkResponseHeader(t, response, 500);
+    t.same(parsedPayload, {
+      statusCode: 500,
+      error: "Internal Server Error",
+      message: "Your token has been expired",
+    });
+  });
+});
+tap.test("POST /auth/refresh route", async (t: Test) => {
+  tap.test("success refresh token with remember login", async (t: Test) => {
+    const fastify = await setupFastify();
+    const duration = to_number_of_seconds("1d");
+    const dbUser = (await getDbUser({})) as PublicUserType;
+    const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
+    const refreshToken = fastify.jwt.sign({ user: dbUser, remember: true }, { expiresIn: "1d" });
+    storeToken(fastify, refreshToken, accessToken, dbUser, duration);
+    t.teardown(() => teardownFastify(fastify, undefined, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", `/auth/refresh-token`, undefined, { authorization: `Bearer ${refreshToken}` }, { refreshToken: refreshToken });
+    checkResponseHeader(t, response, 200);
+    t.equal(!parsedPayload.token, false);
+  });
+  tap.test("success refresh token without remember login", async (t: Test) => {
+    const fastify = await setupFastify();
+    const duration = to_number_of_seconds("1d");
+    const dbUser = (await getDbUser({
+      id:faker.number.int(10000),
+      username:faker.internet.userName(),
+      email:faker.internet.email(),
+      password:faker.internet.password(),
+      created_at:faker.date.anytime(),
+      updated_at:faker.date.anytime()
+    })) as PublicUserType;
+    const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
+    const refreshToken = fastify.jwt.sign({ user: dbUser, remember: false }, { expiresIn: "1d" });
+    storeToken(fastify, refreshToken, accessToken, dbUser, duration);
+    t.teardown(() => teardownFastify(fastify, undefined, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", `/auth/refresh-token`, undefined, { authorization: `Bearer ${refreshToken}` }, { refreshToken: refreshToken });
+    checkResponseHeader(t, response, 200);
+    t.equal(!parsedPayload.token, false);
+  });
+  tap.test("catch error jwt generateToken ", async (t: Test) => {
+    const mockManager = ImportMock.mockOther(authService, "generateToken", () => {
+      throw new Error("throw error generateToken");
+    });
+    const fastify = await setupFastify();
+    const duration = to_number_of_seconds("1d");
+    const dbUser = (await getDbUser({})) as PublicUserType;
+    const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
+    const refreshToken = fastify.jwt.sign({ user: dbUser, remember: true }, { expiresIn: "1d" });
+    storeToken(fastify, refreshToken, accessToken, dbUser, duration);
+    t.teardown(() => teardownFastify(fastify, mockManager, undefined));
+    const { response, parsedPayload } = await injectRequest(fastify, "POST", `/auth/refresh-token`, undefined, { authorization: `Bearer ${refreshToken}` }, { refreshToken: refreshToken });
+    checkResponseHeader(t, response, 401);
+    t.same(parsedPayload, { error: "Invalid refresh token" });
   });
 });
