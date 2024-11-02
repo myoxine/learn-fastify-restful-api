@@ -6,21 +6,18 @@ import type { Tracker } from "mock-knex";
 import type { Response } from "light-my-request";
 import bcrypt from "bcrypt";
 import tap, { Test } from "tap";
+//import type {FastifyRedis} from "@fastify/redis"
 import { getTracker, QueryDetails } from "mock-knex";
+import * as authService from "./../services/authService";
 export async function setupFastify() {
   const fastify = buildFastify();
   await fastify.ready();
   return fastify;
 }
 
-export async function teardownFastify(fastify: FastifyInstance, mockManager?: OtherManager<any>, tracker?: Tracker) {
-  if (mockManager) {
-    mockManager.restore();
-  }
-  if (tracker) {
-    tracker.uninstall();
-  }
-  await fastify.close();
+export function checkResponseHeader(t: Test, response: Response, statusCode: number, contentType = "application/json; charset=utf-8") {
+  t.equal(response.statusCode, statusCode);
+  t.equal(response.headers["content-type"], contentType);
 }
 
 export async function injectRequest(fastify: FastifyInstance, method: InjectOptions["method"], url: InjectOptions["url"], payload?: InjectOptions["payload"], headers?: InjectOptions["headers"], cookies?: InjectOptions["cookies"]) {
@@ -29,11 +26,34 @@ export async function injectRequest(fastify: FastifyInstance, method: InjectOpti
   return { response, parsedPayload };
 }
 
+export async function teardownFastify(fastify: FastifyInstance, mockManagers?: OtherManager<any>[], tracker?: Tracker) {
+  if (mockManagers) {
+    mockManagers.forEach((mockManager) => {
+      mockManager.restore();
+    });
+  }
+  if (tracker) {
+    tracker.uninstall();
+  }
+  await fastify.close();
+}
+
 export function mockBcryptError(importName: keyof typeof bcrypt, errorString: string) {
   return ImportMock.mockOther(bcrypt, importName, () => {
     throw new Error(errorString);
   });
 }
+export function mockRedisError(redis: FastifyInstance["redis"], importName: keyof FastifyInstance["redis"], errorString: string) {
+  return ImportMock.mockOther(redis, importName, () => {
+    throw new Error(errorString);
+  });
+}
+export function mockAuthServiceError(importName: keyof typeof authService, errorString: string) {
+  return ImportMock.mockOther(authService, importName, () => {
+    throw new Error(errorString);
+  });
+}
+
 
 export function createTracker(responses: any[]) {
   const tracker = getTracker();
@@ -69,9 +89,4 @@ export async function getDbUser(defaults: { [key: string]: any }) {
 
 export async function getResUser(defaults: { [key: string]: any }) {
   return createPayloadUser(["id", "username", "email", "role_id"], defaults);
-}
-
-export function checkResponseHeader(t: Test, response: Response, statusCode: number, contentType = "application/json; charset=utf-8") {
-  t.equal(response.statusCode, statusCode);
-  t.equal(response.headers["content-type"], contentType);
 }

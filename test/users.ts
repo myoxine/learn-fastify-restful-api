@@ -37,8 +37,8 @@ tap.test("POST /users/add route", async (t: Test) => {
 
   tap.test("Error hashing password", async (t: Test) => {
     const fastify = await setupFastify();
-    const mockManager = mockBcryptError("hash", "error hash");
-    t.teardown(() => teardownFastify(fastify, mockManager));
+    const mockBcryptManager = mockBcryptError( "hash", "error hash");
+    t.teardown(() => teardownFastify(fastify, [mockBcryptManager]));
     const password = faker.internet.password();
     const userPayload = createPayloadUser(["username", "email", "role_id", "password", "confirm_password"], { password: password, confirm_password: password });
     const { response, parsedPayload } = await injectRequest(fastify, "POST", "/users/add", userPayload);

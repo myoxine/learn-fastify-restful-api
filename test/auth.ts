@@ -6,7 +6,7 @@ import { storeToken } from "./../src/services/authService";
 import { to_number_of_seconds } from "./../src/utils/expiry";
 import { PublicUserType } from "./../src/models/User";
 import { faker } from "@faker-js/faker";
-import { setupFastify, teardownFastify, injectRequest, mockBcryptError, createPayloadUser, createTracker, getDbUser, checkResponseHeader, getResUser } from "./../src/utils/testHelper";
+import { setupFastify, teardownFastify, injectRequest, mockBcryptError, mockAuthServiceError,mockRedisError, createPayloadUser, createTracker, getDbUser, checkResponseHeader, getResUser } from "./../src/utils/testHelper";
 tap.test("POST /auth/login route", async (t: Test) => {
   tap.test("success login with remembering password", async (t: Test) => {
     const reqUser = createPayloadUser(["username", "password", "remember"], { username:faker.internet.userName(),password: "123456", remember: true });
@@ -33,27 +33,23 @@ tap.test("POST /auth/login route", async (t: Test) => {
     t.same(parsedPayload.user, resUser);
   });
   tap.test("catch error bycrypt ", async (t: Test) => {
-    const mockManager = ImportMock.mockOther(bcrypt, "compare", () => {
-      throw new Error("throw error bcrypt");
-    });
+    const mockBcryptManager = mockBcryptError("compare", "throw error bcrypt");
     const reqUser = createPayloadUser(["username", "password", "remember"], {  });
     const dbUser = await getDbUser(reqUser);
     const tracker = createTracker([dbUser]);
     const fastify = await setupFastify();
-    t.teardown(() => teardownFastify(fastify, mockManager, tracker));
+    t.teardown(() => teardownFastify(fastify, [mockBcryptManager], tracker));
     const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", reqUser);
     checkResponseHeader(t, response, 500);
     t.same(parsedPayload, { error: "Internal Server Error" });
   });
   tap.test("catch error jwt generateToken ", async (t: Test) => {
-    const mockManager = ImportMock.mockOther(authService, "generateToken", () => {
-      throw new Error("throw error generateToken");
-    });
+    const mockAuthServiceManager = mockAuthServiceError("generateToken", "throw error generateToken");
     const reqUser = createPayloadUser(["username", "password", "remember"], {  });
     const dbUser = await getDbUser(reqUser);
     const tracker = createTracker([dbUser]);
     const fastify = await setupFastify();
-    t.teardown(() => teardownFastify(fastify, mockManager, tracker));
+    t.teardown(() => teardownFastify(fastify, [mockAuthServiceManager], tracker));
     const { response, parsedPayload } = await injectRequest(fastify, "POST", "/auth/login", reqUser);
     checkResponseHeader(t, response, 500);
     t.same(parsedPayload, { error: "Internal Server Error" });
@@ -116,15 +112,13 @@ tap.test("POST /auth/logout route", async (t: Test) => {
   });
   tap.test("catch redis error", async (t: Test) => {
     const fastify = await setupFastify();
-    const mockManager = ImportMock.mockOther(fastify.redis, "del", () => {
-      throw new Error("throw error redis delete");
-    });
+    const mockRedisManager = mockRedisError(fastify.redis,"del", "throw error redis delete");
     const duration = to_number_of_seconds("1d");
     const dbUser = (await getDbUser({})) as PublicUserType;
     const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
     const refreshToken = fastify.jwt.sign({ user: dbUser, remember: true }, { expiresIn: "1d" });
     storeToken(fastify, refreshToken, accessToken, dbUser, duration);
-    t.teardown(() => teardownFastify(fastify, mockManager, undefined));
+    t.teardown(() => teardownFastify(fastify, [mockRedisManager], undefined));
     const { response, parsedPayload } = await injectRequest(fastify, "POST", `/auth/logout`, undefined, { authorization: `Bearer ${accessToken}` }, { refreshToken: refreshToken });
     checkResponseHeader(t, response, 500);
     t.same(parsedPayload, { error: "Failed to logout" });
@@ -216,16 +210,14 @@ tap.test("POST /auth/refresh route", async (t: Test) => {
     t.equal(!parsedPayload.token, false);
   });
   tap.test("catch error jwt generateToken ", async (t: Test) => {
-    const mockManager = ImportMock.mockOther(authService, "generateToken", () => {
-      throw new Error("throw error generateToken");
-    });
+    const mockAuthServiceManager = mockAuthServiceError("generateToken","throw error generateToken") 
     const fastify = await setupFastify();
     const duration = to_number_of_seconds("1d");
     const dbUser = (await getDbUser({})) as PublicUserType;
     const accessToken = fastify.jwt.sign({ user: dbUser }, { expiresIn: "15m" });
     const refreshToken = fastify.jwt.sign({ user: dbUser, remember: true }, { expiresIn: "1d" });
     storeToken(fastify, refreshToken, accessToken, dbUser, duration);
-    t.teardown(() => teardownFastify(fastify, mockManager, undefined));
+    t.teardown(() => teardownFastify(fastify, [mockAuthServiceManager], undefined));
     const { response, parsedPayload } = await injectRequest(fastify, "POST", `/auth/refresh-token`, undefined, { authorization: `Bearer ${refreshToken}` }, { refreshToken: refreshToken });
     checkResponseHeader(t, response, 401);
     t.same(parsedPayload, { error: "Invalid refresh token" });
