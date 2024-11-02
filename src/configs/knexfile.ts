@@ -22,20 +22,8 @@ const config: { [key: string]: Knex.Config } = {
       directory: './../seeds'
     }
   },
-  staging: {
-    client: "mysql",
-    connection: {
-      database: "learn_fastify",
-      user: "username",
-      password: "password"
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: "knex_migrations"
-    }
+  test: {
+    client: "postgres"
   },
 
   production: {

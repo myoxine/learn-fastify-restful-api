@@ -39,7 +39,7 @@ export async function addUserHandler(
   const newUser = await addUser(request.body);
   reply
     .status(201)
-    .send({ message: request.t("users:add.successed"), users: newUser });
+    .send({ message: request.t("users:add.successed"), user: newUser });
 }
 
 // Handle PUT /update/:id
@@ -53,10 +53,9 @@ export async function updateUserHandler(
 ) {
   const id = request.params.id as unknown as number;
   const updatedUser = await updateUser(id, request.body);
-
   reply
-    .status(200)
-    .send({ message: request.t("users:update.successed"), users: updatedUser });
+    .status(200)    
+    .send({ message: request.t("users:update.successed"), user: updatedUser });
 }
 
 // Handle DELETE /delete/:id

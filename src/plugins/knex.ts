@@ -5,14 +5,16 @@ import knex, { Knex } from "knex";
 import { Model } from "objection";
 import knexConfig from "./../configs/knexfile";
 import config from "./../utils/config";
-
+import mockKnex from "mock-knex";
 async function knexPlugin(
   fastify: FastifyInstance,
   options: FastifyPluginOptions
 ) {
   // Inisialisasi Knex
   const db = knex(knexConfig[config.NODE_ENV]);
-
+  if (config.NODE_ENV === 'test') {
+    mockKnex.mock(db);
+  }
   // Bind Knex ke Objection.js
   Model.knex(db);
 
