@@ -12,7 +12,7 @@ server.ready(async () => {
   }
 });
 
-server.listen({ port: parseInt(config.PORT) }, (err, address) => {
+server.listen({ host:"0.0.0.0",port: parseInt(config.PORT) }, (err, address) => {
   if (err) {
     server.log.error(err);
     process.exit(1);
