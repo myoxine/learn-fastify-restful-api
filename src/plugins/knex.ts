@@ -11,7 +11,7 @@ async function knexPlugin(
   options: FastifyPluginOptions
 ) {
   // Inisialisasi Knex
-  const db = knex(knexConfig[config.NODE_ENV]);
+  const db = knex(knexConfig);
 
   // Bind Knex ke Objection.js
   Model.knex(db);
