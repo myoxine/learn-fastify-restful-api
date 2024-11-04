@@ -35,14 +35,23 @@
     "migrate:staging:latest": "cross-env NODE_ENV=development npm run migrate:latest",
     "migrate:staging:rollback": "cross-env NODE_ENV=development npm run migrate:rollback",
     "seed:staging:make": "cross-env NODE_ENV=development npm run seed:make",
-    "seed:staging:run": "cross-env NODE_ENV=development npm run seed:run"
+    "seed:staging:run": "cross-env NODE_ENV=development npm run seed:run",
+    "test": "cross-env NODE_ENV=test tap --show-full-coverage",
+    "test:watch": "cross-env NODE_ENV=test tap --reporter=list --watch "
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
     "@types/bcrypt": "^5.0.2",
+    "@types/mock-knex": "^0.4.8",
     "@types/node": "^22.5.0",
     "cross-env": "^7.0.3",
+    "fastify-redis-mock": "^1.1.0",
+    "mock-knex": "^0.4.13",
     "nodemon": "^3.1.4",
     "pino-pretty": "^11.2.2",
+    "sinon": "^19.0.2",
+    "tap": "^21.0.1",
+    "ts-mock-imports": "^1.3.16",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },

@@ -1,4 +1,4 @@
-import User, {PublicUserSchema} from "../models/User";
+import User, { PublicUserSchema } from "../models/User";
 import { JSONSchema } from "objection";
 const bodySchema: JSONSchema = User.jsonSchema;
 if (bodySchema.properties) delete bodySchema.properties.id;
@@ -12,7 +12,6 @@ bodySchema.properties = {
     },
   },
 };
-
 
 export const getUserSchema = {
   params: {
@@ -39,7 +38,6 @@ export const addUserSchema = {
     }
   },
 };
-
 export const updateUserSchema = {
   params: {
     type: "object",
@@ -61,7 +59,6 @@ export const updateUserSchema = {
     },
   }
 };
-
 export const deleteUserSchema = {
   params: {
     type: "object",
