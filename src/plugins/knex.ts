@@ -12,8 +12,9 @@ async function knexPlugin(
 ) {
   // Inisialisasi Knex
   const db = knex(knexConfig);
-
-  if (config.N
+  if (config.NODE_ENV === 'test') {
+    mockKnex.mock(db);
+  }
   // Bind Knex ke Objection.js
   Model.knex(db);
 
