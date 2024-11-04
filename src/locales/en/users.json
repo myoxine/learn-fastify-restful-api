@@ -1,0 +1,14 @@
+{
+  "get": {
+    "error": "User not found"
+  },
+  "add": {
+    "successed": "User added successfully"
+  },
+  "update": {
+    "successed": "User updated successfully"
+  },
+  "delete": {
+    "successed": "User deleted successfully"
+  }
+}

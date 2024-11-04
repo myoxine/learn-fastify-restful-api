@@ -38,6 +38,7 @@ export const generateToken = async (
   );
   return { accessToken, refreshToken };
 };
+/*
 export const generateAccessToken = async (
   request: FastifyRequest,
   user: PublicUserType,
@@ -53,6 +54,7 @@ export const generateAccessToken = async (
   );
   return accessToken;
 };
+*/
 export const storeToken = async (
   fastify: FastifyInstance,
   refreshToken: string,
