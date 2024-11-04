@@ -35,6 +35,28 @@ const schema = {
       enum: ["debug", "info", "warn", "error", ""],
       default: "info",
     }, // Tambahkan FILE_LOG_LEVEL
+    KNEX_CLIENT: {
+      type: "string",
+      default: "postgres",
+    },
+    KNEX_CONNECTION_DATABASE: {
+      type: "string",
+    },
+    KNEX_CONNECTION_USER: {
+      type: "string",
+    },
+    KNEX_CONNECTION_PASSWORD: {
+      type: "string",
+    },
+    KNEX_POOL_MIN: {
+      type: "number",
+    },
+    KNEX_POOL_MAX: {
+      type: "number",
+    },
+    KNEX_MIGRATIONS_TABLENAME: {
+      type: "string",
+    },
     SALT_ROUNDS_PASSWORD: {
       type: "number",
       minimum: 1,
@@ -64,6 +86,7 @@ const schema = {
     },    
   },
 } as const;
+
 type schemaType = FromSchema<typeof schema>;
 const config = envSchema<schemaType>({
   schema: schema,
