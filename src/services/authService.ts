@@ -1,5 +1,7 @@
-import User from "./../models/User";
+import { FastifyRequest } from "fastify";
+import User, { PublicUserType } from "./../models/User";
 import { verifyPassword } from "./../utils/encrypt";
+import config from "./../utils/config";
 // Function to authenticate user
 export async function authenticateUser(username: string, password: string) {
   const user = await User.query().findOne({ username });
@@ -12,3 +14,41 @@ export async function authenticateUser(username: string, password: string) {
   }
   return user;
 }
+export const generateToken = async (
+  request: FastifyRequest,
+  user: PublicUserType,
+  remember: boolean
+) => {
+  const accessToken = await request.server.jwt.sign(
+    { user },
+    {
+      expiresIn: remember
+        ? config.ACCESS_TOKEN_LONG_DURATION
+        : config.ACCESS_TOKEN_SHORT_DURATION,
+    }
+  );
+  const refreshToken = await request.server.jwt.sign(
+    { user, remember },
+    {
+      expiresIn: remember
+        ? config.REFRESH_TOKEN_LONG_DURATION
+        : config.REFRESH_TOKEN_SHORT_DURATION,
+    }
+  );
+  return { accessToken, refreshToken };
+};
+export const generateAccessToken = async (
+  request: FastifyRequest,
+  user: PublicUserType,
+  remember: boolean
+) => {
+  const accessToken = await request.server.jwt.sign(
+    { user, remember },
+    {
+      expiresIn: remember
+        ? config.ACCESS_TOKEN_LONG_DURATION
+        : config.ACCESS_TOKEN_SHORT_DURATION,
+    }
+  );
+  return accessToken;
+};
