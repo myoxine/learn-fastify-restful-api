@@ -6,6 +6,9 @@ const schema = {
     "PORT",
     "LOG_LEVEL",
     "NODE_ENV",
+    "KNEX_CLIENT" ,
+    "KNEX_CONNECTION_HOST", 
+    "KNEX_CONNECTION_PORT",    
     "SALT_ROUNDS_PASSWORD",
     "SECRET_TOKEN",
     "SECRET_COOKIE",
@@ -38,6 +41,12 @@ const schema = {
     KNEX_CLIENT: {
       type: "string",
       default: "postgres",
+    },
+    KNEX_CONNECTION_HOST: {
+      type: "string",
+    },
+    KNEX_CONNECTION_PORT: {
+      type: "number",
     },
     KNEX_CONNECTION_DATABASE: {
       type: "string",
