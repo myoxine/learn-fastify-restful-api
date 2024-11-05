@@ -5,6 +5,8 @@ import configApp from "../utils/config";
 const config: Knex.Config = {
   client: configApp.KNEX_CLIENT,
   connection: {
+    host: configApp.KNEX_CONNECTION_HOST,
+    port: configApp.KNEX_CONNECTION_PORT,
     database: configApp.KNEX_CONNECTION_DATABASE,
     user: configApp.KNEX_CONNECTION_USER,
     password: configApp.KNEX_CONNECTION_PASSWORD,
