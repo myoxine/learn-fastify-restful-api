@@ -1,6 +1,30 @@
 version: '3'
 services:
+  postgres-db-dev:
+    container_name: postgres-db-dev
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: learn_fastify
+    ports:
+      - "6543:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - fastify_postgres_network
+  redis-cache-dev:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - fastify_postgres_network      
   fastify-app:
+    depends_on:
+      - postgres-db-dev  
+      - redis-cache-dev
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,30 +35,10 @@ services:
       - /app/node_modules
     environment:
       NODE_ENV: development
-      DATABASE_URL: postgres://postgres:postgres@postgres-db:5432/mydatabase
-      REDIS_URL: redis://redis-cache:6379
-
-  postgres-db-dev:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: mydatabase
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-
-  redis-cache-dev:
-    image: redis:7
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis-data:/data
-
+    networks:
+      - fastify_postgres_network    
 volumes:
   postgres-data:
   redis-data:
 networks:
-  my-network:
-    driver: bridge
+  fastify_postgres_network:

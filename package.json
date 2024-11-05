@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node --env-file=.env.production ./dist/index.js",
-    "dev": "cross-env NODE_ENV=development nodemon",
+    "dev": "cross-env NODE_ENV=development nodemon -L",
+    "predev": "npm run migrate:development:latest",
     "knex:init": "knex init -x ts",
     "knex:run": "knex --knexfile src/configs/knexfile.ts",
     "migrate:currentVersion": "npm run knex:run -- migrate:currentVersion",
