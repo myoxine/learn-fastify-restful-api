@@ -2,7 +2,7 @@ import envSchema from "env-schema";
 import { FromSchema } from "json-schema-to-ts";
 const schema = {
   type: "object",
-  required: ["PORT", "LOG_LEVEL", "NODE_ENV","SALT_ROUNDS_PASSWORD"],
+  required: ["PORT", "LOG_LEVEL", "NODE_ENV", "KNEX_CLIENT" ,"KNEX_CONNECTION_HOST", "KNEX_CONNECTION_PORT","SALT_ROUNDS_PASSWORD"],
   properties: {
     PORT: {
       type: "string",
@@ -20,12 +20,18 @@ const schema = {
     }, // Tambahkan LOG_LEVEL
     FILE_LOG_LEVEL: {
       type: "string",
-      enum: ["debug", "info", "warn", "error",""],
+      enum: ["debug", "info", "warn", "error", ""],
       default: "info",
     }, // Tambahkan FILE_LOG_LEVEL
     KNEX_CLIENT: {
       type: "string",
       default: "postgres",
+    },
+    KNEX_CONNECTION_HOST: {
+      type: "string",
+    },
+    KNEX_CONNECTION_PORT: {
+      type: "number",
     },
     KNEX_CONNECTION_DATABASE: {
       type: "string",
