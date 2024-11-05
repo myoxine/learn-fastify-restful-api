@@ -2,7 +2,7 @@ import envSchema from "env-schema";
 import { FromSchema } from "json-schema-to-ts";
 const schema = {
   type: "object",
-  required: ["PORT", "LOG_LEVEL", "NODE_ENV", "KNEX_CONNECTION_HOST", "KNEX_CONNECTION_PORT"],
+  required: ["PORT", "LOG_LEVEL", "NODE_ENV", "KNEX_CLIENT" ,"KNEX_CONNECTION_HOST", "KNEX_CONNECTION_PORT"],
   properties: {
     PORT: {
       type: "string",
