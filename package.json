@@ -38,6 +38,7 @@
     "seed:staging:run": "cross-env NODE_ENV=development npm run seed:run"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^22.5.0",
     "cross-env": "^7.0.3",
     "nodemon": "^3.1.4",
@@ -49,11 +50,14 @@
     "@fastify/swagger": "^8.15.0",
     "@fastify/swagger-ui": "^4.1.0",
     "ajv-errors": "^3.0.0",
+    "bcrypt": "^5.1.1",
     "env-schema": "^6.0.0",
     "fastify": "^4.28.1",
+    "fastify-plugin": "^4.5.1",
     "fastify-swagger": "^5.2.0",
     "json-schema-to-ts": "^3.1.1",
     "knex": "^3.1.0",
-    "pg": "^8.12.0"
+    "pg": "^8.12.0",
+    "objection": "^3.1.4"
   }
 }

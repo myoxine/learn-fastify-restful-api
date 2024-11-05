@@ -1,11 +1,14 @@
-import { credentials } from "../models/authModel";
-
+import User from "./../models/User";
+import { verifyPassword } from "./../utils/encrypt";
 // Function to authenticate user
 export async function authenticateUser(username: string, password: string) {
-  await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate delay
-  return (
-    credentials.find(
-      (cred) => cred.username === username && cred.password === password
-    ) || null
-  );
+  const user = await User.query().findOne({ username });
+  if (!user) {
+    return null;
+  }
+  const isPasswordValid = await verifyPassword(password, user.password);
+  if (!isPasswordValid) {
+    return null;
+  }
+  return user;
 }

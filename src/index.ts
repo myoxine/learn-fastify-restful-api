@@ -1,14 +1,16 @@
 import fastify from "fastify";
 import { userRoutes } from "./routes/userRoutes";
 import { authRoutes } from "./routes/authRoutes";
-import loggerConfig from "./configs/logger"
+import loggerConfig from "./configs/logger";
 import config from "./utils/config";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
+import knexPlugin from "./plugins/knex";
 const server = fastify({
   logger: loggerConfig,
   ajv: {
     customOptions: {
+      $data: true,
       allErrors: true,
       keywords: [
         {
@@ -48,16 +50,16 @@ const server = fastify({
 });
 const swaggerOptions = {
   swagger: {
-      info: {
-          title: "My Title",
-          description: "My Description.",
-          version: "1.0.0",
-      },
-      host: "localhost",
-      schemes: ["http", "https"],
-      consumes: ["application/json"],
-      produces: ["application/json"],
-      tags: [{ name: "Default", description: "Default" }],
+    info: {
+      title: "My Title",
+      description: "My Description.",
+      version: "1.0.0",
+    },
+    host: "localhost",
+    schemes: ["http", "https"],
+    consumes: ["application/json"],
+    produces: ["application/json"],
+    tags: [{ name: "Default", description: "Default" }],
   },
 };
 
@@ -66,6 +68,7 @@ const swaggerUiOptions = {
   exposeRoute: true,
 };
 
+server.register(knexPlugin);
 server.setErrorHandler(function (error, request, reply) {
   if (error.validation) {
     return reply.status(400).send({

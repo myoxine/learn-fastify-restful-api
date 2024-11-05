@@ -6,6 +6,8 @@ import {
   deleteUser,
 } from "../services/userService";
 
+import type { UserType } from "./../models/User";
+
 // Handle GET /users/:id
 interface GetUserParams {
   id: string;
@@ -15,48 +17,40 @@ export async function getUserHandler(
   request: FastifyRequest<{ Params: GetUserParams }>,
   reply: FastifyReply
 ) {
-  const userId = request.params.id;
-  const user = await getUserById(userId);
-
+  const id = request.params.id as unknown as number;
+  const user = await getUserById(id);
   if (!user) {
     reply.status(404).send({ error: "User not found" });
     return;
   }
-
   reply.status(200).send(user);
 }
 
 // Handle POST /add
-interface AddUserBody {
-  name: string;
-  age: number;
-}
+// interface AddUserBody {
+//   name: string;
+//   age: number;
+// }
 
 export async function addUserHandler(
-  request: FastifyRequest<{ Body: AddUserBody }>,
+  request: FastifyRequest<{ Body: UserType }>,
   reply: FastifyReply
 ) {
-  const { name, age } = request.body;
-  const user = await addUser(name, age);
-
-  reply.status(201).send({ message: "User added successfully", user });
+  const newUser = await addUser(request.body);
+  reply.status(201).send({ message: "User added successfully", user: newUser });
 }
 
 // Handle PUT /update/:id
 interface UpdateUserParams {
   id: string;
 }
-interface UpdateUserBody {
-  name: string;
-  age: number;
-}
+
 export async function updateUserHandler(
-  request: FastifyRequest<{ Body: UpdateUserBody; Params: UpdateUserParams }>,
+  request: FastifyRequest<{ Body: UserType; Params: UpdateUserParams }>,
   reply: FastifyReply
 ) {
-  const { id } = request.params;
-  const { name, age } = request.body;
-  const updatedUser = await updateUser(id, name, age);
+  const id = request.params.id as unknown as number;
+  const updatedUser = await updateUser(id, request.body);
 
   reply
     .status(200)
@@ -71,8 +65,7 @@ export async function deleteUserHandler(
   request: FastifyRequest<{ Params: DeleteUserParams }>,
   reply: FastifyReply
 ) {
-  const { id } = request.params;
+  const id = request.params.id as unknown as number;
   await deleteUser(id);
-
   reply.status(200).send({ message: "User deleted successfully" });
 }
