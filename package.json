@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node --env-file=.env.production ./dist/index.js",
-    "dev": "cross-env NODE_ENV=development nodemon",
+    "dev": "cross-env NODE_ENV=development nodemon -L",
     "knex:init": "knex init -x ts",
     "knex:run": "knex --knexfile src/configs/knexfile.ts",
     "migrate:currentVersion": "npm run knex:run -- migrate:currentVersion",
@@ -24,25 +24,18 @@
     "migrate:development:rollback": "cross-env NODE_ENV=development npm run migrate:rollback",
     "seed:development:make": "cross-env NODE_ENV=development npm run seed:make",
     "seed:development:run": "cross-env NODE_ENV=development npm run seed:run",
-    "migrate:production:make": "cross-env NODE_ENV=development npm run migrate:make",
-    "migrate:production:list": "cross-env NODE_ENV=development npm run migrate:list",
-    "migrate:production:latest": "cross-env NODE_ENV=development npm run migrate:latest",
-    "migrate:production:rollback": "cross-env NODE_ENV=development npm run migrate:rollback",
-    "seed:production:make": "cross-env NODE_ENV=development npm run seed:make",
-    "seed:production:run": "cross-env NODE_ENV=development npm run seed:run",
-    "migrate:staging:make": "cross-env NODE_ENV=development npm run migrate:make",
-    "migrate:staging:list": "cross-env NODE_ENV=development npm run migrate:list",
-    "migrate:staging:latest": "cross-env NODE_ENV=development npm run migrate:latest",
-    "migrate:staging:rollback": "cross-env NODE_ENV=development npm run migrate:rollback",
-    "seed:staging:make": "cross-env NODE_ENV=development npm run seed:make",
-    "seed:staging:run": "cross-env NODE_ENV=development npm run seed:run"
+    "migrate:production:make": "cross-env NODE_ENV=production npm run migrate:make",
+    "migrate:production:list": "cross-env NODE_ENV=production npm run migrate:list",
+    "migrate:production:latest": "cross-env NODE_ENV=production npm run migrate:latest",
+    "migrate:production:rollback": "cross-env NODE_ENV=production npm run migrate:rollback",
+    "seed:production:make": "cross-env NODE_ENV=production npm run seed:make",
+    "seed:production:run": "cross-env NODE_ENV=production npm run seed:run"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^22.5.0",
     "cross-env": "^7.0.3",
     "nodemon": "^3.1.4",
-    "pino-pretty": "^11.2.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
@@ -57,6 +50,7 @@
     "fastify-swagger": "^5.2.0",
     "json-schema-to-ts": "^3.1.1",
     "knex": "^3.1.0",
+    "pino-pretty": "^11.2.2",
     "pg": "^8.12.0",
     "objection": "^3.1.4"
   }
