@@ -18,8 +18,7 @@ const schema = {
     "REFRESH_TOKEN_LONG_DURATION",
     "REFRESH_TOKEN_COOKIE_NAME",
     "REDIS_CACHE_HOST",
-    "REDIS_CACHE_PORT",
-    "REDIS_CACHE_PASSWORD"
+    "REDIS_CACHE_PORT"
   ],
   properties: {
     PORT: {
