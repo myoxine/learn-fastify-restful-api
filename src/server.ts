@@ -13,6 +13,7 @@ import i18nextMiddleware from "i18next-http-middleware";
 import Backend from "i18next-fs-backend";
 import errorsText from "./utils/errorsText";
 import translateAjvErrors from "./utils/translateAjvErrors";
+
 export function buildFastify() {
   const server = fastify({
     logger: loggerConfig,
@@ -114,14 +115,15 @@ export function buildFastify() {
     secret: config.SECRET_COOKIE, // Secret to sign cookies (if needed)
   });
   // Register Redis plugin
-  /* c8 ignore start */ 
+  /* c8 ignore start */
   server.register(
     config.NODE_ENV === "test"
       ? require("fastify-redis-mock")
       : require("@fastify/redis"),
     {
-      host: config.REDIS_HOST, // ganti ini kalau pakai Docker atau Redis di server lain
-      port: parseInt(config.REDIS_PORT),
+      host: config.REDIS_CACHE_HOST, // ganti ini kalau pakai Docker atau Redis di server lain
+      port: config.REDIS_CACHE_PORT,
+      password: config.REDIS_CACHE_PASSWORD
     }
   );
 /* c8 ignore end */

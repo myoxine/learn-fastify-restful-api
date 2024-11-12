@@ -4,7 +4,7 @@ FROM node:23
 WORKDIR /app
 
 # Salin file package.json dan install dependencies
-COPY package*.json ./
+COPY ./package*.json ./
 
 RUN yarn install
 

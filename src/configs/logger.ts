@@ -34,4 +34,5 @@ const LogConfig: { [key: string]: any } = {
     },
   },
 };
+console.log(LogConfig[config.NODE_ENV]);
 export default LogConfig[config.NODE_ENV];

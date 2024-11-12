@@ -17,8 +17,9 @@ const schema = {
     "REFRESH_TOKEN_SHORT_DURATION",
     "REFRESH_TOKEN_LONG_DURATION",
     "REFRESH_TOKEN_COOKIE_NAME",
-    "REDIS_HOST",
-    "REDIS_PORT",
+    "REDIS_CACHE_HOST",
+    "REDIS_CACHE_PORT",
+    "REDIS_CACHE_PASSWORD"
   ],
   properties: {
     PORT: {
@@ -95,17 +96,20 @@ const schema = {
     REFRESH_TOKEN_COOKIE_NAME: {
       type: "string",
     },
-    REDIS_HOST: {
+    REDIS_CACHE_HOST: {
       type: "string",
       default: "127.0.0.1",
     },
-    REDIS_PORT: {
-      type: "string",
+    REDIS_CACHE_PORT: {
+      type: "number",
       default: 6379,
     },
+    REDIS_CACHE_PASSWORD: {
+      type: "string",
+    },
+
   },
 } as const;
-
 type schemaType = FromSchema<typeof schema>;
 const config = envSchema<schemaType>({
   schema: schema,
